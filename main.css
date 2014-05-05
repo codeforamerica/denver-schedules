@@ -1,0 +1,57 @@
+body {
+	margin-top: 50px;
+	background-color: #f8f8f8;
+}
+
+.navbar-brand {
+	font-size: bold;
+	color: white;
+	text-shadow: 0 0 0;
+
+}
+
+.navbar {
+	background-color: #f59000;
+}
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	border:0;
+	padding-left: 0;
+}
+
+.table {
+	margin:0 0 0 0 ;
+
+}
+
+.container {
+	padding-left: 10%;
+	padding-right: 10%;
+
+}
+
+.name-of-day {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: .85em;
+	color: #666666;
+}
+
+.date {
+	color: #999999;	
+
+}
+
+.section-title {
+	color: #f59000;
+	text-transform: uppercase;
+	padding-top: 40px;
+}
+
+
+.panel-heading:hover {
+	
+}
+.panel {
+	border: 1px solid #cccccc;
+}
