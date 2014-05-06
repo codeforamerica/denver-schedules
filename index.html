@@ -31,11 +31,13 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
 
   <body>
 
-    <div class="navbar navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-static-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,64 +48,155 @@
           </button>
           <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | City Holidays</a>
         </div>
-        <div class="collapse navbar-collapse pull-right">
+        <div class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
+
+    <div class="filter-bar" role="search">
       <div class="container">
+        <input type="text" class="form-control searchbar" placeholder="Search"> 
+        <div class="filter-button">Filter <span class="glyphicon glyphicon-chevron-down"></span></div>
+        <button type="button" class="btn btn-md export-calendar">
+          <span class="fa-calendar"></span> Export Calendar
+        </button>
+      </div>
+    </div>
+      
+    <div class="container">
 
-        <h4 class="section-title">Upcoming</h4>
-        
-        <table class="table">
-          <colgroup>
-            <col class="col-xs-1">
-            <col class="col-xs-7">
-          </colgroup>
+      <h4 class="section-title">Upcoming</h4>
+      
+      <table class="table">
+        <colgroup>
+          <col class="col-xs-1">
+          <col class="col-xs-7">
+        </colgroup>
 
-          <tr>
-            <td><span class="name-of-day">Wednesday</span><br><span class="date">01.01.2014</span></td>
-            <td>
-              <div class="panel">
-                <div class="panel-heading">New Years Day</div>
+        <tr>
+          <td><span class="name-of-day">Wednesday</span><br><span class="date">01.01.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">New Years Day</div>
               </div>
-            </td>
-          </tr>
+            </div>
+          </td>
+        </tr>
 
-          <tr>
-            <td><span class="name-of-day">Wednesday</span><br><span class="date">01.01.2014</span></td>
-            <td>
-              <div class="panel">
-                <div class="panel-heading">New Years Day</div>
+        <tr>
+          <td><span class="name-of-day">Monday</span><br><span class="date">01.20.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Martin Luther King Day </div>
               </div>
-            </td>
-          </tr>
+            </div>
+          </td>
+        </tr>
 
-          <tr>
-            <td><span class="name-of-day">Wednesday</span><br><span class="date">01.01.2014</span></td>
-            <td>
-              <div class="panel">
-                <div class="panel-heading">New Years Day</div>
+        <tr>
+          <td><span class="name-of-day">Monday</span><br><span class="date">02.27.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">President’s Day</div>
               </div>
-            </td>
-          </tr>
+            </div>
+          </td>
+        </tr>
 
-          <tr>
-            <td><span class="name-of-day">Wednesday</span><br><span class="date">01.01.2014</span></td>
-            <td>
-              <div class="panel">
-                <div class="panel-heading">New Years Day</div>
+        <tr>
+          <td><span class="name-of-day">Monday</span><br><span class="date">03.31.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Cesar Chavez Day</div>
               </div>
-            </td>
-          </tr>
+            </div>
+          </td>
+        </tr>
 
+        <tr>
+          <td><span class="name-of-day">Monday</span><br><span class="date">05.26.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Memorial Day</div>
+              </div>
+            </div>
+          </td>
+        </tr>
 
-        </table>
-      </div> <!-- container -->
+        <tr>
+          <td><span class="name-of-day">Friday</span><br><span class="date">07.04.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Independence Day</div>
+              </div>
+            </div>
+          </td>
+        </tr>
 
+        <tr>
+          <td><span class="name-of-day">Monday</span><br><span class="date">11.01.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Labor Day</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><span class="name-of-day">Thursday</span><br><span class="date">11.27.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Thanksgiving Day</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td><span class="name-of-day">Monday</span><br><span class="date">12.25.2014</span></td>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Christmas Day</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </div> <!-- container -->
+
+      <footer>
+        <div class="container">
+          <div class="footer-content">
+          Presented by Code for America and Denver
+
+          Read more about this project <a>here</a>.
+
+          </div>
+        </div> <!-- container -->
+      </footer>
 
 
     <!-- Bootstrap core JavaScript
