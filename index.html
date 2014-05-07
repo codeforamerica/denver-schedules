@@ -20,6 +20,10 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
+    <!-- Latest compiled and minified JavaScript of Handlebars -->
+    <script src="handlebars-v1.3.0.js"></script>
+
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
@@ -36,9 +40,11 @@
   </head>
 
   <body>
-
+  <script id="container-template" type="text/x-handlebars-template"" charset="utf-8">
     <div class="navbar navbar-static-top" role="navigation">
-      <div class="container">
+
+      <div class="container" id="the-body">
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -58,18 +64,18 @@
 
     <div class="filter-bar" role="search">
       <div class="container">
-        <input type="text" class="form-control searchbar" placeholder="Search"> 
+        <input type="text" class="form-control searchbar" placeholder="Search">
         <div class="filter-button">Filter <span class="glyphicon glyphicon-chevron-down"></span></div>
         <button type="button" class="btn btn-md export-calendar">
           <span class="fa-calendar"></span> Export Calendar
         </button>
       </div>
     </div>
-      
+
     <div class="container">
 
       <h4 class="section-title">Upcoming</h4>
-      
+
       <table class="table">
         <colgroup>
           <col class="col-xs-1">
@@ -187,6 +193,7 @@
       </table>
     </div> <!-- container -->
 
+
       <footer>
         <div class="container">
           <div class="footer-content">
@@ -198,11 +205,18 @@
         </div> <!-- container -->
       </footer>
 
+</script> <!-- handlebar template -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      var source   = $("#container-template").html();
+      var template = Handlebars.compile(source);
+      $('body').append(template);
+
+    </script>
   </body>
 </html>
