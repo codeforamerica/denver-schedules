@@ -32,7 +32,8 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
 
   <body>
@@ -58,10 +59,17 @@
 
     <div class="filter-bar" role="search">
       <div class="container">
-        <input type="text" class="form-control searchbar" placeholder="Search"> 
-        <div class="filter-button">Filter <span class="glyphicon glyphicon-chevron-down"></span></div>
-        <button type="button" class="btn btn-md export-calendar">
-          <span class="fa-calendar"></span> Export Calendar
+        <input type="text" class="form-control searchbar" placeholder="Filter events">
+        
+        <div class="filter-dropdown">
+          <a>
+          Filter <span class="glyphicon glyphicon-chevron-down"></span>
+          </a>
+        </div>
+        
+
+        <button type="button" class="btn btn-md filter-button">
+          <i class="fa fa-calendar"></i> Add to my Calendar
         </button>
       </div>
     </div>
@@ -172,10 +180,25 @@
           </td>
         </tr>
 
-        <tr>
-          <td><span class="name-of-day">Monday</span><br><span class="date">12.25.2014</span></td>
+        <tr >
+          <td >
+            <span class="name-of-day">Monday</span><br><span class="date">12.25.2014</span>
+            <div class="timeline"></div>
+          </td>
           <td>
             <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Christmas Day</div>
+              </div>
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Christmas Day</div>
+              </div>
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">Christmas Day</div>
+              </div>
               <div class="panel-heading">
                 <div class="time">All Day</div>
                 <div class="title">Christmas Day</div>

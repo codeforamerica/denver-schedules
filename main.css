@@ -9,11 +9,17 @@ body {
 	padding-right: 10%;
 }
 
+a:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
 /*Navbar Styles*/
 .navbar-brand {
 	color: white;
 	font-size: 2em;
 	font-weight: 200;
+	text-shadow:none;
 }
 .navbar .container {
 	margin-top: 2em;
@@ -25,13 +31,30 @@ body {
 }
 .navbar a { color:white; }
 .navbar a:hover { color:#666666; }
-
+.nav>li>a:hover, .nav>li>a:focus {
+	background-color: #f59000;
+	color:#666666;
+}
 
 /*Table Styles*/
-.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+/*.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {*/
+.table>tbody>tr>td {
 	border:0;
 	padding-left: 0;
 }
+
+.timeline {
+	width: 2px; /* Line width */
+  	background-color: #cccccc; /* Line color */
+  	height: 100%; /* Override in-line if you want specific height. */
+  	float: left; /* Causes the line to float to left of content. 
+    You can instead use position:absolute if this fits better with your design */
+}
+
+/*.table>tbody>tr .daydate { 
+	border-left: 2px solid #cccccc; 
+}*/
+
 .table { margin:0 0 0 0 ; }
 
 .section-title {
@@ -40,6 +63,8 @@ body {
 	padding-top: 40px;
 	font-size: 1em;
 }
+
+
 
 /*Event Styles*/
 .name-of-day {
@@ -94,6 +119,12 @@ body {
 	display:inline-block;
 }
 .filter-button {
+	background-color: #fbfbfb;
+	border:1px solid #cccccc;
+	float:right;
+}
+
+.filter-dropdown{
 	display:inline-block;
 	padding-left: 1em;
 	text-transform: uppercase;
