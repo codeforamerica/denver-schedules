@@ -20,6 +20,10 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
+    <!-- Latest compiled and minified JavaScript of Handlebars -->
+    <script src="handlebars-v1.3.0.js"></script>
+
+
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
@@ -36,9 +40,11 @@
   </head>
 
   <body>
-
+  <script id="container-template" type="text/x-handlebars-template"" charset="utf-8">
     <div class="navbar navbar-static-top" role="navigation">
-      <div class="container">
+
+      <div class="container" id="the-body">
+
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -46,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | City Holidays</a>
+          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | {{title}}</a>
         </div>
         <div class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -58,134 +64,41 @@
 
     <div class="filter-bar" role="search">
       <div class="container">
-        <input type="text" class="form-control searchbar" placeholder="Search"> 
+        <input type="text" class="form-control searchbar" placeholder="Search">
         <div class="filter-button">Filter <span class="glyphicon glyphicon-chevron-down"></span></div>
         <button type="button" class="btn btn-md export-calendar">
           <span class="fa-calendar"></span> Export Calendar
         </button>
       </div>
     </div>
-      
+
     <div class="container">
 
       <h4 class="section-title">Upcoming</h4>
-      
+
       <table class="table">
         <colgroup>
           <col class="col-xs-1">
           <col class="col-xs-7">
         </colgroup>
 
+        {{#each events}}
         <tr>
-          <td><span class="name-of-day">Wednesday</span><br><span class="date">01.01.2014</span></td>
+          <td><span class="name-of-day">{{day}}</span><br><span class="date">{{startdate}}</span></td>
           <td>
             <div class="panel">
               <div class="panel-heading">
                 <div class="time">All Day</div>
-                <div class="title">New Years Day</div>
+                <div class="title">{{desc}}</div>
               </div>
             </div>
           </td>
         </tr>
-
-        <tr>
-          <td><span class="name-of-day">Monday</span><br><span class="date">01.20.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Martin Luther King Day </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><span class="name-of-day">Monday</span><br><span class="date">02.27.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">President’s Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><span class="name-of-day">Monday</span><br><span class="date">03.31.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Cesar Chavez Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><span class="name-of-day">Monday</span><br><span class="date">05.26.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Memorial Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><span class="name-of-day">Friday</span><br><span class="date">07.04.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Independence Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><span class="name-of-day">Monday</span><br><span class="date">11.01.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Labor Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><span class="name-of-day">Thursday</span><br><span class="date">11.27.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Thanksgiving Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td><span class="name-of-day">Monday</span><br><span class="date">12.25.2014</span></td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Christmas Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
+        {{/each}}
 
       </table>
     </div> <!-- container -->
+
 
       <footer>
         <div class="container">
@@ -198,11 +111,71 @@
         </div> <!-- container -->
       </footer>
 
+</script> <!-- handlebar template -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      var source   = $("#container-template").html();
+      var template = Handlebars.compile(source);
+      //example hard-coded data
+      var data = {
+        title: "City Holidays",
+        events: [
+          {
+            desc: "New Years Day",
+            day: "Wednesday",
+            startdate: "01.01.2014"
+          },
+          {
+            desc: "Martin Luther King Day",
+            day: "Monday",
+            startdate: "01.20.2014"
+          },
+          {
+            desc: "President’s Day",
+            day: "Monday",
+            startdate: "02.27.2014"
+          },
+          {
+            desc: "Cesar Chavez Day",
+            day: "Monday",
+            startdate: "03.31.2014"
+          },
+          {
+            desc: "Memorial Day",
+            day: "Monday",
+            startdate: "05.26.2014"
+          },
+          {
+            desc: "Independence Day",
+            day: "Friday",
+            startdate: "07.04.2014"
+          },
+          {
+            desc: "Labor Day",
+            day: "Monday",
+            startdate: "11.01.2014"
+          },
+          {
+            desc: "Thanksgiving Day",
+            day: "Thursday",
+            startdate: "11.27.2014"
+          },
+          {
+            desc: "Christmas Day",
+            day: "Monday",
+            startdate: "12.25.2014"
+          }
+        ]
+    };
+
+
+      $('body').append(template(data));
+
+    </script>
   </body>
 </html>
