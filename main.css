@@ -26,8 +26,8 @@ a:hover {
 }
 .navbar {
 	background-color: #f59000;
-	height:8em;
-	margin-bottom: 0;
+	padding-bottom: 3em;
+	margin-bottom:0;
 }
 .navbar a { color:white; }
 .navbar a:hover { color:#666666; }
@@ -36,6 +36,11 @@ a:hover {
 	color:#666666;
 }
 
+
+
+
+
+
 /*Table Styles*/
 /*.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {*/
 .table>tbody>tr>td {
@@ -43,30 +48,37 @@ a:hover {
 	padding-left: 0;
 }
 
-.timeline {
-	width: 2px; /* Line width */
-  	background-color: #cccccc; /* Line color */
-  	height: 100%; /* Override in-line if you want specific height. */
-  	float: left; /* Causes the line to float to left of content. 
-    You can instead use position:absolute if this fits better with your design */
+/*add timeline to events*/
+/*div.panel-heading:nth-child(n+2)::after{ 
+	content: ".";
+	text-indent: -999em;
+	width: .2em;
+	position: absolute;
+	left: -7.4em;
+	top: 0;
+	bottom: 0;
+	background: #ccc;
 }
 
-/*.table>tbody>tr .daydate { 
-	border-left: 2px solid #cccccc; 
+table.table header.event-group {
+	position:relative;
+	left: -.2em;
+	background: #f8f8f8;
+	line-height: 1.5em;
 }*/
 
-.table { margin:0 0 0 0 ; }
 
+/*Event Styles*/
 .section-title {
 	color: #f59000;
 	text-transform: uppercase;
 	padding-top: 40px;
 	font-size: 1em;
 }
-
-
-
-/*Event Styles*/
+.panel-heading { 
+	position:relative; 
+	border-bottom:1px solid #e8e8e8;
+}
 .name-of-day {
 	text-transform: uppercase;
 	font-weight: bold;
@@ -81,11 +93,9 @@ a:hover {
 	background-image: -o-linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
 	background-image: -ms-linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
 	background-image: linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
+	margin-bottom: 2em;
 }
-.panel-heading { 
-	position:relative; 
-	border-bottom:1px solid #e8e8e8;
-}
+
 .time {
 	position: absolute;
 	left: 0;
@@ -107,22 +117,28 @@ a:hover {
 
 
 /*Filter Bar*/
+
+
+
 .filter-bar {
-	height: 8em;
 	background-color:white;
+	padding-bottom: 1.2em;
 }
 .filter-bar .container {
-	padding-top: 3em;
+	padding-top: 1.8em;
 }
 .searchbar {
-	width:40%;
+	width:60%;
 	display:inline-block;
 }
-.filter-button {
+.filter-btn {
 	background-color: #fbfbfb;
 	border:1px solid #cccccc;
-	float:right;
+	margin-left: .5em;
+	max-width:47%;
+	min-width: 5em;
 }
+
 
 .filter-dropdown{
 	display:inline-block;
@@ -131,6 +147,71 @@ a:hover {
 	color:#0095d9;
 	font-size: .9em;
 }
+
+
+
+.mobile-btn { 
+	width:100%; 
+	margin-top: 1em;
+	margin-left:0;
+	max-width:100%;
+}
+
+/*tmep*/
+/*.test1{background-color: grey;}
+.test2{background-color: red;}
+.test3{background-color: green;}*/
+
+
+/*Expanded Filter Bar*/
+.filter-bar-expanded .container { 
+	padding-top: 0;
+	padding-bottom: 2em; 
+	display: none;
+}
+.filter-bar-expanded {
+	height:auto;
+}
+
+.filter-label { 
+	color: #f59000;
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: 500;
+	padding-right: 1em;
+}
+
+.locationbar { 
+	width: 30%; 
+	display:inline-block;
+}
+.filter-bar-expanded table { 
+	width: 100%; 
+	margin-top: 1em;
+	table-layout: fixed;
+	font-size: .9em;
+}
+
+.filter-bar-expanded table td {
+	padding-top: .5em;
+	padding-right: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+} 
+
+
+
+
+
+
+
+/*temp*/
+/*.filter-bar-expanded { border:1px solid black; }
+.filter-bar-expanded tr { border: 1px solid black; }
+.filter-bar-expanded td { border: 1px solid black; }*/
+
+
 
 /*Footer Style*/
 footer {
