@@ -164,10 +164,13 @@ table.table header.event-group {
 
 
 /*Expanded Filter Bar*/
+.show_hide { display:none; }
+
+
 .filter-bar-expanded .container { 
 	padding-top: 0;
 	padding-bottom: 2em; 
-	display: none;
+	/*display: none;*/
 }
 .filter-bar-expanded {
 	height:auto;

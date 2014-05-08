@@ -20,8 +20,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -34,6 +33,8 @@
 
     <!-- Font Awesome -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    
+
   </head>
 
   <body>
@@ -60,13 +61,14 @@
     <div class="filter-bar" role="search">
       <div class="container">
       <div class="row">
-        <div class="col-sm-6 test1">
+        <div class="col-sm-6">
           <input type="text" class="form-control searchbar" placeholder="Filter events">
           <div class="filter-dropdown">
-            <a>Filter <span class="glyphicon glyphicon-chevron-down"></span></a>
+            <a href="#" class="show_hide">Filter <span id="filter-chev" class="glyphicon glyphicon-chevron-down"></span></a>
           </div>
         </div>
-        <div class="col-sm-6 test2">
+
+        <div class="col-sm-6">
           <!-- Create buttons for different sizes -->
           <button type="button" class="btn btn-md filter-btn pull-right hidden-xs ">
             <span class="visible-lg visible-md"><i class="fa fa-calendar"></i> Add to my Calendar</span> 
@@ -91,7 +93,7 @@
 
 
 
-    <div class="filter-bar filter-bar-expanded">
+    <div class="filter-bar filter-bar-expanded slidingDiv">
       <div class="container">
         <span class="filter-label">Location</span>
         <input type="text" class="form-control form-inline locationbar" placeholder="Location">
@@ -339,6 +341,11 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Load JS Scripts -->
+    <script type="text/javascript" src="js/showhide.js"></script>
   </body>
 </html>
