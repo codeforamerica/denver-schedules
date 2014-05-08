@@ -20,16 +20,13 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 
-<<<<<<< HEAD
-    
-=======
+
     <!-- Latest compiled and minified JavaScript of Handlebars -->
     <script src="handlebars-v1.3.0.js"></script>
 
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
->>>>>>> master
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -47,7 +44,7 @@
   </head>
 
   <body>
-  <script id="container-template" type="text/x-handlebars-template"" charset="utf-8">
+  <script id="container-template" type="text/x-handlebars-template" charset="utf-8">
     <div class="navbar navbar-static-top" role="navigation">
 
       <div class="container" id="the-body">
@@ -71,7 +68,6 @@
 
     <div class="filter-bar" role="search">
       <div class="container">
-<<<<<<< HEAD
       <div class="row">
         <div class="col-sm-6">
           <input type="text" class="form-control searchbar" placeholder="Filter events">
@@ -111,12 +107,6 @@
         <input type="text" class="form-control form-inline locationbar" placeholder="Location">
         <button type="button" class="btn btn-md filter-btn">
           <i class="fa fa-location-arrow"></i> Near me
-=======
-        <input type="text" class="form-control searchbar" placeholder="Search">
-        <div class="filter-button">Filter <span class="glyphicon glyphicon-chevron-down"></span></div>
-        <button type="button" class="btn btn-md export-calendar">
-          <span class="fa-calendar"></span> Export Calendar
->>>>>>> master
         </button>
 
         <table>
@@ -171,10 +161,6 @@
         </table>
       </div>
     </div>
-<<<<<<< HEAD
-      
-=======
->>>>>>> master
 
     <div class="container">
 
@@ -186,168 +172,18 @@
           <col class="col-xs-7">
         </colgroup>
 
-<<<<<<< HEAD
 
-        <tr>
-          <td>
-            <header class="event-group">
-              <span class="name-of-day">Wednesday</span><br><span class="date">01.01.2014</span>
-            </header>
-          </td>
-=======
         {{#each events}}
         <tr>
-          <td><span class="name-of-day">{{day}}</span><br><span class="date">{{startdate}}</span></td>
->>>>>>> master
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-<<<<<<< HEAD
-                <div class="title">New Years Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
           <td>
             <header class="event-group">
-              <span class="name-of-day">Monday</span><br><span class="date">01.20.2014</span>
+              <span class="name-of-day">{{day}}</span><br><span class="date">{{startdate}}</span>
             </header>
-          </td>
           <td>
             <div class="panel">
               <div class="panel-heading">
                 <div class="time">All Day</div>
-                <div class="title">Martin Luther King Day </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <header class="event-group">
-              <span class="name-of-day">Monday</span><br><span class="date">02.27.2014</span>
-            </header>
-          </td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">President’s Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <header class="event-group">
-              <span class="name-of-day">Monday</span><br><span class="date">03.31.2014</span>
-            </header>
-          </td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Cesar Chavez Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <header class="event-group">
-              <span class="name-of-day">Monday</span><br><span class="date">05.26.2014</span>
-            </header>
-          </td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Memorial Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <header class="event-group">
-              <span class="name-of-day">Friday</span><br><span class="date">07.04.2014</span>
-            </header>
-          </td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Independence Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <header class="event-group">
-              <span class="name-of-day">Monday</span><br><span class="date">11.01.2014</span>
-            </header>
-          </td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Labor Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <header class="event-group">
-              <span class="name-of-day">Thursday</span><br><span class="date">11.27.2014</span>
-            </header>
-          </td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Thanksgiving Day</div>
-              </div>
-            </div>
-          </td>
-        </tr>
-
-        <tr >
-          <td >
-            <header class="event-group">
-              <span class="name-of-day">Monday</span><br><span class="date">12.25.2014</span>
-            </header>
-          </td>
-          <td>
-            <div class="panel">
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Christmas Day</div>
-=======
                 <div class="title">{{desc}}</div>
->>>>>>> master
-              </div>
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Christmas Day</div>
-              </div>
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Christmas Day</div>
-              </div>
-              <div class="panel-heading">
-                <div class="time">All Day</div>
-                <div class="title">Christmas Day</div>
               </div>
             </div>
           </td>
@@ -375,15 +211,13 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<<<<<<< HEAD
-    
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    
     <!-- Load JS Scripts -->
     <script type="text/javascript" src="js/showhide.js"></script>
-=======
-    <script src="../../dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" charset="utf-8">
       var source   = $("#container-template").html();
       var template = Handlebars.compile(source);
@@ -443,6 +277,5 @@
       $('body').append(template(data));
 
     </script>
->>>>>>> master
   </body>
 </html>
