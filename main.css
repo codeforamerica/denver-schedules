@@ -119,15 +119,13 @@ table.table header.event-group {
 .title { margin-left: 6em; }
 
 /* NEXT EVENT */
-.nxt-day {font-weight: 700;
-padding-top: .8em;}
-.nxt-day, .nxt-time { color:#999;}
-
-.nxt-time {padding-bottom: .8em;}
-.nxt-title { 
-	font-size: 3.5em; 
-	/*line-height: 1.2em;*/
+.nxt-day {
+	font-weight: 700;
+	padding-top: .8em;
 }
+.nxt-day, .nxt-time { color:#999;}
+.nxt-time {padding-bottom: .8em;}
+.nxt-title { font-size: 3.5em; }
 
 
 
