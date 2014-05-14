@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Denver Schedules</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -18,29 +18,6 @@
     <link rel="stylesheet" href="main.css">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-
-    <!-- Latest compiled and minified JavaScript of Handlebars -->
-    <script src="handlebars-v1.3.0.js"></script>
-
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Font Awesome -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    
-
   </head>
 
   <body>
@@ -79,7 +56,7 @@
         <div class="col-sm-6">
           <!-- Create buttons for different sizes -->
           <button type="button" class="btn btn-md filter-btn pull-right hidden-xs ">
-            <span class="visible-lg visible-md"><i class="fa fa-calendar"></i> Add to my Calendar</span> 
+            <span class="visible-lg visible-md"><i class="fa fa-calendar"></i> Add to my Calendar</span>
             <span class="visible-sm"><i class="fa fa-plus"></i> <i class="fa fa-calendar"></i></span>
           </button>
           <button type="button" class="btn btn-md filter-btn visible-xs mobile-btn">
@@ -116,7 +93,7 @@
             <td><a>Baker</a></td>
             <td><a>CBD</a></td>
           </tr>
-          
+
           <tr>
             <td><a>Capitol Hill</a></td>
             <td><a>Cherry Creek</a></td>
@@ -177,7 +154,7 @@
         <tr>
           <td>
             <header class="event-group">
-              <span class="name-of-day">{{day}}</span><br><span class="date">{{startdate}}</span>
+              <span class="name-of-day">{{day}}</span><br><span class="date">{{startDate}}</span>
             </header>
           <td>
             <div class="panel">
@@ -211,70 +188,43 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript of Handlebars -->
+<script src="handlebars-v1.3.0.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Font Awesome -->
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
     <!-- Load JS Scripts -->
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" charset="utf-8">
       var source   = $("#container-template").html();
       var template = Handlebars.compile(source);
-      //example hard-coded data
-      var data = {
-        title: "City Holidays",
-        events: [
-          {
-            desc: "New Years Day",
-            day: "Wednesday",
-            startdate: "01.01.2014"
-          },
-          {
-            desc: "Martin Luther King Day",
-            day: "Monday",
-            startdate: "01.20.2014"
-          },
-          {
-            desc: "President’s Day",
-            day: "Monday",
-            startdate: "02.27.2014"
-          },
-          {
-            desc: "Cesar Chavez Day",
-            day: "Monday",
-            startdate: "03.31.2014"
-          },
-          {
-            desc: "Memorial Day",
-            day: "Monday",
-            startdate: "05.26.2014"
-          },
-          {
-            desc: "Independence Day",
-            day: "Friday",
-            startdate: "07.04.2014"
-          },
-          {
-            desc: "Labor Day",
-            day: "Monday",
-            startdate: "11.01.2014"
-          },
-          {
-            desc: "Thanksgiving Day",
-            day: "Thursday",
-            startdate: "11.27.2014"
-          },
-          {
-            desc: "Christmas Day",
-            day: "Monday",
-            startdate: "12.25.2014"
-          }
-        ]
-    };
 
-
-      $('body').append(template(data));
+      $( document ).ready(function() {
+        $.ajax({
+            url: "http://staging-denver-now-api.herokuapp.com/schedules",
+            dataType:"jsonp",
+            success: function(data){
+              console.log('Success getting data from server: ' + data);
+              $('body').append(template(data));
+            },
+            error: function(data){
+              console.log('Error: ' + data);
+            }
+        });
+      });
 
     </script>
   </body>
