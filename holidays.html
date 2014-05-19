@@ -7,20 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
     <title>Denver Schedules</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://jdewit.github.io/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- Optional theme -->
   </head>
 
   <body>
+  <script id="container-template" type="text/x-handlebars-template" charset="utf-8">
     <div class="navbar navbar-static-top" role="navigation">
 
       <div class="container" id="the-body">
@@ -32,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | Street Sweeping</a>
+          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | {{title}}</a>
         </div>
         <div class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -46,16 +47,14 @@
       <div class="container">
       <div class="row">
         <div class="col-sm-6">
-          <input id="time" name="start_time" type="text" class="form-control searchbar timepicker" placeholder="h:mm PM" data-default-time="false">
+          <input type="text" class="form-control searchbar" placeholder="Filter events">
           <div class="filter-dropdown">
-            <a id="time-button" href="javascript:void(0)" class="btn btn-primary">Filter</a>
-            <!--<a id="time-button" href="#" class="show_hide">Filter <span id="filter-chev" class="glyphicon glyphicon-chevron-down"></span></a>-->
+            <a href="#" class="show_hide">Filter <span id="filter-chev" class="glyphicon glyphicon-chevron-down"></span></a>
           </div>
         </div>
 
         <div class="col-sm-6">
           <!-- Create buttons for different sizes -->
-          <!--
           <button type="button" class="btn btn-md filter-btn pull-right hidden-xs ">
             <span class="visible-lg visible-md"><i class="fa fa-calendar"></i> Add to my Calendar</span>
             <span class="visible-sm"><i class="fa fa-plus"></i> <i class="fa fa-calendar"></i></span>
@@ -71,7 +70,7 @@
           <button type="button" class="btn btn-md filter-btn visible-xs mobile-btn">
             <i class="fa fa-print"></i> Print my calendar
           </button>
--->
+
         </div>
       </div>
       </div>
@@ -144,9 +143,31 @@
 
       <h4 class="section-title">Upcoming</h4>
 
-      <div id="results">
+      <table class="table">
+        <colgroup>
+          <col class="col-xs-1">
+          <col class="col-xs-7">
+        </colgroup>
 
-      </div>
+
+        {{#each events}}
+        <tr>
+          <td>
+            <header class="event-group">
+              <span class="name-of-day">{{day}}</span><br><span class="date">{{startDate}}</span>
+            </header>
+          <td>
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="time">All Day</div>
+                <div class="title">{{desc}}</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {{/each}}
+
+      </table>
     </div> <!-- container -->
 
 
@@ -161,33 +182,50 @@
         </div> <!-- container -->
       </footer>
 
+</script> <!-- handlebar template -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript of Handlebars -->
-    <script src="handlebars-v1.3.0.js"></script>
+<!-- Latest compiled and minified JavaScript of Handlebars -->
+<script src="handlebars-v1.3.0.js"></script>
 
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-    <!-- Just for debugging purposes. Don't actually copy this line! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 
-    <!-- Font Awesome -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 
     <!-- Load JS Scripts -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.js"></script>
     <script type="text/javascript" src="js/showhide.js"></script>
-    <script src="js/bootstrap-timepicker.js"></script>
-    <script src="js/street-sweeping.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      var source   = $("#container-template").html();
+      var template = Handlebars.compile(source);
+
+      $( document ).ready(function() {
+        $.ajax({
+            url: "http://staging-denver-now-api.herokuapp.com/schedules",
+            dataType:"jsonp",
+            success: function(data){
+              console.log('Success getting data from server: ' + data);
+              $('body').append(template(data));
+            },
+            error: function(data){
+              console.log('Error: ' + data);
+            }
+        });
+      });
+
+    </script>
   </body>
 </html>
