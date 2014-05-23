@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Denver Schedules</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://jdewit.github.io/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- Optional theme -->
+  </head>
+
+  <body>
+    <div class="navbar navbar-static-top" role="navigation">
+
+      <div class="container" id="the-body">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | Street Sweeping</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="filter-bar" role="search">
+      <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <input id="time" name="start_time" type="text" class="form-control searchbar timepicker" placeholder="h:mm PM" data-default-time="false">
+          <div class="filter-dropdown">
+            <a id="time-button" href="javascript:void(0)" class="btn btn-primary">Filter</a>
+            <!--<a id="time-button" href="#" class="show_hide">Filter <span id="filter-chev" class="glyphicon glyphicon-chevron-down"></span></a>-->
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <!-- Create buttons for different sizes -->
+          <!--
+          <button type="button" class="btn btn-md filter-btn pull-right hidden-xs ">
+            <span class="visible-lg visible-md"><i class="fa fa-calendar"></i> Add to my Calendar</span>
+            <span class="visible-sm"><i class="fa fa-plus"></i> <i class="fa fa-calendar"></i></span>
+          </button>
+          <button type="button" class="btn btn-md filter-btn visible-xs mobile-btn">
+            <i class="fa fa-calendar"></i> Add to my Calendar
+          </button>
+
+          <button type="button" class="btn btn-md filter-btn pull-right hidden-xs ">
+            <span class="visible-lg visible-md"><i class="fa fa-print"></i> Print this Calendar</span>
+            <span class="visible-sm"><i class="fa fa-print"></i></span>
+          </button>
+          <button type="button" class="btn btn-md filter-btn visible-xs mobile-btn">
+            <i class="fa fa-print"></i> Print my calendar
+          </button>
+-->
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+
+    <div class="filter-bar filter-bar-expanded slidingDiv">
+      <div class="container">
+        <span class="filter-label">Location</span>
+        <input type="text" class="form-control form-inline locationbar" placeholder="Location">
+        <button type="button" class="btn btn-md filter-btn">
+          <i class="fa fa-location-arrow"></i> Near me
+        </button>
+
+        <table>
+          <tr>
+            <td><a>Alamo Placita</a></td>
+            <td><a>Auraria</a></td>
+            <td><a>Baker</a></td>
+            <td><a>CBD</a></td>
+          </tr>
+
+          <tr>
+            <td><a>Capitol Hill</a></td>
+            <td><a>Cherry Creek</a></td>
+            <td><a>City Park</a></td>
+            <td><a>Congress Park</a></td>
+          </tr>
+
+          <tr>
+            <td><a>Country Club</a></td>
+            <td><a>Curtis Park</a></td>
+            <td><a>Five Points</a></td>
+            <td><a>Golden Triangle</a></td>
+          </tr>
+
+          <tr>
+            <td><a>Highland</a></td>
+            <td><a>Jefferson Park</a></td>
+            <td><a>Lincoln Park</a></td>
+            <td><a>Lodo</a></td>
+          </tr>
+
+          <tr>
+            <td><a>Northeast</a></td>
+            <td><a>Northwest</a></td>
+            <td><a>Park Hill</a></td>
+            <td><a>Southeast</a></td>
+          </tr>
+
+          <tr>
+            <td><a>Southwest</a></td>
+            <td><a>Speer</a></td>
+            <td><a>Stapleton</a></td>
+            <td><a>University</a></td>
+          </tr>
+
+          <tr>
+            <td><a>University Park</a></td>
+            <td><a>Uptown</a></td>
+            <td><a>Washington Park</a></td>
+            <td><a>Washington Park West</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h4 class="section-title">Upcoming</h4>
+
+      <div id="results">
+
+      </div>
+    </div> <!-- container -->
+
+
+      <footer>
+        <div class="container">
+          <div class="footer-content">
+          Presented by Code for America and Denver
+
+          Read more about this project <a>here</a>.
+
+          </div>
+        </div> <!-- container -->
+      </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript of Handlebars -->
+    <script src="handlebars-v1.3.0.js"></script>
+
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Font Awesome -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+
+    <!-- Load JS Scripts -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.js"></script>
+    <script type="text/javascript" src="js/showhide.js"></script>
+    <script src="js/bootstrap-timepicker.js"></script>
+    <script src="js/street-sweeping.js"></script>
+  </body>
+</html>

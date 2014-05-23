@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Denver Schedules</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Optional theme -->
+  </head>
+
+  <body>
+  
+    <div class="navbar navbar-static-top" role="navigation">
+
+      <div class="container" id="the-body">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | {{title}}</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-right">
+          <ul class="nav navbar-nav">
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+    <div class="container bigSearch-container">
+
+
+      <form class="form col-xs-12" role="form">
+        <div class="form-group col-xs-10">
+          <input type="search" class="form-control bigSearch" placeholder="e.g. 700 14th St, Denver, CO 80202">
+        </div>
+        <button type="submit" class="btn btn-default bigSearch-submit col-xs-2">Search</button>
+      </form>
+
+    </div>
+
+    <div class="container">
+      <div class="row col-xs-12">
+        <h4 class="section-title">Next Street Sweeping</h4>
+        <div class="col-sm-6 nextEvent-container">
+          <div class="nextEvent-small">
+            <div class="nextEvent-title">Thursday, May 2 </div>
+            <div class="nextEvent-subtitle">10am - 2pm</div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          Download or subscribe to this area's sweep calendar in iCal, Google Calendar or Outlook.<br>
+          <button type="button" class="btn btn-md grey-btn">
+            <i class="fa fa-calendar"></i><span class="btn-text" >Add to my Calendar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row col-xs-12">
+      <h4 class="section-title">Street Sweeping Reminders</h4>
+      <div class="lead"> Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup></div><br><br>
+      </div>
+      
+      <div class="row">
+      <div class="col-sm-6">
+        <div class="reminderText"> Enter your email address, and we'll send alerts directly to your inbox.</div>
+
+        <form class="form-inline reminderInput" role="form">
+          <div class="form-group">
+            <label class="sr-only" for="emailReminder">Enter an email address</label>
+            <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
+          </div>
+          <button type="submit" class="btn blue-btn">Subscribe</button>
+        </form>
+
+
+      </div>
+      <div class="col-sm-6">
+        <div class="reminderText">Receive text message alerts on your phone. <sup>2</sup></div>
+
+        <form class="form-inline reminderInput" role="form">
+          <div class="form-group">
+            <label class="sr-only" for="emailReminder">Enter an email address</label>
+            <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
+          </div>
+          <button type="submit" class="btn blue-btn">Subscribe</button>
+        </form>
+      </div>
+      </div>
+    </div> <!-- container -->
+
+
+      <footer>
+        <div class="container">
+          <div class="footer-content">
+          Presented by Code for America and Denver
+
+          Read more about this project <a>here</a>.
+
+          </div>
+        </div> <!-- container -->
+      </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript of Handlebars -->
+    <script src="handlebars-v1.3.0.js"></script>
+
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Load JS Scripts -->
+    <script type="text/javascript" src="js/showhide.js"></script>
+
+
+
+  </body>
+</html>

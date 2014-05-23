@@ -1,0 +1,233 @@
+/*Basic CSS*/
+body {
+	background-color: #f8f8f8;
+	color:#666666;
+}
+
+.container {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+a:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/*Navbar Styles*/
+.navbar-brand {
+	color: white;
+	font-size: 2em;
+	font-weight: 200;
+	text-shadow:none;
+}
+.navbar .container {
+	margin-top: 2em;
+}
+.navbar {
+	background-color: #f59000;
+	padding-bottom: 3em;
+	margin-bottom:0;
+}
+.navbar a { color:white; }
+.navbar a:hover { color:#666666; }
+.nav>li>a:hover, .nav>li>a:focus {
+	background-color: #f59000;
+	color:#666666;
+}
+
+
+
+
+
+
+/*Table Styles*/
+/*.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {*/
+.table>tbody>tr>td {
+	border:0;
+	padding-left: 0;
+}
+
+/*add timeline to events*/
+/*div.panel-heading:nth-child(n+2)::after{ 
+	content: ".";
+	text-indent: -999em;
+	width: .2em;
+	position: absolute;
+	left: -7.4em;
+	top: 0;
+	bottom: 0;
+	background: #ccc;
+}
+
+table.table header.event-group {
+	position:relative;
+	left: -.2em;
+	background: #f8f8f8;
+	line-height: 1.5em;
+}*/
+
+
+/*Event Styles*/
+.section-title {
+	color: #f59000;
+	text-transform: uppercase;
+	padding-top: 40px;
+	font-size: 1em;
+}
+.panel-heading { 
+	position:relative; 
+	border-bottom:1px solid #e8e8e8;
+}
+.name-of-day {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: .85em;
+	color: #666666;
+}
+.date { color: #999999; }
+.panel {
+	border: 1px solid #cccccc;
+    background-image: -webkit-linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
+	background-image: -moz-linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
+	background-image: -o-linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
+	background-image: -ms-linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
+	background-image: linear-gradient(to right, #f8f8f8,#f8f8f8 6em,#ffffff 6em,#ffffff 100%);
+	margin-bottom: 2em;
+}
+
+.time {
+	position: absolute;
+	left: 0;
+	top:50%;
+	margin-top: -.5em; 
+	width: 6em;
+	text-transform: uppercase;
+	text-align: center;
+	color:#999999;
+	line-height: 1em;
+	vertical-align: middle;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	padding: 0 .5em;
+}
+.title { margin-left: 6em; }
+
+
+
+/*Filter Bar*/
+
+
+
+.filter-bar {
+	background-color:white;
+	padding-bottom: 1.2em;
+}
+.filter-bar .container {
+	padding-top: 1.8em;
+}
+.searchbar {
+	width:60%;
+	display:inline-block;
+}
+.filter-btn {
+	background-color: #fbfbfb;
+	border:1px solid #cccccc;
+	margin-left: .5em;
+	max-width:47%;
+	min-width: 5em;
+}
+
+
+.filter-dropdown{
+	display:inline-block;
+	padding-left: 1em;
+	text-transform: uppercase;
+	color:#0095d9;
+	font-size: .9em;
+}
+
+
+
+.mobile-btn { 
+	width:100%; 
+	margin-top: 1em;
+	margin-left:0;
+	max-width:100%;
+}
+
+/*tmep*/
+/*.test1{background-color: grey;}
+.test2{background-color: red;}
+.test3{background-color: green;}*/
+
+
+/*Expanded Filter Bar*/
+.show_hide { display:none; }
+
+
+.filter-bar-expanded .container { 
+	padding-top: 0;
+	padding-bottom: 2em; 
+	/*display: none;*/
+}
+.filter-bar-expanded {
+	height:auto;
+}
+
+.filter-label { 
+	color: #f59000;
+	text-transform: uppercase;
+	font-size: 1em;
+	font-weight: 500;
+	padding-right: 1em;
+}
+
+.locationbar { 
+	width: 30%; 
+	display:inline-block;
+}
+.filter-bar-expanded table { 
+	width: 100%; 
+	margin-top: 1em;
+	table-layout: fixed;
+	font-size: .9em;
+}
+
+.filter-bar-expanded table td {
+	padding-top: .5em;
+	padding-right: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+} 
+
+
+
+
+
+
+
+/*temp*/
+/*.filter-bar-expanded { border:1px solid black; }
+.filter-bar-expanded tr { border: 1px solid black; }
+.filter-bar-expanded td { border: 1px solid black; }*/
+
+
+
+/*Footer Style*/
+footer {
+	margin-top:10em;
+	height: 100px;
+	background-color: #57585b;
+	color: white;
+}
+
+footer a {color:#f59000;}
+footer a:hover {color:white;}
+
+.footer-content {
+	/*border:1px solid black;*/
+	padding-top: 3em;
+}
