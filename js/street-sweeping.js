@@ -1,6 +1,6 @@
 Date.prototype.getMonthWeek = function(){
-    var firstDay = new Date(this.getFullYear(), this.getMonth(), 1).getDay();
-    return Math.ceil((this.getDate() + firstDay)/7);
+    var firstDay = new Date(this.getUTCFullYear(), this.getUTCMonth(), 1).getUTCDay();
+    return Math.ceil((this.getUTCDate() + firstDay)/7);
 }
 
 $( "#time-button" ).click(function() {
@@ -23,6 +23,7 @@ $(document).ready(function () {
  * Returns true if it's sweeping time
  * Returns false if it's not sweeping time
  * arugments strings of time eg "11:00:23" or "13:37:01"
+ * milliseconds not acceptable in firefox
  */
  function isItSweepingTime(time, start, end) {
   var temp = "October 13, 1975";
@@ -40,19 +41,21 @@ function isItSweepingDay (dayOfWeek, days) {
   return (days[dayOfWeek] == "True");
 }
 
-function loadData (now) {
-  // All dates from the server are stored as UTC, convert
-  
-  var time = now.getHours().toString() + ":" + now.getMinutes().toString() + ":" + now.getSeconds().toString();
+function removeMilliseconds(time) {
+  return time.split('.')[0];
+}
+function loadData (filterTime) {
+  // All dates from the server are stored as UTC, use UTC for comparison
+  var utcTime = filterTime.getUTCHours().toString() + ":" + filterTime.getUTCMinutes().toString() + ":" + filterTime.getUTCSeconds().toString();
  
   d3.csv("data/boston-street-sweeping-schedules.csv", function(data) {
     data = data.filter(function(row) {
       //filter down csv to only listings that are currently happening.
       var weeks = [row['week1'], row['week2'], row['week3'], row['week4'], row['week5']];
       var days = [row['Sunday'],row['Monday'],row['Tuesday'],row['Wednesday'],row['Thursday'],row['Friday'],row['Saturday']];
-      var sweepingWeek = isItSweepingWeek(now.getMonthWeek(), weeks);
-      var sweepingTime = isItSweepingTime(time, row['StartTime'], row['EndTime']);
-      var sweepingDay = isItSweepingDay(now.getDay(), days);
+      var sweepingWeek = isItSweepingWeek(filterTime.getMonthWeek(), weeks);
+      var sweepingDay = isItSweepingDay(filterTime.getUTCDay(), days);
+      var sweepingTime = isItSweepingTime(utcTime, removeMilliseconds(row['StartTime']), removeMilliseconds(row['EndTime']));
       return  sweepingTime && sweepingWeek && sweepingDay;
   })
   // the columns you'd like to display
