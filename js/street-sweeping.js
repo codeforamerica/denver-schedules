@@ -4,9 +4,7 @@ Date.prototype.getMonthWeek = function(){
 }
 
 $( "#time-button" ).click(function() {
-  //alert( "Handler for .click() called." + "Value: " + $('#time').val() );
   var inputDate = new Date($('#date').val() + ' ' + $('#time').val() + ' GMT-0800 (PST)');
-  console.log(inputDate);
   loadData(inputDate);
 });
 
@@ -22,6 +20,7 @@ $(document).ready(function () {
 
   $('.datepicker').datepicker();
 });
+
 /*
    * Returns true if it's sweeping time
    * Returns false if it's not sweeping time
@@ -38,29 +37,32 @@ $(document).ready(function () {
       //if not sweeping time, return false
       return false;
    }
+
   function isItSweepingWeek (weekOfMonth, weeks) {
     return (weeks[weekOfMonth-1] == "True");
   }
+
   function isItSweepingDay (dayOfWeek, days) {
     // return true;
     return (days[dayOfWeek] == "True");
   }
+
   function loadData (now) {
     var stringNow = now.getHours().toString() + ":" + now.getMinutes().toString() + ":" + now.getSeconds().toString();
-    console.log("Inside loaddata: "+ now);
-   d3.csv("data/boston-street-sweeping-schedules.csv", function(data) {
-    data = data.filter(function(row) {
+   
+    d3.csv("data/boston-street-sweeping-schedules.csv", function(data) {
+      data = data.filter(function(row) {
         //filter down csv to only listings that are currently happening.
         var weeks = [row['week1'], row['week2'], row['week3'], row['week4'], row['week5']];
         var days = [row['Sunday'],row['Monday'],row['Tuesday'],row['Wednesday'],row['Thursday'],row['Friday'],row['Saturday']];
         var sweepingWeek = isItSweepingWeek(now.getMonthWeek(), weeks);
         var sweepingTime = isItSweepingTime(stringNow, row['StartTime'], row['EndTime']);
         var sweepingDay = isItSweepingDay(now.getDay(), days);
-        return  sweepingTime;//sweepingWeek && sweepingDay;
+        return  sweepingTime && sweepingWeek && sweepingDay;
     })
     // the columns you'd like to display
-    var columns = ['week1','week2','week3','week4','week5', "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-    //console.log(columns);
+    var columns = ['Street','from','to'];
+    
     d3.select("#results").html(null);
     var table = d3.select("#results").append("table").attr("class", "tblResults"),
         thead = table.append("thead"),

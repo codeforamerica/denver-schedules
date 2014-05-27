@@ -37,7 +37,9 @@ a:hover {
 }
 
 
-
+.tblResults th, .tblResults td{
+	padding: 10px;
+}
 
 
 
