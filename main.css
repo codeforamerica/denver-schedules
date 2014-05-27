@@ -1,3 +1,5 @@
+
+
 /*Basic CSS*/
 body {
 	background-color: #f8f8f8;
@@ -49,7 +51,7 @@ a:hover {
 }
 
 /*add timeline to events*/
-/*div.panel-heading:nth-child(n+2)::after{ 
+/*div.panel-heading:nth-child(n+2)::after{
 	content: ".";
 	text-indent: -999em;
 	width: .2em;
@@ -75,8 +77,8 @@ table.table header.event-group {
 	padding-top: 40px;
 	font-size: 1em;
 }
-.panel-heading { 
-	position:relative; 
+.panel-heading {
+	position:relative;
 	border-bottom:1px solid #e8e8e8;
 }
 .name-of-day {
@@ -100,7 +102,7 @@ table.table header.event-group {
 	position: absolute;
 	left: 0;
 	top:50%;
-	margin-top: -.5em; 
+	margin-top: -.5em;
 	width: 6em;
 	text-transform: uppercase;
 	text-align: center;
@@ -150,8 +152,8 @@ table.table header.event-group {
 
 
 
-.mobile-btn { 
-	width:100%; 
+.mobile-btn {
+	width:100%;
 	margin-top: 1em;
 	margin-left:0;
 	max-width:100%;
@@ -166,17 +168,16 @@ table.table header.event-group {
 /*Expanded Filter Bar*/
 .show_hide { display:none; }
 
-
-.filter-bar-expanded .container { 
+.filter-bar-expanded .container {
 	padding-top: 0;
-	padding-bottom: 2em; 
+	padding-bottom: 2em;
 	/*display: none;*/
 }
 .filter-bar-expanded {
 	height:auto;
 }
 
-.filter-label { 
+.filter-label {
 	color: #f59000;
 	text-transform: uppercase;
 	font-size: 1em;
@@ -184,12 +185,12 @@ table.table header.event-group {
 	padding-right: 1em;
 }
 
-.locationbar { 
-	width: 30%; 
+.locationbar {
+	width: 30%;
 	display:inline-block;
 }
-.filter-bar-expanded table { 
-	width: 100%; 
+.filter-bar-expanded table {
+	width: 100%;
 	margin-top: 1em;
 	table-layout: fixed;
 	font-size: .9em;
@@ -201,7 +202,7 @@ table.table header.event-group {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow:ellipsis;
-} 
+}
 
 
 
@@ -230,4 +231,8 @@ footer a:hover {color:white;}
 .footer-content {
 	/*border:1px solid black;*/
 	padding-top: 3em;
+}
+
+td, th {
+	padding: 20px;
 }

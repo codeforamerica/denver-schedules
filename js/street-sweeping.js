@@ -3,7 +3,6 @@ Date.prototype.getMonthWeek = function(){
     return Math.ceil((this.getDate() + firstDay)/7);
 }
 
-
 $( "#time-button" ).click(function() {
   //alert( "Handler for .click() called." + "Value: " + $('#time').val() );
   var inputDate = new Date($('#date').val() + ' ' + $('#time').val() + ' GMT-0800 (PST)');
@@ -40,7 +39,11 @@ $(document).ready(function () {
       return false;
    }
   function isItSweepingWeek (weekOfMonth, weeks) {
-    return weeks[weekOfMonth-1];
+    return (weeks[weekOfMonth-1] == "True");
+  }
+  function isItSweepingDay (dayOfWeek, days) {
+    // return true;
+    return (days[dayOfWeek] == "True");
   }
   function loadData (now) {
     var stringNow = now.getHours().toString() + ":" + now.getMinutes().toString() + ":" + now.getSeconds().toString();
@@ -49,15 +52,17 @@ $(document).ready(function () {
     data = data.filter(function(row) {
         //filter down csv to only listings that are currently happening.
         var weeks = [row['week1'], row['week2'], row['week3'], row['week4'], row['week5']];
+        var days = [row['Sunday'],row['Monday'],row['Tuesday'],row['Wednesday'],row['Thursday'],row['Friday'],row['Saturday']];
         var sweepingWeek = isItSweepingWeek(now.getMonthWeek(), weeks);
         var sweepingTime = isItSweepingTime(stringNow, row['StartTime'], row['EndTime']);
-        return sweepingTime && sweepingWeek;
+        var sweepingDay = isItSweepingDay(now.getDay(), days);
+        return  sweepingTime;//sweepingWeek && sweepingDay;
     })
     // the columns you'd like to display
-    var columns = ["Street","from","to","StartTime","EndTime"];
+    var columns = ['week1','week2','week3','week4','week5', "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
     //console.log(columns);
     d3.select("#results").html(null);
-    var table = d3.select("#results").append("table"),
+    var table = d3.select("#results").append("table").attr("class", "tblResults"),
         thead = table.append("thead"),
         tbody = table.append("tbody");
 
