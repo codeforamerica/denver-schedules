@@ -13,12 +13,12 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://jdewit.github.io/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="css/datepicker.css">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="/css/main.css">
 
-    <!-- Optional theme -->
-  </head>
+</head>
 
   <body>
     <div class="navbar navbar-static-top" role="navigation">
@@ -45,12 +45,29 @@
     <div class="filter-bar" role="search">
       <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          <input id="time" name="start_time" type="text" class="form-control searchbar timepicker" placeholder="h:mm PM" data-default-time="false">
-          <div class="filter-dropdown">
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="input-group">
+                <input id="date" class="form-control searchbar datepicker" type="text" value="12/01/2014">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="input-group">
+                <input id="time" name="start_time" type="text" class="form-control searchbar timepicker" value="8:00 AM" data-default-time="false">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-dashboard"></i></span>
+              </div>
+            </div>
+            <div class="col-md-2">
             <a id="time-button" href="javascript:void(0)" class="btn btn-primary">Filter</a>
-            <!--<a id="time-button" href="#" class="show_hide">Filter <span id="filter-chev" class="glyphicon glyphicon-chevron-down"></span></a>-->
+            </div>
           </div>
+
+          </div> <!-- row -->
+          <!-- <div class="filter-dropdown">
+            <a id="time-button" href="#" class="show_hide">Filter <span id="filter-chev" class="glyphicon glyphicon-chevron-down"></span></a>
+          </div> -->
         </div>
 
         <div class="col-sm-6">
@@ -185,9 +202,10 @@
 
 
     <!-- Load JS Scripts -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.6/d3.js"></script>
+    <script src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/showhide.js"></script>
     <script src="js/bootstrap-timepicker.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
     <script src="js/street-sweeping.js"></script>
   </body>
 </html>
