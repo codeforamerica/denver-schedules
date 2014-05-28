@@ -23,7 +23,6 @@
   <body>
   
     <div class="navbar navbar-static-top" role="navigation">
-
       <div class="container" id="the-body">
 
         <div class="navbar-header">
@@ -33,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | {{title}}</a>
+          <a class="navbar-brand" href="#"><strong>DenverNOW</strong> | Street Sweeping</a>
         </div>
         <div class="collapse navbar-collapse navbar-right">
           <ul class="nav navbar-nav">
@@ -41,84 +40,121 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div>
+      </div>
     </div>
 
+    
+    <div class="container">
+    <div class="row bigSearch-container">
 
-    <div class="container bigSearch-container">
 
-
-      <form class="form col-xs-12" role="form">
+      <form class="form  col-lg-8 col-lg-offset-2" role="form">
         <div class="form-group col-xs-10">
-          <input type="search" class="form-control bigSearch" placeholder="e.g. 700 14th St, Denver, CO 80202">
+          <input type="search" class="form-control bigSearch-input" placeholder="e.g. 700 14th St, Denver, CO 80202">
         </div>
         <button type="submit" class="btn btn-default bigSearch-submit col-xs-2">Search</button>
       </form>
 
     </div>
-
-    <div class="container">
-      <div class="row col-xs-12">
+    
+    <!-- ========= NEXT STREET SWEEPING ======== -->
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
         <h4 class="section-title">Next Street Sweeping</h4>
+        
         <div class="col-sm-6 nextEvent-container">
           <div class="nextEvent-small">
             <div class="nextEvent-title">Thursday, May 2 </div>
             <div class="nextEvent-subtitle">10am - 2pm</div>
           </div>
         </div>
-        <div class="col-sm-6">
-          Download or subscribe to this area's sweep calendar in iCal, Google Calendar or Outlook.<br>
-          <button type="button" class="btn btn-md grey-btn">
+        
+        <div class="col-sm-6 cal-container">
+          Download or subscribe to this area's street sweeping calendar in iCal, Google Calendar or Outlook.<br>
+          <button type="button" class="btn grey-btn mobile-btn">
             <i class="fa fa-calendar"></i><span class="btn-text" >Add to my Calendar</span>
           </button>
         </div>
       </div>
     </div>
     
-    <div class="container">
-      <div class="row col-xs-12">
-      <h4 class="section-title">Street Sweeping Reminders</h4>
-      <div class="lead"> Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup></div><br><br>
+    <!-- ========= REMINDERS ======== -->
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <h4 class="section-title">Street Sweeping Reminders</h4>
+        <div class="lead"> Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup> </div>
       </div>
+    </div>
+
+
+    <div class="row  reminderSignup">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-sm-6">
+          <div><img src="img/email.svg" width="32" class="reminderIcon"></div>
+          <div style="display:inline-block; max-width: 75%;" class="reminderText">Enter your email address, and we'll send alerts directly to your inbox.</div>
+        </div>
+        <div class="col-sm-6">
+          <form class="form-inline reminderInput" role="form">
+              <div class="form-group">
+                <label class="sr-only" for="emailReminder">Enter an email address</label>
+                <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
+              </div>
+              <button type="submit" class="btn blue-btn  reminderButton">Subscribe</button>
+            </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row reminderSignup">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-sm-6">
+          <div><img src="img/phone.svg" width="32" class="reminderIcon"></div>
+          <div style="display:inline-block; max-width: 75%;" class="reminderText">Receive text message alerts on your phone.<sup>2</sup> </div>
+        </div>
+        <div class="col-sm-6">
+          <form class="form-inline reminderInput" role="form">
+            <div class="form-group">
+              <label class="sr-only" for="phoneReminder">Enter a phone number</label>
+              <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
+            </div>
+            <button type="submit" class="btn blue-btn reminderButton">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>  
+
+    <div class="row ">
+      <div class="col-lg-8 col-lg-offset-2">
+      <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Note:</strong> This site does not guarantee that the information is accurate, nor that the notifications will be delivered on a timely basis. Please consult the street signage near your vehical for the most up-to-date parking information.
+      </div>
+      </div>
+    </div>
       
-      <div class="row">
-      <div class="col-sm-6">
-        <div class="reminderText"> Enter your email address, and we'll send alerts directly to your inbox.</div>
 
-        <form class="form-inline reminderInput" role="form">
-          <div class="form-group">
-            <label class="sr-only" for="emailReminder">Enter an email address</label>
-            <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
-          </div>
-          <button type="submit" class="btn blue-btn">Subscribe</button>
-        </form>
-
-
+      <div class="row notations">
+        <div class="col-lg-8 col-lg-offset-2">
+          1. Email and text message alerts will be sent one week, and one day, prior to the beginning of street sweeping in this area.<br>
+          2. Standard message and data rates may apply. To unsubscribe from alerts for this area, text STOP W42A1.<br>
+        </div>
       </div>
-      <div class="col-sm-6">
-        <div class="reminderText">Receive text message alerts on your phone. <sup>2</sup></div>
+    
 
-        <form class="form-inline reminderInput" role="form">
-          <div class="form-group">
-            <label class="sr-only" for="emailReminder">Enter an email address</label>
-            <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
-          </div>
-          <button type="submit" class="btn blue-btn">Subscribe</button>
-        </form>
-      </div>
-      </div>
     </div> <!-- container -->
 
+</body>
 
-      <footer>
-        <div class="container">
-          <div class="footer-content">
-          Presented by Code for America and Denver
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+        Presented by Code for America and Denver
 
-          Read more about this project <a>here</a>.
+        Read more about this project <a>here</a>.
 
-          </div>
-        </div> <!-- container -->
-      </footer>
+        </div>
+      </div> <!-- container -->
+    </footer>
 
 
     <!-- Bootstrap core JavaScript

@@ -1,17 +1,26 @@
 /*Basic CSS*/
+/*.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+	padding-left: 0;
+	padding-right: 0;
+}*/
+
 body {
 	background-color: #f8f8f8;
 	color:#666666;
 }
 
-.container {
-	padding-left: 10%;
-	padding-right: 10%;
+.h-center {
+	margin-right: auto;
+	margin-left: auto;
 }
 
 a:hover {
 	text-decoration: none;
 	cursor: pointer;
+}
+.row {
+	margin-left: 0;
+	margin-left: 0;
 }
 
 /*Navbar Styles*/
@@ -73,6 +82,7 @@ table.table header.event-group {
 	color: #f59000;
 	text-transform: uppercase;
 	padding-top: 40px;
+	padding-bottom: 20px;
 	font-size: 1em;
 }
 .panel-heading { 
@@ -150,17 +160,8 @@ table.table header.event-group {
 
 
 
-.mobile-btn { 
-	width:100%; 
-	margin-top: 1em;
-	margin-left:0;
-	max-width:100%;
-}
 
-/*tmep*/
-/*.test1{background-color: grey;}
-.test2{background-color: red;}
-.test3{background-color: green;}*/
+
 
 
 /*Expanded Filter Bar*/
@@ -205,14 +206,106 @@ table.table header.event-group {
 
 
 
+.test {
+	border: 1px solid black;
+	margin-right: 2em;
+}
+
+/*Location Search*/
+.bigSearch-container > .form > .form-group { padding-left: 0;}
+.bigSearch-container { margin-top: 4em; }
+.bigSearch-input { 
+	height: 4em;
+	font-size: 1.2em;
+	padding-left: 1.5em;
+	margin-left: 0;
+	/*width: 80%;*/
+}
+
+.bigSearch-submit {
+	background-color: #0095D9;
+	height: 4em;
+	font-size: 2em; 
+	color:white;
+	border:none;
+	box-shadow: 0 0 1px #666;
+	max-height: 67px;
+	/*width: 20%;*/
+}
+
+.bigSearch-submit:hover {
+	background-color:#0095D9;
+	color:white;
+	/*border:1px solid #666;*/
+	box-shadow: none;
+}
+
+/*Next Event Callout*/
+.nextEvent-container {
+	padding: 0;
+}
+.nextEvent-small {
+	border-radius: 4px;
+	background-color: white;
+	border: 1px solid #e8e8e8;
+	padding: 1.5em 1.5em;
+	text-align: center;
+}
+.nextEvent-title { 
+	font-size: 1.2em;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.nextEvent-subtitle {
+	color: #999;
+	font-size: 1.2em;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+.grey-btn {
+	background-color: #fbfbfb;
+	color: #808080;
+	border:1px solid #ccc;
+	margin-top: 1em;
+	min-width: 5em;
+	box-shadow: 1px 1px 0px #ccc;
+}
+.btn {box-shadow: 1px 1px 0px #ccc;}
+.btn:hover {
+	box-shadow: 0px 0px 0px #ccc;	
+}
+
+.blue-btn {
+	background-color: #0095D9;
+	color: white;
+}
+
+.blue-btn:hover {color:white;}
+.btn-text {
+	padding-left: .5em;
+}
+/*#email, #phone { width:20em;}*/
+.reminderSignup {margin-top: 2em;}
+.reminderText {
+	max-width: 75%;
+	display: inline-block;
+}
+.reminderIcon { 
+	margin-right: 2em;
+	float:left;
+}
+.fa-envelope {padding-right: 1em;}
+
+input#email, input#phone { width: 16em;}
 
 
+.notations {
+	margin: 2em 0;
+	font-size: .8em;
+}
+.alert {margin-top: 2em;}
 
-
-/*temp*/
-/*.filter-bar-expanded { border:1px solid black; }
-.filter-bar-expanded tr { border: 1px solid black; }
-.filter-bar-expanded td { border: 1px solid black; }*/
+/*.cal-container {margin-top: 2em;}*/
 
 
 
@@ -230,4 +323,62 @@ footer a:hover {color:white;}
 .footer-content {
 	/*border:1px solid black;*/
 	padding-top: 3em;
+}
+
+
+
+
+/* -------- MEDIA QUERIES -------*/
+
+@media (min-width: 1201px){
+	.cal-container { padding-left: 1em !important;}
+}
+
+@media (max-width: 1200px) and (min-width:992px){
+	.cal-container { padding: 0 2em !important;}
+
+}
+
+@media (max-width: 991px) and (min-width:768px){
+	.nextEvent-small { height: 8em;}
+	.nextEvent-title {margin-top: .5em;}
+	.bigSearch-submit {
+		font-size: 1em;
+		height: 6em;
+	}
+
+
+
+}
+
+@media (max-width: 767px){
+	.bigSearch-container { margin-top: 4em; }
+	.bigSearch-input { 
+		font-size: 1em;
+		width: 120%;
+	}
+	.bigSearch-submit {
+		font-size: 1em; 
+		width: 100%;}
+	.bigSearch-container > .form > .form-group {
+		max-width: 100%;
+		padding-right: 0 !important;
+	}
+	.cal-container {margin-top: 2em;}
+	input#email, input#phone { 
+		margin-top: 1em;
+		margin-left: 4.3em;
+		width: 75%;
+	}
+	button.reminderButton { margin-left: 4.3em;}
+	.mobile-btn { 
+		width:100%; 
+		margin-top: 1em;
+		margin-left:0;
+		max-width:100%;
+		height: 48px;
+	}
+
+
+
 }
