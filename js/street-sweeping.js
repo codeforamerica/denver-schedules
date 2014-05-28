@@ -1,4 +1,4 @@
-Date.prototype.getMonthWeek = function(){
+Date.prototype.getUTCMonthWeek = function(){
     var firstDay = new Date(this.getUTCFullYear(), this.getUTCMonth(), 1).getUTCDay();
     return Math.ceil((this.getUTCDate() + firstDay)/7);
 }
@@ -53,7 +53,7 @@ function loadData (filterTime) {
       //filter down csv to only listings that are currently happening.
       var weeks = [row['week1'], row['week2'], row['week3'], row['week4'], row['week5']];
       var days = [row['Sunday'],row['Monday'],row['Tuesday'],row['Wednesday'],row['Thursday'],row['Friday'],row['Saturday']];
-      var sweepingWeek = isItSweepingWeek(filterTime.getMonthWeek(), weeks);
+      var sweepingWeek = isItSweepingWeek(filterTime.getUTCMonthWeek(), weeks);
       var sweepingDay = isItSweepingDay(filterTime.getUTCDay(), days);
       var sweepingTime = isItSweepingTime(utcTime, removeMilliseconds(row['StartTime']), removeMilliseconds(row['EndTime']));
       return  sweepingTime && sweepingWeek && sweepingDay;
@@ -61,8 +61,8 @@ function loadData (filterTime) {
   // the columns you'd like to display
   var columns = ['Street','from','to'];
   
-  d3.select("#results").html(null);
-  var table = d3.select("#results").append("table").attr("class", "tblResults"),
+  var results = d3.select("#results").html(null),
+      table = results.append("table").attr("class", "tblResults"),
       thead = table.append("thead"),
       tbody = table.append("tbody");
 
