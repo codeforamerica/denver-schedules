@@ -215,7 +215,6 @@
       $( document ).ready(function() {
         $.ajax({
             url: "http://staging-denver-now-api.herokuapp.com/schedules",
-            dataType:"jsonp",
             success: function(data){
               console.log('Success getting data from server: ' + data);
               $('body').append(template(data));
