@@ -48,12 +48,12 @@
     <div class="row bigSearch-container">
 
 
-      <form class="form  col-lg-8 col-lg-offset-2" role="form">
+      <div class="form  col-lg-8 col-lg-offset-2" role="form">
         <div class="form-group col-xs-10">
-          <input type="search" class="form-control bigSearch-input" placeholder="e.g. 700 14th St, Denver, CO 80202">
+          <input id="address" type="search" class="form-control bigSearch-input" placeholder="e.g. 700 14th St, Denver, CO 80202">
         </div>
-        <button type="submit" class="btn btn-default bigSearch-submit col-xs-2">Search</button>
-      </form>
+        <button id="submit" type="submit" class="btn btn-default bigSearch-submit col-xs-2">Search</button>
+      </div>
 
     </div>
     
@@ -171,7 +171,7 @@
 
     <!-- Load JS Scripts -->
     <script type="text/javascript" src="js/showhide.js"></script>
-
+    <script type="text/javascript" src="js/street-sweeping.js"></script>
 
 
   </body>
