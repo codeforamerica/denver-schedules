@@ -3,6 +3,34 @@ Date.prototype.getUTCMonthWeek = function(){
     return Math.ceil((this.getUTCDate() + firstDay)/7);
 }
 
+function sortIt (d, order) {
+/*
+* d is the column that we're sorting
+* order is a string, if it's set to 'descending' then sort by descending, else ascending
+*/
+
+  if (d === 'Street') {
+    if (order === 'descending') {
+      d3.select('#results table tbody').selectAll('tr').sort(function(a, b){ return d3.descending(a.Street, b.Street); })
+    } else {
+      d3.select('#results table tbody').selectAll('tr').sort(function(a, b){ return d3.ascending(a.Street, b.Street); })
+    }
+  } else if (d === 'from') {
+    if (order === 'descending') {
+      d3.select('#results table tbody').selectAll('tr').sort(function(a, b){ return d3.descending(a.from, b.from); })
+    } else {
+      d3.select('#results table tbody').selectAll('tr').sort(function(a, b){ return d3.ascending(a.from, b.from); })
+    }
+  } else if (d === 'to') {
+    if (order === 'descending') {
+      d3.select('#results table tbody').selectAll('tr').sort(function(a, b){ return d3.descending(a.to, b.to); })
+    } else {
+      d3.select('#results table tbody').selectAll('tr').sort(function(a, b){ return d3.ascending(a.to, b.to); })
+    }
+  }
+
+}
+
 $( "#time-button" ).click(function() {
   var inputDate = new Date($('#date').val() + ' ' + $('#time').val() );
   loadData(inputDate);
@@ -72,10 +100,28 @@ function loadData (filterTime) {
       .data(columns)
       .enter()
       .append("th")
-          .text(function(column) { return column; });
+          .text(function(column) { return column; })
+      .on("click", function(d){
+          if (ascending) {
+            sortIt(d, 'ascending');
+          } else {
+            sortIt(d, 'descending');
+          }
+          ascending = !ascending;
+        }
+      );
+  //initialize ascending as true
+  var ascending = true;
+  //add sort icon to the list
+  d3.selectAll('#results table tr th').append('span').html(' <i class="fa fa-sort"></i>')
 
   //sort data alphabetically by street name
-  data.sort(function(a, b){ return d3.ascending(a.Street, b.Street); })
+  //data.sort(function(a, b){ return d3.ascending(a.Street, b.Street); })
+
+  //d3.select('#results table tbody').selectAll('tr').sort(function(a, b){ return d3.ascending(a.Street, b.Street); })
+
+  //data.sort(function(a, b){ return d3.ascending(a.from, b.from); })
+  //data.sort(function(a, b){ return d3.ascending(a.to, b.to); })
 
   // create a row for each object in the data
   var rows = tbody.selectAll("tr")
@@ -94,4 +140,5 @@ function loadData (filterTime) {
       .append("td")
           .text(function(d) { return d.value; });
   });
+
 }
