@@ -109,7 +109,8 @@ function loadData (filterTime) {
           }
           ascending = !ascending;
         }
-      );
+      )
+    ;
   //initialize ascending as true
   var ascending = true;
   //add sort icon to the list
