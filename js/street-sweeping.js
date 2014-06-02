@@ -47,7 +47,7 @@ function removeMilliseconds(time) {
 function loadData (filterTime) {
   // All dates from the server are stored as UTC, use UTC for comparison
   var utcTime = filterTime.getUTCHours().toString() + ":" + filterTime.getUTCMinutes().toString() + ":" + filterTime.getUTCSeconds().toString();
- 
+
   d3.csv("data/boston-street-sweeping-schedules.csv", function(data) {
     data = data.filter(function(row) {
       //filter down csv to only listings that are currently happening.
@@ -60,7 +60,7 @@ function loadData (filterTime) {
   })
   // the columns you'd like to display
   var columns = ['Street','from','to'];
-  
+
   var results = d3.select("#results").html(null),
       table = results.append("table").attr("class", "tblResults"),
       thead = table.append("thead"),
@@ -73,6 +73,9 @@ function loadData (filterTime) {
       .enter()
       .append("th")
           .text(function(column) { return column; });
+
+  //sort data alphabetically by street name
+  data.sort(function(a, b){ return d3.ascending(a.Street, b.Street); })
 
   // create a row for each object in the data
   var rows = tbody.selectAll("tr")
