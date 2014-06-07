@@ -1,0 +1,51 @@
+body, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+body { font-family: Helvetica, Arial, sans-serif }
+
+a { text-decoration: none }
+
+.calendar {
+    margin: 10px;
+    width:176px;
+    text-align: center;
+    font-size: .8em;
+
+}
+
+.cal-day, .cal-days-of-week>div {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    float: left;
+}
+
+.cal-days-of-week {
+    width: 175px;
+    color: #666;
+    font-size: .6em;
+    text-transform: capitalize;
+}
+
+.selected {position: relative;}
+.selected:after { 
+    content: '';
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    right: -1px;
+    bottom: 5px;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
+    border: 2px solid #666;
+    border-radius: 30px;
+}
+
+.month-title {
+    width: 175px;
+    height: 25px;
+}
+
