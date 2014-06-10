@@ -55,3 +55,9 @@ a { text-decoration: none }
     height: 25px;
 }
 
+.holiday {
+    font-weight: 900;
+    font-size: 1em;   
+    color:red;
+}
+
