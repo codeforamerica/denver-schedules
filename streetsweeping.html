@@ -10,7 +10,6 @@
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
     <title>Denver Schedules</title>
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
@@ -179,6 +178,9 @@
       </div>
     </div>
 
+    <!-- ========= NEXT STREET SWEEPING ======== -->
+    <div id="results" class="row"></div>
+
     <div class="row hidden-print">
       <div class="col-lg-8 col-lg-offset-2">
       <div class="alert alert-warning alert-dismissable">
@@ -199,14 +201,13 @@
 
     </div> <!-- container -->
 
-</body>
 
     <footer>
       <div class="container">
         <div class="footer-content">
-        Presented by Code for America and Denver
+          Presented by Code for America and Denver
 
-        Read more about this project <a>here</a>.
+          Read more about this project <a>here</a>.
 
         </div>
       </div> <!-- container -->
@@ -229,6 +230,80 @@
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" src="js/streetsweeping.js"></script>
 
+    <!-- Mustache Templates -->
+    <script id="route-template" type="text/x-handlebars-template" charset="utf-8">
+      {{#each this}}
+        <div class="col-lg-8 col-lg-offset-2">          
+          <h4 class="section-title">
+            {{description}}
+          </h4>
+          {{#hasUpcoming}}
+          <h5 >Next Street Sweeping</h5>
+          <div class="col-sm-6 nextEvent-container">
+            <div class="nextEvent-small">
+              <div class="nextEvent-title">{{first upcoming}} </div>
+            </div>
+          </div>
+          <div class="col-sm-6 cal-container">
+            Download or subscribe to this areas street sweeping calendar in iCal, Google Calendar or Outlook.<br>
+            <button type="button" class="btn grey-btn mobile-btn">
+              <i class="fa fa-calendar"></i><span class="btn-text" >Add to my Calendar</span>
+            </button>
+          </div>
+          {{/hasUpcoming}}
+        </div>
+      {{/each}} 
+      {{^each this}}
+        <div class="col-lg-8 col-lg-offset-2">          
+          <h4 class="section-title">The address entered is not valid.</h4>
+        </div> 
+      {{/each}}  
+      {{#notEmpty}}
+        <!-- ========= REMINDERS ======== -->
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <h4 class="section-title">Street Sweeping Reminders</h4>
+            <div class="lead"> Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup> </div>
+          </div>
+        </div>
 
+
+        <div class="row  reminderSignup">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-sm-6">
+              <div><img src="img/email.svg" width="32" class="reminderIcon"></div>
+              <div style="display:inline-block; max-width: 75%;" class="reminderText">Enter your email address, and we will send alerts directly to your inbox.</div>
+            </div>
+            <div class="col-sm-6">
+              <form class="form-inline reminderInput" role="form">
+                  <div class="form-group">
+                    <label class="sr-only" for="emailReminder">Enter an email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
+                  </div>
+                  <button type="submit" class="btn blue-btn  reminderButton">Subscribe</button>
+                </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row reminderSignup">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-sm-6">
+              <div><img src="img/phone.svg" width="32" class="reminderIcon"></div>
+              <div style="display:inline-block; max-width: 75%;" class="reminderText">Receive text message alerts on your phone.<sup>2</sup> </div>
+            </div>
+            <div class="col-sm-6">
+              <form class="form-inline reminderInput" role="form">
+                <div class="form-group">
+                  <label class="sr-only" for="phoneReminder">Enter a phone number</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
+                </div>
+                <button type="submit" class="btn blue-btn reminderButton">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/notEmpty}}
+    </script>
   </body>
 </html>

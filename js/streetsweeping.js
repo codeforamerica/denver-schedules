@@ -1,3 +1,10 @@
+Handlebars.registerHelper("first", function(array) {
+  if(array && array.length > 0)
+    return array[0];
+  else
+    return '';
+});
+
 $('#submit').click(function (){
   getGeocode();
 });
@@ -19,7 +26,32 @@ function getGeocode(){
 }
 
 function loadData(address){
-  console.log(JSON.stringify(address)); // More to come here!
+  var source   = $("#route-template").html();
+  var template = Handlebars.compile(source);
+  $.ajax({
+    //url: "http://staging-denver-now-api.herokuapp.com/streetsweeping",
+    url: "http://127.0.0.1:8080/streetsweeping",
+    data: address,
+    dataType: 'jsonp',
+    success: function(schedules){
+      console.log("Success getting data from server: " + JSON.stringify(schedules));
+      // Add a method used as a conditional in mustache
+      $.each(schedules, function(index, schedule){
+        schedule.hasUpcoming = function(){
+          return schedule.upcoming.length > 0;
+        }
+      });
+
+      schedules.notEmpty = function(){
+        return schedules && schedules.length > 0;
+      };
+      
+      $('#results').html(template(schedules));
+    },
+    error: function(data){
+      console.log('Error: ' + JSON.stringify(data));
+    }
+  });
 }
 
 // Modified from https://raw.githubusercontent.com/mapbox/geo-googledocs/master/MapBox.js
