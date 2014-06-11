@@ -1,6 +1,13 @@
-Handlebars.registerHelper("first", function(array) {
-  if(array && array.length > 0)
-    return array[0];
+// TODO: Move into more generic file
+Handlebars.registerHelper("firstDate", function(array) {
+  // TODO: Dumb, use date manipulation library
+  var days = new Array("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
+  var months = new Array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
+  if(array && array.length > 0) {
+    var first = array[0];
+    var date = new Date(first);
+    return days[date.getDay()] + ", " + months[date.getMonth()-1] + " " + date.getDate();
+  }
   else
     return '';
 });
@@ -26,8 +33,10 @@ function getGeocode(){
 }
 
 function loadData(address){
-  var source   = $("#route-template").html();
-  var template = Handlebars.compile(source);
+  var routes   = $("#route-template").html();
+  var notes = $("#notes-template").html();
+  var routeTemplate = Handlebars.compile(routes);
+  var notesTemplate = Handlebars.compile(notes);
   $.ajax({
     //url: "http://staging-denver-now-api.herokuapp.com/streetsweeping",
     url: "http://127.0.0.1:8080/streetsweeping",
@@ -46,7 +55,8 @@ function loadData(address){
         return schedules && schedules.length > 0;
       };
       
-      $('#results').html(template(schedules));
+      $('#results').html(routeTemplate(schedules));
+      $('#notes').html(notesTemplate(schedules));
     },
     error: function(data){
       console.log('Error: ' + JSON.stringify(data));
