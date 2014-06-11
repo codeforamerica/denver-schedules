@@ -168,6 +168,9 @@
                     {{#hasUpcoming}}
                       {{firstDate upcoming}}
                     {{/hasUpcoming}}
+                    {{^hasUpcoming}}
+                      Not Posted
+                    {{/hasUpcoming}}
                   </div>
                   <span class="nextEvent-title">{{category}}</span>
                   <span class='nextEvent-subtitle'>{{name}}</span>
