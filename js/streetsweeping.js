@@ -38,10 +38,9 @@ function loadData(address){
   var routeTemplate = Handlebars.compile(routes);
   var notesTemplate = Handlebars.compile(notes);
   $.ajax({
-    //url: "http://staging-denver-now-api.herokuapp.com/streetsweeping",
-    url: "http://127.0.0.1:8080/streetsweeping",
+    url: "http://staging-denver-now-api.herokuapp.com/streetsweeping",
+    //url: "http://127.0.0.1:8080/streetsweeping",
     data: address,
-    dataType: 'jsonp',
     success: function(schedules){
       console.log("Success getting data from server: " + JSON.stringify(schedules));
       // Add a method used as a conditional in mustache
