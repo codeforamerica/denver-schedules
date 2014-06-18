@@ -104,7 +104,7 @@
     <script type="text/javascript" src="js/streetsweeping.js"></script>
 
     <!-- Mustache Templates -->
-    <script id="pick-streets-template">
+    <script id="pick-streets-template" type="text/x-handlebars-template" charset="utf-8">
       <!-- ========= MULTIPLE ADDRESSES ======== -->
       <!-- Add code to pick from multiple streets here -->
       <div class="row addressSelect-descr">
@@ -169,11 +169,11 @@
                       {{firstDate upcoming}}
                     {{/hasUpcoming}}
                     {{^hasUpcoming}}
-                      Not Posted  
+                      {{error}} 
                     {{/hasUpcoming}}
                   </div>
                   <span class="nextEvent-title">{{category}}</span>
-                  <span class='nextEvent-subtitle'>{{side}} of {{name}}</span>
+                  <span class='nextEvent-subtitle'>{{description}} of {{name}}</span>
                 </div>
               {{/this}}
             </div>

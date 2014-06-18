@@ -6,7 +6,7 @@ Handlebars.registerHelper("firstDate", function(array) {
   if(array && array.length > 0) {
     var first = array[0];
     var date = new Date(first);
-    return days[date.getDay()] + ", " + months[date.getMonth()-1] + " " + date.getDate();
+    return days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate();
   }
   else
     return '';
@@ -38,8 +38,8 @@ function loadData(address){
   var routeTemplate = Handlebars.compile(routes);
   var notesTemplate = Handlebars.compile(notes);
   $.ajax({
-    url: "http://staging-denver-now-api.herokuapp.com/streetsweeping",
-    //url: "http://127.0.0.1:8080/streetsweeping",
+    url: "http://staging-denver-now-api.herokuapp.com/schedules/streetsweeping",
+    //url: "http://127.0.0.1:8080/schedules/streetsweeping",
     data: address,
     success: function(schedules){
       console.log("Success getting data from server: " + JSON.stringify(schedules));
