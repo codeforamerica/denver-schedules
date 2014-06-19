@@ -10,22 +10,17 @@
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
     <title>Denver Schedules</title>
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/main.css">
-
-    <!-- Optional theme -->
   </head>
 
   <body>
-  
     <!-- ========= NAVIGATION ======== -->
     <div class="navbar" role="navigation">
       <div class="container" id="the-body">
-
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -44,170 +39,49 @@
       </div>
     </div>
 
+    <div class="container">    
+      <div class="col-lg-8 col-lg-offset-2 sched-descr lead hidden-print">
+        Find your street sweeping schedule. To get started, enter an address below.
+      </div>
+      
+      <div class="row bigSearch-container hidden-print">
+        <div class="form  col-lg-8 col-lg-offset-2" role="form">
+          <div class="form-group col-xs-10">
+            <input id="address" type="search" class="form-control bigSearch-input" placeholder="e.g. 3516 Clayton St, Denver CO 80205">
+          </div>
+          <button id="submit" type="submit" class="btn btn-default bigSearch-submit col-xs-2">Find Address</button>
 
-    <div class="container">
-    
-    <div class="col-lg-8 col-lg-offset-2 sched-descr lead hidden-print">
-      Find your street sweeping schedule. To get started, enter an address below.
-    </div>
-
-    <div class="row bigSearch-container hidden-print">
-      <div class="form  col-lg-8 col-lg-offset-2" role="form">
-        <div class="form-group col-xs-10">
-          <input id="address" type="search" class="form-control bigSearch-input" placeholder="e.g. 700 14th St, Denver, CO 80202">
         </div>
-        <button id="submit" type="submit" class="btn btn-default bigSearch-submit col-xs-2">Find Address</button>
       </div>
 
-    </div>
+      <!-- ========= MULTIPLE ADDRESSES ======== -->
+      <!-- Add code to pick from multiple streets here -->
 
-    <!-- ========= MULTIPLE ADDRESSES ======== -->
-    <!-- Add code to pick from multiple streets here -->
-    <div class="row addressSelect-descr">
-    <div class="col-lg-8 col-lg-offset-2 lead">
-    
-      We found more than one schedule for the address you entered. Select the street(s) you would like a street sweeping schedule for.
+      <!-- ========= NEXT STREET SWEEPING ======== -->
+      <div id="results" class="row"></div>
+      
+      <!-- ========= PRINTABLE SCHEDULE ======== -->
+      <!-- TODO: Add print code here -->
 
-    </div>
-    </div>
-
-    <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-    
-      <label class="addressSelect-label" >
-        <input type="checkbox" class="addressSelect-checkbox" /> South Pearl Street
-      </label>
-
-      <label class="addressSelect-label" >
-        <input type="checkbox" class="addressSelect-checkbox" /> Broadway Street
-      </label>
-    
-    </div>
-    </div>
-
-
-
-    <!-- NEXT STREET SWEEPING  -->
-
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2">
-      <h4 class="section-title">Next Street Sweeping</h4>
-        <div class="col-lg-6">
-          Download or subscribe to this area's street sweeping calendar in iCal, Google Calendar or Outlook.<br>
-        </div>
-        <div class="col-lg-6">
-          <button type="button" class="btn grey-btn mobile-btn">
-            <i class="fa fa-calendar"></i><span class="btn-text" >Add to my Calendar</span>
-          </button>
-          <button type="button" class="btn grey-btn mobile-btn">
-            <i class="fa fa-print"></i><span class="btn-text" >Print Calendar</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 nextEvent-container">
-            <div class="panel nextEvent-panel">
-              <div class="panel-heading">
-                <div class="nextEvent-date">Thu, May 2</div>
-                <span class="nextEvent-title">Street Sweeping</span><span class='nextEvent-subtitle'> - West side of S Pearl St</span>
-              </div>
-              <div class="panel-heading">
-                <div class="nextEvent-date">Fri, May 3</div>
-                <span class="nextEvent-title">Street Sweeping</span><span class='nextEvent-subtitle'> - East side of S Pearl St</span>
-              </div>
-              <div class="panel-heading">
-                <div class="nextEvent-date">Wed, May 8</div>
-                <span class="nextEvent-title">Street Sweeping</span><span class='nextEvent-subtitle'> - North side of Broadway St</span>
-              </div>
-              <div class="panel-heading">
-                <div class="nextEvent-date">Thu, May 9</div>
-                <span class="nextEvent-title">Street Sweeping</span><span class='nextEvent-subtitle'> - South side of Broadway St</span>
-              </div>
+      <!-- ========= Conditions ===== -->
+      <div class="row hidden-print">
+        <div class="row ">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <strong>Note:</strong> This site does not guarantee that the information is accurate, nor that the notifications will be delivered on a timely basis. Please consult the street signage near your vehical for the most up-to-date parking information.
             </div>
-
-    </div>
-    </div>
-    
-    <!-- ========= PRINTABLE SCHEDULE ======== -->
-    <!-- TODO: Add print code here -->
-
-
-    <!-- ========= REMINDERS ======== -->
-    <div class="row hidden-print">
-      <div class="col-lg-8 col-lg-offset-2">
-        <h4 class="section-title">Street Sweeping Reminders</h4>
-        <div class="lead"> Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup> </div>
-      </div>
-    </div>
-
-
-    <div class="row  reminderSignup hidden-print">
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="col-sm-6">
-          <div><img src="img/email.svg" width="32" class="reminderIcon"></div>
-          <div style="display:inline-block; max-width: 75%;" class="reminderText">Enter your email address, and we'll send alerts directly to your inbox.</div>
+          </div>
         </div>
-        <div class="col-sm-6">
-          <form class="form-inline reminderInput" role="form">
-              <div class="form-group">
-                <label class="sr-only" for="emailReminder">Enter an email address</label>
-                <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
-              </div>
-              <button type="submit" class="btn blue-btn  reminderButton">Subscribe</button>
-            </form>
-        </div>
+        <div id="notes" class="row notations hidden-print"></div>
       </div>
     </div>
-
-    <div class="row reminderSignup hidden-print">
-      <div class="col-lg-8 col-lg-offset-2">
-        <div class="col-sm-6">
-          <div><img src="img/phone.svg" width="32" class="reminderIcon"></div>
-          <div style="display:inline-block; max-width: 75%;" class="reminderText">Receive text message alerts on your phone.<sup>2</sup> </div>
-        </div>
-        <div class="col-sm-6">
-          <form class="form-inline reminderInput" role="form">
-            <div class="form-group">
-              <label class="sr-only" for="phoneReminder">Enter a phone number</label>
-              <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
-            </div>
-            <button type="submit" class="btn blue-btn reminderButton">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <div class="row hidden-print">
-      <div class="col-lg-8 col-lg-offset-2">
-      <div class="alert alert-warning alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <strong>Note:</strong> This site does not guarantee that the information is accurate, nor that the notifications will be delivered on a timely basis. Please consult the street signage near your vehical for the most up-to-date parking information.
-      </div>
-      </div>
-    </div>
-
-
-      <div class="row notations hidden-print">
-        <div class="col-lg-8 col-lg-offset-2">
-          1. Email and text message alerts will be sent one week, and one day, prior to the beginning of street sweeping in this area.<br>
-          2. Standard message and data rates may apply. To unsubscribe from alerts for this area, text STOP W42A1.<br>
-        </div>
-      </div>
-
-
-    </div> <!-- container -->
-
-</body>
 
     <footer>
       <div class="container">
         <div class="footer-content">
-        Presented by Code for America and Denver
-
-        Read more about this project <a>here</a>.
-
+          Presented by Code for America and Denver
+          Read more about this project <a>here</a>.
         </div>
       </div> <!-- container -->
     </footer>
@@ -229,6 +103,141 @@
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" src="js/streetsweeping.js"></script>
 
+    <!-- Mustache Templates -->
+    <script id="pick-streets-template" type="text/x-handlebars-template" charset="utf-8">
+      <!-- ========= MULTIPLE ADDRESSES ======== -->
+      <!-- Add code to pick from multiple streets here -->
+      <div class="row addressSelect-descr">
+        <div class="col-lg-8 col-lg-offset-2 lead">        
+          We found more than one schedule for the address you entered. Select the street(s) you would like a street sweeping schedule for.
 
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+        
+          <label class="addressSelect-label" >
+            <input type="checkbox" class="addressSelect-checkbox" /> South Pearl Street
+          </label>
+
+          <label class="addressSelect-label" >
+            <input type="checkbox" class="addressSelect-checkbox" /> Broadway Street
+          </label>
+        
+        </div>
+      </div>
+    </script>
+
+    <script id="notes-template" type="text/x-handlebars-template" charset="utf-8">
+      {{#notEmpty}}
+        <div class="col-lg-8 col-lg-offset-2">
+          1. Email and text message alerts will be sent one week, and one day, prior to the beginning of street sweeping in this area.<br>
+          2. Standard message and data rates may apply. To unsubscribe from alerts for this area, text STOP W42A1.<br>
+        </div>
+      {{/notEmpty}}
+    </script>
+
+    <script id="route-template" type="text/x-handlebars-template" charset="utf-8">
+      <!-- NEXT STREET SWEEPING  -->
+      {{#notEmpty}}
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+          <h4 class="section-title">Next Street Sweeping</h4>
+            <div class="col-lg-6">
+              Download or subscribe to this areas street sweeping calendar in iCal, Google Calendar or Outlook.<br>
+            </div>
+            <div class="col-lg-6">
+              <button type="button" class="btn grey-btn mobile-btn">
+                <i class="fa fa-calendar"></i><span class="btn-text" >Add to my Calendar</span>
+              </button>
+              <button type="button" class="btn grey-btn mobile-btn">
+                <i class="fa fa-print"></i><span class="btn-text" >Print Calendar</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multiple Street Sweeping -->
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 nextEvent-container">
+            <div class="panel nextEvent-panel">
+              {{#this}}
+                <div class="panel-heading">
+                  <div class="nextEvent-date">
+                    {{#hasUpcoming}}
+                      {{firstDate upcoming}}
+                    {{/hasUpcoming}}
+                    {{^hasUpcoming}}
+                      {{error}} 
+                    {{/hasUpcoming}}
+                  </div>
+                  <span class="nextEvent-title">{{category}}</span>
+                  <span class='nextEvent-subtitle'>{{description}} of {{name}}</span>
+                </div>
+              {{/this}}
+            </div>
+          </div>
+        </div>
+
+        <!-- ========= REMINDERS ======== -->
+        <div class="row hidden-print">
+          <div class="col-lg-8 col-lg-offset-2">
+            <h4 class="section-title">Street Sweeping Reminders</h4>
+            <div class="lead"> 
+              Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup> 
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row  reminderSignup hidden-print">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-sm-6">
+              <div><img src="img/email.svg" width="32" class="reminderIcon"></div>
+              <div style="display:inline-block; max-width: 75%;" class="reminderText">
+                Enter your email address, and we will send alerts directly to your inbox.
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <form class="form-inline reminderInput" role="form">
+                  <div class="form-group">
+                    <label class="sr-only" for="emailReminder">Enter an email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
+                  </div>
+                  <button type="submit" class="btn blue-btn  reminderButton">Subscribe</button>
+                </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row reminderSignup hidden-print">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-sm-6">
+              <div><img src="img/phone.svg" width="32" class="reminderIcon"></div>
+              <div style="display:inline-block; max-width: 75%;" class="reminderText">Receive text message alerts on your phone.<sup>2</sup> </div>
+            </div>
+            <div class="col-sm-6">
+              <form class="form-inline reminderInput" role="form">
+                <div class="form-group">
+                  <label class="sr-only" for="phoneReminder">Enter a phone number</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
+                </div>
+                <button type="submit" class="btn blue-btn reminderButton">Subscribe</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      {{/notEmpty}}
+
+      <!-- INCORRECT ADDRESS -->
+      {{^this}}
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <h4 class="section-title">Sorry, that address does not compute.</h4>
+          </div>
+        </div>
+      {{/this}}
+    </script>
   </body>
 </html>

@@ -1,3 +1,17 @@
+// TODO: Move into more generic file
+Handlebars.registerHelper("firstDate", function(array) {
+  // TODO: Dumb, use date manipulation library
+  var days = new Array("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
+  var months = new Array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
+  if(array && array.length > 0) {
+    var first = array[0];
+    var date = new Date(first);
+    return days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate();
+  }
+  else
+    return '';
+});
+
 $('#submit').click(function (){
   getGeocode();
 });
@@ -19,7 +33,34 @@ function getGeocode(){
 }
 
 function loadData(address){
-  console.log(JSON.stringify(address)); // More to come here!
+  var routes   = $("#route-template").html();
+  var notes = $("#notes-template").html();
+  var routeTemplate = Handlebars.compile(routes);
+  var notesTemplate = Handlebars.compile(notes);
+  $.ajax({
+    url: "http://staging-denver-now-api.herokuapp.com/schedules/streetsweeping",
+    //url: "http://127.0.0.1:8080/schedules/streetsweeping",
+    data: address,
+    success: function(schedules){
+      console.log("Success getting data from server: " + JSON.stringify(schedules));
+      // Add a method used as a conditional in mustache
+      $.each(schedules, function(index, schedule){
+        schedule.hasUpcoming = function(){
+          return schedule.upcoming.length > 0;
+        }
+      });
+
+      schedules.notEmpty = function(){
+        return schedules && schedules.length > 0;
+      };
+      
+      $('#results').html(routeTemplate(schedules));
+      $('#notes').html(notesTemplate(schedules));
+    },
+    error: function(data){
+      console.log('Error: ' + JSON.stringify(data));
+    }
+  });
 }
 
 // Modified from https://raw.githubusercontent.com/mapbox/geo-googledocs/master/MapBox.js
