@@ -24,7 +24,13 @@ function getGeocode(){
   $.ajax({
     url: url,
     success: function(data){
-      loadData(geocoder.parse(data));
+      // Only get street sweeping data if we have a street address
+      if( data[0].address.house_number) {
+        loadData(geocoder.parse(data));
+      }
+      else {
+        loadData([]);
+      }
     },
     error: function(error){
       console.log(JSON.stringify(error));
