@@ -239,5 +239,16 @@
         </div>
       {{/this}}
     </script>
+
+  <script charset="utf-8">
+    //This code is for pressing enter on the big search box
+     $( "#address" ).keypress(function( event ) {
+       //if user presses enter, click on the submit button:
+       if (event.charCode == 13) {
+         $('#submit').click();
+       }
+     });
+
+  </script>
   </body>
 </html>
