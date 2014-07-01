@@ -5,7 +5,15 @@ Handlebars.registerHelper('times', function(n, block) {
    return accum;
 });
 
-var streetSweeping = ['2014/01/13', '2014/03/13', '2014/04/13'];
+// var streetSweeping = ['2014/01/13', '2014/03/13', '2014/04/13'];
+var streetSweeping = [
+    {"street":"Wadsworth St", "date":"2014/01/13", "direction":"N"}, 
+    {"street":"Wadsworth St", "date":"2014/9/22", "direction":"S"},
+    {"street":"Broadway Ave", "date":"2014/04/13", "direction":"W"},
+    {"street":"Broadway Ave", "date":"2014/04/27", "direction":"E"},
+    {"street":"Broadway Ave", "date":"2014/02/2", "direction":"E"},
+];
+
 var holidays = ['2014/03/12', '2014/05/22', '2014/04/01'];
 
 
@@ -13,19 +21,14 @@ var holidays = ['2014/03/12', '2014/05/22', '2014/04/01'];
 // This is a callback
 $(document).ready(function() {
 
-var source = $('#calendar-template').html();
-var template = Handlebars.compile(source);
+  var source = $('#calendar-template').html();
+  var template = Handlebars.compile(source);
 
-for (var i = 0; i<=11; i++){
-  var data = generateMonth(2014, i);
-  var html = template(data);
-  $('.yearCalendar').append(html);
-}
-
-
-
-
-
+  for (var i = 0; i<=11; i++){
+    var data = generateMonth(2014, i);
+    var html = template(data);
+    $('.yearCalendar').append(html);
+  }
 
 });
 
@@ -44,6 +47,18 @@ function dateInArray(date, array){
   return false;
 }
 
+function dateInStreetSweeping(date, array){
+  
+  for (var i = 0 ; i<array.length ; i++) {
+    var sweepDate = new Date(array[i].date);
+
+    if (date.getTime() === sweepDate.getTime()) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function generateMonth(year, month) {
   var monthName = ['January (enero)', 'February (febrero)', 'March (marzo)', 'April (abril)', 'May (mayo)', 'June (junio)', 'July (julio)', 'August (agosto)', 'September (septiembre)', 'October (octubre)', 'November (noviembre)', 'December (diciembre)']
   var emptyDays = new Date(year,month,1).getDay();
@@ -56,7 +71,10 @@ function generateMonth(year, month) {
     days.push({
       date: i,
       holiday: dateInArray(currentDay, holidays),
-      sweeping: dateInArray(currentDay, streetSweeping),
+      sweeping: dateInStreetSweeping(currentDay, streetSweeping),
+
+
+      
     });
   }
 
