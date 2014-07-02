@@ -102,7 +102,7 @@
     <!-- Load JS Scripts -->
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" src="js/streetsweeping.js"></script>
-
+    <script type="text/javascript" src="js/mailchimp.js"></script>
     <!-- Mustache Templates -->
     <script id="pick-streets-template" type="text/x-handlebars-template" charset="utf-8">
       <!-- ========= MULTIPLE ADDRESSES ======== -->
@@ -148,10 +148,10 @@
               Download or subscribe to this areas street sweeping calendar in iCal, Google Calendar or Outlook.<br>
             </div>
             <div class="col-lg-6">
-              <button type="button" class="btn grey-btn mobile-btn" disabled>
+              <button type="button" onclick="doPopUp()" class="btn grey-btn mobile-btn trigger-pop-up">
                 <i class="fa fa-calendar"></i><span class="btn-text">Add to my Calendar</span>
               </button>
-              <button type="button" class="btn grey-btn mobile-btn" disabled>
+              <button type="button" onclick="doPopUp()" class="btn grey-btn mobile-btn trigger-pop-up">
                 <i class="fa fa-print"></i><span class="btn-text" >Print Calendar</span>
               </button>
             </div>
@@ -205,7 +205,7 @@
                     <label class="sr-only" for="emailReminder">Enter an email address</label>
                     <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
                   </div>
-                  <button  onclick='alert("This is a demo. We will not email you")' type="submit" class="btn blue-btn  reminderButton" disabled>Subscribe</button>
+                  <button type="submit" onclick="doPopUp()" class="btn blue-btn reminderButton trigger-pop-up">Subscribe</button>
                 </div>
             </div>
           </div>
@@ -223,7 +223,7 @@
                   <label class="sr-only" for="phoneReminder">Enter a phone number</label>
                   <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
                 </div>
-                <button onclick='alert("This is a demo. We will not text you")' type="submit" class="btn blue-btn reminderButton" disabled>Subscribe</button>
+                <button type="submit" onclick="doPopUp()" class="btn blue-btn reminderButton trigger-pop-up">Subscribe</button>
               </div>
             </div>
           </div>
@@ -240,15 +240,50 @@
       {{/this}}
     </script>
 
-  <script charset="utf-8">
-    //This code is for pressing enter on the big search box
-     $( "#address" ).keypress(function( event ) {
-       //if user presses enter, click on the submit button:
-       if (event.charCode == 13) {
-         $('#submit').click();
-       }
-     });
+  <div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Get updates about this app</h4>
+      </div>
+      <div class="modal-body">
+        <div id="email-result">
+        </div>
+        <div id="popup-content">
+          <h2>Frustrated about street sweeping tickets?</h2>
+          <p>
+            We're about to launch a beta version of our street sweeping notification app.
+            Sign up now and we'll email you when it's ready.
+          </p>
+          <hr />
+        </div>
+        <form id="signup-form" >
+        <div id="subscribe-form">
+          <div class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="sr-only" for="firstname">First name</label>
+              <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="John" >
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="lastname">Last name</label>
+              <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME" placeholder="Doe">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="lastname">Email </label>
+              <input type="email" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="example@example.com">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
 
-  </script>
+        <button name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Sign me up!</button>
+      </form>
+      </div>
+    <!-- </form> -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
   </body>
 </html>
