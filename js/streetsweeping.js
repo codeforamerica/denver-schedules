@@ -150,6 +150,7 @@ var geocoders = {
      //if user presses enter, click on the submit button:
      if (event.charCode == 13) {
        $('#submit').click();
+       $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
      }
     });
     //This code is for pressing enter on the email sign up box
