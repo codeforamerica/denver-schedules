@@ -59,7 +59,7 @@ function loadData(address){
       schedules.notEmpty = function(){
         return schedules && schedules.length > 0;
       };
-      
+
       $('#results').html(routeTemplate(schedules));
       $('#notes').html(notesTemplate(schedules));
     },
@@ -107,8 +107,8 @@ var geocoders = {
   },
   cicero: {
     query: function(query, key) {
-      return 'https://cicero.azavea.com/v3.1/legislative_district?format=json&key=' + 
-        key + '&search_loc=' + query; 
+      return 'https://cicero.azavea.com/v3.1/legislative_district?format=json&key=' +
+        key + '&search_loc=' + query;
     },
     parse: function(r) {
       try {
@@ -139,3 +139,26 @@ var geocoders = {
     }
   }
 };
+
+
+//This is to trigger the popup when someone clicks on something with the class 'trigger-pop-up'
+
+  $(document).ready( function () {
+  //This code is for pressing enter on the big search box
+
+    $( "#address" ).keypress(function( event ) {
+     //if user presses enter, click on the submit button:
+     if (event.charCode == 13) {
+       $('#submit').click();
+       $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
+     }
+    });
+    //This code is for pressing enter on the email sign up box
+
+    $( "#mce-EMAIL" ).keypress(function( event ) {
+      //if user presses enter, click on the submit button:
+       if (event.charCode == 13) {
+         $('#mc-embedded-subscribe').click();
+       }
+    });
+  });
