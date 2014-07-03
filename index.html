@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
-    <title>Denver Schedules</title>
+    <title>Denver Street Sweeping</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
@@ -18,30 +18,19 @@
   </head>
 
   <body>
+  <div class="page-wrap">
     <!-- ========= NAVIGATION ======== -->
     <div class="navbar" role="navigation">
       <div class="container" id="the-body">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><strong>Denver</strong> Street Sweeping</a>
-        </div>
-        <!-- <div class="collapse navbar-collapse navbar-right">
-          <ul class="nav navbar-nav">
-            <li><a href="#about">About</a></li>
-          </ul>
-        </div><!--/.nav-collapse  -->
+      <div class="col-lg-8 col-lg-offset-2 sitename">
+        <a href="http://www.streetsweep.co">Street Sweep Colorado</span></a>
       </div>
       </div>
     </div>
 
     <div class="container">
-      <div class="col-lg-8 col-lg-offset-2 sched-descr lead hidden-print">
-        Find your street sweeping schedule. To get started, enter an address below.
+      <div class="col-lg-8 col-lg-offset-2 sched-descr hidden-print text-center lead">
+        Find street sweeping information for an address in Denver. <br>Start by entering an address below.
       </div>
 
       <div class="row bigSearch-container hidden-print">
@@ -63,25 +52,28 @@
       <!-- ========= PRINTABLE SCHEDULE ======== -->
       <!-- TODO: Add print code here -->
 
+      <!-- ========= NOTES =====-= -->
+      <div id="notes" class="row notations hidden-print"></div>
+
       <!-- ========= Conditions ===== -->
       <div class="row hidden-print">
-        <div class="row ">
           <div class="col-lg-8 col-lg-offset-2">
-            <div class="alert alert-warning alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <div class="alert alert-warning">
               <strong>Note:</strong> This site does not guarantee that the information is accurate, nor that the notifications will be delivered on a timely basis. Please consult the street signage near your vehical for the most up-to-date parking information.
             </div>
           </div>
-        </div>
-        <div id="notes" class="row notations hidden-print"></div>
+
       </div>
     </div>
+    </div> <!-- .page-wrap -->
 
-    <footer>
+    <footer class="site-footer">
       <div class="container">
-        <div class="footer-content">
-          Presented by Code for America and Denver
+        <div class="col-lg-8 col-lg-offset-2 footer-content">
+
+          Presented by <a href="http://codeforamerica.org/">Code for America</a> and <a href="http://www.denvergov.org/">Denver</a>.
           Read more about this project <a href="http://govtech.com/data/Behind-the-Scenes-Code-For-America-Does-Denver.html">here</a>.
+
         </div>
       </div> <!-- container -->
     </footer>
@@ -133,7 +125,7 @@
       {{#notEmpty}}
         <div class="col-lg-8 col-lg-offset-2">
           1. Email and text message alerts will be sent one week, and one day, prior to the beginning of street sweeping in this area.<br>
-          2. Standard message and data rates may apply. To unsubscribe from alerts for this area, text STOP W42A1.<br>
+          2. Standard message and data rates may apply. To unsubscribe from alerts for this area, text STOP.<br>
         </div>
       {{/notEmpty}}
     </script>
@@ -141,7 +133,7 @@
     <script id="route-template" type="text/x-handlebars-template" charset="utf-8">
       <!-- NEXT STREET SWEEPING  -->
       {{#notEmpty}}
-        <div class="row">
+
           <div class="col-lg-8 col-lg-offset-2">
           <h4 class="section-title">Next Street Sweeping</h4>
             <div class="col-lg-6">
@@ -156,10 +148,9 @@
               </button>
             </div>
           </div>
-        </div>
+
 
         <!-- Multiple Street Sweeping -->
-        <div class="row">
           <div class="col-lg-8 col-lg-offset-2 nextEvent-container">
             <div class="panel nextEvent-panel">
               {{#this}}
@@ -178,21 +169,21 @@
               {{/this}}
             </div>
           </div>
-        </div>
+
 
         <!-- ========= REMINDERS ======== -->
-        <div class="row hidden-print">
-          <div class="col-lg-8 col-lg-offset-2">
+
+          <div class="col-lg-8 col-lg-offset-2 hidden-print">
             <h4 class="section-title">Street Sweeping Reminders</h4>
             <div class="lead">
               Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup>
             </div>
           </div>
-        </div>
 
 
-        <div class="row  reminderSignup hidden-print">
-          <div class="col-lg-8 col-lg-offset-2">
+
+
+          <div class="col-lg-8 col-lg-offset-2 reminderSignup hidden-print">
             <div class="col-sm-6">
               <div><img src="img/email.svg" width="32" class="reminderIcon"></div>
               <div style="display:inline-block; max-width: 75%;" class="reminderText">
@@ -209,10 +200,10 @@
                 </div>
             </div>
           </div>
-        </div>
 
-        <div class="row reminderSignup hidden-print">
-          <div class="col-lg-8 col-lg-offset-2">
+
+
+          <div class="col-lg-8 col-lg-offset-2 reminderSignup hidden-print">
             <div class="col-sm-6">
               <div><img src="img/phone.svg" width="32" class="reminderIcon"></div>
               <div style="display:inline-block; max-width: 75%;" class="reminderText">Receive text message alerts on your phone.<sup>2</sup> </div>
@@ -227,7 +218,7 @@
               </div>
             </div>
           </div>
-        </div>
+
       {{/notEmpty}}
 
       <!-- INCORRECT ADDRESS -->
@@ -278,6 +269,7 @@
       </div>
       <div class="modal-footer">
 
+
         <button name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Sign me up!</button>
       </form>
       </div>
@@ -285,5 +277,12 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+
+  </script>
+  <!-- Add TypeKit Fonts -->
+  <script type="text/javascript" src="//use.typekit.net/sne3psa.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+
   </body>
 </html>
