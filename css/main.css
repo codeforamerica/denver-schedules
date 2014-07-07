@@ -381,6 +381,16 @@ table.table header.event-group {
 	padding-left: .5em;
 }
 
+.modal-content {background-color: #f8f8f8;}
+#popup-content > h3 {margin-top: .5em;}
+/*.modal-header > .section-title { padding:0;}*/
+
+.modal-title {
+	color: #f59000;
+	text-transform: uppercase;
+	font-size: 1em;
+}
+
 
 
 
@@ -425,6 +435,15 @@ footer a:hover {
 
 
 
+/* ===== MODAL STYLES ===== */
+/*
+.subscribe-form input {
+	margin-left: 3em;
+	margin-right: 3em;
+}*/
+
+#popup-content {	margin-bottom: 2em; }
+.modal-footer > button 
 
 /* ===== MEDIA QUERIES ===== */
 

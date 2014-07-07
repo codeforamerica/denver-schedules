@@ -232,49 +232,48 @@
     </script>
 
   <div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Get updates about this app</h4>
-      </div>
-      <div class="modal-body">
-        <div id="email-result">
-        </div>
-        <div id="popup-content">
-          <h2>Frustrated about street sweeping tickets?</h2>
-          <p>
-            We're about to launch a beta version of our street sweeping notification app.
-            Sign up now and we'll email you when it's ready.
-          </p>
-          <hr />
-        </div>
-        <form id="signup-form" >
-        <div id="subscribe-form">
-          <div class="form-horizontal" role="form">
-            <div class="form-group">
-              <label class="sr-only" for="firstname">First name</label>
-              <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="John" >
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="lastname">Last name</label>
-              <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME" placeholder="Doe">
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="lastname">Email </label>
-              <input type="email" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="example@example.com">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Get updates about this app</h4>
+        </div> <!-- /.modal-header -->
+        
+        <div class="modal-body">
+          <div id="email-result"></div>
+          <div id="popup-content">
+            <h3>Worried about street sweeping tickets?</h3>
+            <p>
+              Sign up below and we'll let you know when we add email, SMS, and calendar reminders to Street Sweep Colorado. 
+            </p>
+          </div> <!-- /#popup-content -->
+          
+          <form id="signup-form" >
+            <div id="subscribe-form">
 
-
-        <button name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Sign me up!</button>
-      </form>
-      </div>
-    <!-- </form> -->
-      </div><!-- /.modal-content -->
+              <div class="form-group">
+                <label class="sr-only" for="firstname">First name</label>
+                <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="John" >
+              </div>
+              
+              <div class="form-group">
+                <label class="sr-only" for="lastname">Last name</label>
+                <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME" placeholder="Doe">
+              </div>
+              
+              <div class="form-group">
+                <label class="sr-only" for="lastname">Email </label>
+                <input type="email" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="example@example.com">
+              </div>
+            </div> <!-- /#subscribe-form -->
+          </form>
+        </div>  <!-- /.modal-body -->
+        
+        <div class="modal-footer">
+          <button name="subscribe" id="mc-embedded-subscribe" class="btn blue-btn">Sign me up!</button>
+        </div> <!-- /.modal-footer -->
+      </div> <!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
