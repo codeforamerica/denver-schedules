@@ -62,7 +62,7 @@ function mce_init_form(){
       var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
       var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
       $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
-      options = { url: 'http://codeforamerica.us8.list-manage.com/subscribe/post-json?u=ad3b1c790de6d48419862eabd&id=9d17db13c8&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+      options = { url: 'http://codeforamerica.us2.list-manage.com/subscribe/post-json?u=d9acf2a4c694efbd76a48936f&id=02a49cc1ef&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
                     beforeSubmit: function(){
                         $('#mce_tmp_error_msg').remove();
                         $('.datefield','#mc_embed_signup').each(
@@ -188,7 +188,6 @@ function mce_success_cb(resp){
 }
 
 
-//drew+test25@codeforamerica.org
 
 //// submission code
 
@@ -209,7 +208,7 @@ $(document).ready( function () {
 function register($form) {
     $.ajax({
         type: 'post',
-        url: 'http://codeforamerica.us8.list-manage1.com/subscribe/post-json?u=ad3b1c790de6d48419862eabd&amp;id=9d17db13c8&c=?',
+        url: 'http://codeforamerica.us2.list-manage.com/subscribe/post-json?u=d9acf2a4c694efbd76a48936f&amp;id=02a49cc1ef&c=?',
         data: $form.serialize(),
         cache       : false,
         dataType    : 'json',
