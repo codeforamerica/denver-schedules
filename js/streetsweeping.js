@@ -1,3 +1,17 @@
+// TODO: Move into more generic file
+Handlebars.registerHelper("firstDate", function(array) {
+  // TODO: Dumb, use date manipulation library
+  var days = new Array("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
+  var months = new Array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
+  if(array && array.length > 0) {
+    var first = array[0];
+    var date = new Date(first);
+    return days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate();
+  }
+  else
+    return '';
+});
+
 $('#submit').click(function (){
   getGeocode();
 });
@@ -10,7 +24,13 @@ function getGeocode(){
   $.ajax({
     url: url,
     success: function(data){
-      loadData(geocoder.parse(data));
+      // Only get street sweeping data if we have a street address
+      if( data[0].address.house_number) {
+        loadData(geocoder.parse(data));
+      }
+      else {
+        loadData([]);
+      }
     },
     error: function(error){
       console.log(JSON.stringify(error));
@@ -19,7 +39,34 @@ function getGeocode(){
 }
 
 function loadData(address){
-  console.log(JSON.stringify(address)); // More to come here!
+  var routes   = $("#route-template").html();
+  var notes = $("#notes-template").html();
+  var routeTemplate = Handlebars.compile(routes);
+  var notesTemplate = Handlebars.compile(notes);
+  $.ajax({
+    url: "http://staging-denver-now-api.herokuapp.com/schedules/streetsweeping",
+    //url: "http://127.0.0.1:8080/schedules/streetsweeping",
+    data: address,
+    success: function(schedules){
+      console.log("Success getting data from server: " + JSON.stringify(schedules));
+      // Add a method used as a conditional in mustache
+      $.each(schedules, function(index, schedule){
+        schedule.hasUpcoming = function(){
+          return schedule.upcoming.length > 0;
+        }
+      });
+
+      schedules.notEmpty = function(){
+        return schedules && schedules.length > 0;
+      };
+
+      $('#results').html(routeTemplate(schedules));
+      $('#notes').html(notesTemplate(schedules));
+    },
+    error: function(data){
+      console.log('Error: ' + JSON.stringify(data));
+    }
+  });
 }
 
 // Modified from https://raw.githubusercontent.com/mapbox/geo-googledocs/master/MapBox.js
@@ -60,8 +107,8 @@ var geocoders = {
   },
   cicero: {
     query: function(query, key) {
-      return 'https://cicero.azavea.com/v3.1/legislative_district?format=json&key=' + 
-        key + '&search_loc=' + query; 
+      return 'https://cicero.azavea.com/v3.1/legislative_district?format=json&key=' +
+        key + '&search_loc=' + query;
     },
     parse: function(r) {
       try {
@@ -92,3 +139,26 @@ var geocoders = {
     }
   }
 };
+
+
+//This is to trigger the popup when someone clicks on something with the class 'trigger-pop-up'
+
+  $(document).ready( function () {
+  //This code is for pressing enter on the big search box
+
+    $( "#address" ).keypress(function( event ) {
+     //if user presses enter, click on the submit button:
+     if (event.charCode == 13) {
+       $('#submit').click();
+       $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
+     }
+    });
+    //This code is for pressing enter on the email sign up box
+
+    $( "#mce-EMAIL" ).keypress(function( event ) {
+      //if user presses enter, click on the submit button:
+       if (event.charCode == 13) {
+         $('#mc-embedded-subscribe').click();
+       }
+    });
+  });
