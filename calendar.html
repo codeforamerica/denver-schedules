@@ -19,9 +19,18 @@
 
 
   <body>
-    <div class="content">
+    <div style="text-align: center; padding: 10px 0;">Street Sweeping for 1087 Wadsworth St</div>
+    <div style="text-align: center; font-size: .8em; padding-bottom:20px;"><span class="holiday">H</span> = Holiday</div>
+    <div class="yearCalendar">
+
+
+    
+    </div><!-- end .content -->
+
+<script id="calendar-template" type="text/x-handlebars-template">
+
     <div class="calendar">
-     <div class="month-title">January (enero)</div>
+     <div class="month-title">{{monthName}}</div>
      
      <!-- cal-Days of Week -->
      <div class="cal-days-of-week">
@@ -34,58 +43,36 @@
          <div>Sat</div>
      </div>
 
-     <!-- Row One -->
+     {{#times emptyDays}}
      <div class="cal-day"></div>
-     <div class="cal-day">1</div>
-     <div class="cal-day">2</div>
-     <div class="cal-day">3</div>
-     <div class="cal-day">4</div>
-     <div class="cal-day">5</div>
-     <div class="cal-day">6</div>
+     {{/times}}
 
-     <!-- Row Two -->
-     <div class="cal-day">7</div>
-     <div class="cal-day">8</div>
-     <div class="cal-day">9</div>
-     <div class="cal-day">10</div>
-     <div class="cal-day">11</div>
-     <div class="cal-day">12</div>
-     <div class="cal-day">13</div>
-
-    <!-- Row Three -->
-     <div class="cal-day">14</div>
-     <div class="cal-day selected">15</div>
-     <div class="cal-day">16</div>
-     <div class="cal-day">17</div>
-     <div class="cal-day">18</div>
-     <div class="cal-day">19</div>
-     <div class="cal-day">20</div>
-
-    <!-- Row Four -->
-     <div class="cal-day">21</div>
-     <div class="cal-day">22</div>
-     <div class="cal-day">23</div>
-     <div class="cal-day">24</div>
-     <div class="cal-day">25</div>
-     <div class="cal-day">26</div>
-     <div class="cal-day">27</div>
-
-     <!-- Row Five -->
-     <div class="cal-day">28</div>
-     <div class="cal-day">29</div>
-     <div class="cal-day">30</div>
-     <div class="cal-day">31</div>
-     <div class="cal-day"></div>
-     <div class="cal-day"></div>
-     <div class="cal-day"></div>
-
-     <!-- Row Six (Optional) -->
+     {{#each days}}
+     <div class="cal-day {{#if sweeping}}selected{{/if}} {{#if holiday}}holiday{{/if}}">
+         {{#if holiday}}
+            H
+         {{else}}
+            {{date}}
+         {{/if}}
+     </div>
+     {{/each}}
+     
 
 
     </div><!-- end .calendar -->
-  </div><!-- end .content -->
+
+</script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified JavaScript of Handlebars -->
+    <script src="js/handlebars-v1.3.0.js"></script>
+
+    <!-- Load JS Scripts -->
+    <script type="text/javascript" src="js/calendar-generator.js"></script>
 </body>
 </html>
-      
 
-  </body>
