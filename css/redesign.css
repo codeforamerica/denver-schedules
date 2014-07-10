@@ -3,22 +3,12 @@ html, body {
   background-color: #f8f8f8;
   color:#666666;
   height: 100%;
+  font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
 
-.h-center {
-  margin-right: auto;
-  margin-left: auto;
-}
 
-a:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
 
-.row {
-  margin-left: 0;
-}
-
+/* ===== FORM GHOST TEXT ===== */
 .form-control::-webkit-input-placeholder { color: #ccc; }
 .form-control:-moz-placeholder { color: #ccc; } /* Firefox 18- */
 .form-control::-moz-placeholder { color: #ccc;  } /* Firefox 19+ */
@@ -30,14 +20,7 @@ a:hover {
   font-size: 2em;
   font-weight: 400;
   text-shadow:none;
-  font-family: "coquette";
-
-
-
-
-}
-.navbar .container {
-  min-height:3em;
+  font-family: "coquette", Helvetica;
 }
 .navbar {
   background-color: #f59000;
@@ -46,36 +29,37 @@ a:hover {
   margin-bottom:0;
   border-radius: 0;
 }
-.navbar a { color:white; }
-.navbar a:hover { color:#fff; }
+.navbar a:hover { 
+  color:#fff; 
+}
 .navbar-toggle {
   border-color: white;
 }
-.navbar-form  {
-  /*margin-top:0;*/
+.navbar-form .form-control {
+  border-color:#ce7000;
 }
 .icon-bar {
   background-color: white;
 }
-.navbar .blue-btn {
-  box-shadow: none;
-}
+
 
 
 /* ===== REMINDERS ===== */
-.reminderSignup {margin-top: 2em;}
+.reminderSignup {
+  margin-top: 2em;
+}
 .reminderText {
-  max-width: 75%;
+  max-width: 250px;
   display: inline-block;
 }
 .reminderIcon {
   margin-right: 2em;
   float:left;
 }
-input#email, input#phone { width: 16em;}
-
+input#email, input#phone { 
+  width: 16em;
+}
 .notations {
-  /*margin-top: 5em;*/
   font-size: .8em;
   margin-top: 3em;
   margin-bottom: 2em;
@@ -84,8 +68,9 @@ input#email, input#phone { width: 16em;}
 
 
 /* ===== PRINTABLE SCHEDULE ===== */
-.print-schedule { margin-top: 4em; }
-
+.print-schedule { 
+  margin-top: 4em; 
+}
 .print-schedule>.table>tbody>tr>td>.panel {
   margin-bottom: 0em;
   border: 1px solid #e8e8e8;
@@ -111,7 +96,6 @@ input#email, input#phone { width: 16em;}
     border-left: 1px solid #ddd;
     border-top: 1px solid #ddd;
 }
-
 .table-curved th {
     border-top: none;
     background-color: #f9f9f9;
@@ -153,17 +137,21 @@ input#email, input#phone { width: 16em;}
 
 /* ===== REUSABLE STYLES ===== */
 .section-title {
+  font-weight: 700;
   color: #f59000;
   text-transform: uppercase;
   padding-top: 1em;
   padding-bottom: 1em;
   font-size: 1em;
 }
-
 hr {
   border-top: 1px solid #e6e6e6;
   margin-top: 3em; 
   margin-bottom: 1em; 
+}
+.footnotes {
+  margin-top: 3em;
+  font-size: .8em;
 }
 
 
@@ -209,9 +197,12 @@ hr {
 
 
 /* ===== BUTTONS ===== */
-.btn {box-shadow: 1px 1px 0px #ccc;}
+.btn {
+  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 2px 0px;
+}
 .btn:hover {
-  box-shadow: 0px 0px 0px #ccc;
+  box-shadow:none;
+  background-color: #e8e8e8;
   border: 1px solid #999;
   -o-transition:.3s;
   -ms-transition:.3s;
@@ -231,25 +222,16 @@ hr {
 }
 .blue-btn:hover {
   color:white;
+  background-color: #0077a0;
+  border-color: #0077a0;
 }
 .btn-text {
   padding-left: .5em;
 }
-.modal-content {
-  background-color: #f8f8f8;
-}
-#popup-content > h3 {
-  margin-top: .5em;
-}
-.modal-title {
-  color: #f59000;
-  text-transform: uppercase;
-  font-size: 1em;
-}
-.footnotes {
-  margin-top: 3em;
-  font-size: .8em;
-}
+
+
+
+
 
 
 /* ===== FOOTER ===== */
@@ -295,20 +277,49 @@ footer a:hover {
 
 
 /* ===== MODAL STYLES ===== */
+.modal-content {
+  background-color: #f8f8f8;
+}
 #popup-content {  margin-bottom: 2em; }
 .modal-footer > button 
+#popup-content > h3 {
+  margin-top: .5em;
+}
+.modal-title {
+  color: #f59000;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 700;
+}
 
 /* ===== MEDIA QUERIES ===== */
 
 @media (min-width: 1201px){}
-@media (max-width: 1200px) and (min-width:992px){}
+@media (max-width: 1200px) and (min-width:992px){
+    input#email, input#phone {
+      margin-top: 1em;
+   }
+   .reminderInput button {
+    margin-top: 1em;
+   }
+   .reminderText {
+    max-width: 1000px;
+   }
+}
 @media (max-width: 991px) and (min-width:768px){
-  .nextEvent-small { height: 8em;}
-  .nextEvent-title {margin-top: .5em;}
   .bigSearch-submit {
     font-size: 1em;
     height: 6em;
   }
+      input#email, input#phone {
+      margin-top: 1em;
+   }
+   .reminderInput button {
+    margin-top: 1em;
+   }
+   .reminderText {
+    max-width: 1000px;
+   }
 }
 @media (max-width: 767px){
   .bigSearch-container { margin-top: 4em; }
@@ -323,7 +334,6 @@ footer a:hover {
     max-width: 100%;
     padding-right: 0;
   }
-  .cal-container {margin-top: 2em;}
   input#email, input#phone {
     margin-top: 1em;
     margin-left: 4.3em;
@@ -340,7 +350,7 @@ footer a:hover {
   .sitename {
     font-size: 1.5em;
   }
-  .navbar-form  {
-  margin-top:0;
-}
+  .navbar-form {
+    margin-top:0;
+  }
 }

@@ -11,32 +11,14 @@
 
     <title>Denver Street Sweeping</title>
     
-    <!-- Stylesheets -->
+    <!-- STYLESHEETS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/redesign.css">
   </head>
 
-
   <body>
   <div class="page-wrap">
-
-    <!-- ========= NAVIGATION ======== -->
-<!--     <div class="navbar" role="navigation">
-      <div class="container" id="the-body">
-      <div class="col-lg-8 col-lg-offset-2 ">
-        <a class="sitename" href="http://www.streetsweep.co">Street Sweep Colorado</span></a>
-      
-        <form class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn blue-btn">Submit</button>
-        </form>
-      </div> 
-      
-      </div>
-    </div> -->
-
+    <!-- NAVIGATION -->
     <nav class="navbar" role="navigation">
       <div class="container">
       <div class="col-lg-8 col-lg-offset-2">
@@ -69,7 +51,7 @@
 
     <div class="container">
 
-      <!-- ========= NEXT STREET SWEEPING ======== -->
+      <!-- NEXT STREET SWEEPING =====================================================================  -->
       <div class="row" id="ss-next">
         <div class="col-lg-8 col-lg-offset-2">
           <h4 class="section-title">Next Street Sweeping</h4>
@@ -79,7 +61,7 @@
       </div>
 
       
-      <!-- ========= REMINDER SIGNUP ======== -->
+      <!--  REMINDER SIGNUP =======================================================================  -->
       <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-reminders">
         <h4 class="section-title">Street Sweeping Reminders</h4>
         <div>
@@ -88,14 +70,14 @@
       </div>
 
       <div class="col-lg-8 col-lg-offset-2 reminderSignup hidden-print">
-        <div class="col-sm-6">
-          <div><img src="img/email.svg" width="32" class="reminderIcon"></div>
-          <div style="display:inline-block; max-width: 75%;" class="reminderText">
+        <div class="col-lg-6">
+          <img src="img/email.svg" width="32" class="reminderIcon">
+          <div class="reminderText">
             Enter your email address, and we will send alerts directly to your inbox.
           </div>
         </div>
         
-        <div class="col-sm-6">
+        <div class="col-lg-6">
           <div class="form-inline reminderInput" role="form">
               <div class="form-group">
                 <label class="sr-only" for="emailReminder">Enter an email address</label>
@@ -103,16 +85,15 @@
               </div>
               <button type="submit" onclick="doPopUp()" class="btn blue-btn reminderButton trigger-pop-up">Subscribe</button>
           </div>
-          </div>
+        </div>
       </div>
 
-
       <div class="col-lg-8 col-lg-offset-2 reminderSignup hidden-print">
-        <div class="col-sm-6">
-          <div><img src="img/phone.svg" width="32" class="reminderIcon"></div>
-          <div style="display:inline-block; max-width: 75%;" class="reminderText">Receive text message alerts on your phone. </div>
+        <div class="col-lg-6">
+          <img src="img/phone.svg" width="32" class="reminderIcon">
+          <div class="reminderText">Receive text message alerts on your phone. </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-lg-6">
           <div class="form-inline reminderInput" role="form">
             <div class="form-group">
               <label class="sr-only" for="phoneReminder">Enter a phone number</label>
@@ -129,7 +110,7 @@
       <div class="col-lg-8 col-lg-offset-2"><hr></div>
       
 
-      <!-- ========= FULL SCHEDULE ======== -->
+      <!-- FULL SCHEDULE ==========================================================================  -->
       <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-schedule">
         <h4 class="section-title">Full Schedule</h4>
         <div class="table-responsive">
@@ -184,7 +165,7 @@
             <td>Jul 11th</td>
           </tr>
         </table>
-      </div>
+      </div> 
 
       <div id="save-calendar">
         <div class="col-lg-6">
@@ -199,19 +180,20 @@
           </button>
         </div>
       </div>
-    </div>
+      </div> <!-- #ss-schedule -->
 
-    <!-- ========= WARNING ======== -->
-    <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-warning">
+      <!-- WARNING  ============================================================================  -->
+      <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-warning">
         <br>
         <div class="alert alert-warning">
             <strong>Note:</strong> This site does not guarantee that the information is accurate, nor that the notifications will be delivered on a timely basis. Please consult the street signage near your vehical for the most up-to-date parking information.
         </div>
-    </div>
+      </div>
 
     </div> <!-- container -->
-    </div> <!-- .page-wrap -->
+  </div> <!-- .page-wrap -->
 
+    <!--  FOOTER -->
     <footer class="site-footer">
       <div class="container">
         <div class="col-lg-8 col-lg-offset-2 footer-content">
@@ -223,219 +205,87 @@
       </div> <!-- container -->
     </footer>
 
+    <!--  COMING SOON MODAL -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Get updates about this app</h4>
+          </div> <!-- /.modal-header -->
+
+          <div class="modal-body">
+            <div id="email-result"></div>
+            <div id="popup-content">
+              <h3>Worried about street sweeping tickets?</h3>
+              <p>
+                Sign up below and we'll let you know when we add email, SMS, and calendar reminders to Street Sweep Colorado.
+              </p>
+            </div> <!-- /#popup-content -->
+
+            <form id="signup-form" >
+              <div id="subscribe-form">
+
+                <div class="form-group">
+                  <label class="sr-only" for="firstname">First name</label>
+                  <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="Molly" >
+                </div>
+
+                <div class="form-group">
+                  <label class="sr-only" for="lastname">Last name</label>
+                  <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME" placeholder="Brown">
+                </div>
+
+                <div class="form-group">
+                  <label class="sr-only" for="lastname">Email </label>
+                  <input type="email" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="example@example.com">
+                </div>
+              </div> <!-- /#subscribe-form -->
+            </form>
+          </div>  <!-- /.modal-body -->
+
+          <div class="modal-footer">
+            <button name="subscribe" id="mc-embedded-subscribe" class="btn blue-btn">Sign me up!</button>
+          </div> <!-- /.modal-footer -->
+        </div> <!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    
+
+
+    <!-- JS ============================================================================== -->    
+
+    <!-- BOOTSTRAP CORE JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript of Handlebars -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    
+    <!-- HANDLEBARS -->
     <script src="js/handlebars-v1.3.0.js"></script>
 
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome -->
+    <!-- FONT AWESOME -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-    <!-- Load JS Scripts -->
+    <!-- LOAD JS SCRIPTS -->
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" src="js/streetsweeping.js"></script>
     <script type="text/javascript" src="js/mailchimp.js"></script>
-    <!-- Mustache Templates -->
-    <script id="pick-streets-template" type="text/x-handlebars-template" charset="utf-8">
-      <!-- ========= MULTIPLE ADDRESSES ======== -->
-      <!-- Add code to pick from multiple streets here -->
-      <div class="row addressSelect-descr">
-        <div class="col-lg-8 col-lg-offset-2 lead">
-          We found more than one schedule for the address you entered. Select the street(s) you would like a street sweeping schedule for.
+    
+    <!-- ADD TYPEKIT FONTS -->
+    <script type="text/javascript" src="//use.typekit.net/sne3psa.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-        </div>
-      </div>
+    <!-- ADD GOOGLE ANALYTICS -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-
-          <label class="addressSelect-label" >
-            <input type="checkbox" class="addressSelect-checkbox" /> South Pearl Street
-          </label>
-
-          <label class="addressSelect-label" >
-            <input type="checkbox" class="addressSelect-checkbox" /> Broadway Street
-          </label>
-
-        </div>
-      </div>
+      ga('create', 'UA-52641898-1', 'auto');
+      ga('send', 'pageview');
     </script>
-
-    <script id="notes-template" type="text/x-handlebars-template" charset="utf-8">
-      {{#notEmpty}}
-        <div class="col-lg-8 col-lg-offset-2">
-          1. Email and text message alerts will be sent one week, and one day, prior to the beginning of street sweeping in this area.<br>
-          2. Standard message and data rates may apply. To unsubscribe from alerts for this area, text STOP.<br>
-        </div>
-      {{/notEmpty}}
-    </script>
-
-    <script id="route-template" type="text/x-handlebars-template" charset="utf-8">
-      <!-- NEXT STREET SWEEPING  -->
-      {{#notEmpty}}
-
-          <div class="col-lg-8 col-lg-offset-2">
-          <h4 class="section-title">Next Street Sweeping</h4>
-            <div class="col-lg-6">
-              Download or subscribe to this areas street sweeping calendar in iCal, Google Calendar or Outlook.<br>
-            </div>
-            <div class="col-lg-6">
-              <button type="button" onclick="doPopUp()" class="btn grey-btn mobile-btn trigger-pop-up">
-                <i class="fa fa-calendar"></i><span class="btn-text">Add to my Calendar</span>
-              </button>
-              <button type="button" onclick="doPopUp()" class="btn grey-btn mobile-btn trigger-pop-up">
-                <i class="fa fa-print"></i><span class="btn-text" >Print Calendar</span>
-              </button>
-            </div>
-          </div>
-
-
-        <!-- Multiple Street Sweeping -->
-          <div class="col-lg-8 col-lg-offset-2 nextEvent-container">
-            <div class="panel nextEvent-panel">
-              {{#this}}
-                <div class="panel-heading">
-                  <div class="nextEvent-date">
-                    {{#hasUpcoming}}
-                      {{firstDate upcoming}}
-                    {{/hasUpcoming}}
-                    {{^hasUpcoming}}
-                      {{error}}
-                    {{/hasUpcoming}}
-                  </div>
-                  <span class="nextEvent-title">{{category}}</span>
-                  <span class='nextEvent-subtitle'>{{description}} of {{name}}</span>
-                </div>
-              {{/this}}
-            </div>
-          </div>
-
-
-        <!-- ========= REMINDERS ======== -->
-
-          <div class="col-lg-8 col-lg-offset-2 hidden-print">
-            <h4 class="section-title">Street Sweeping Reminders</h4>
-            <div class="lead">
-              Get notified when of street sweeping in this area. Sign up for emails and text message reminders or subscribe to a calendar feed. <sup>1</sup>
-            </div>
-          </div>
-
-
-
-
-          <div class="col-lg-8 col-lg-offset-2 reminderSignup hidden-print">
-            <div class="col-sm-6">
-              <div><img src="img/email.svg" width="32" class="reminderIcon"></div>
-              <div style="display:inline-block; max-width: 75%;" class="reminderText">
-                Enter your email address, and we will send alerts directly to your inbox.
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-inline reminderInput" role="form">
-                  <div class="form-group">
-                    <label class="sr-only" for="emailReminder">Enter an email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
-                  </div>
-                  <button type="submit" onclick="doPopUp()" class="btn blue-btn reminderButton trigger-pop-up">Subscribe</button>
-                </div>
-            </div>
-          </div>
-
-
-
-          <div class="col-lg-8 col-lg-offset-2 reminderSignup hidden-print">
-            <div class="col-sm-6">
-              <div><img src="img/phone.svg" width="32" class="reminderIcon"></div>
-              <div style="display:inline-block; max-width: 75%;" class="reminderText">Receive text message alerts on your phone.<sup>2</sup> </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-inline reminderInput" role="form">
-                <div class="form-group">
-                  <label class="sr-only" for="phoneReminder">Enter a phone number</label>
-                  <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
-                </div>
-                <button type="submit" onclick="doPopUp()" class="btn blue-btn reminderButton trigger-pop-up">Subscribe</button>
-              </div>
-            </div>
-          </div>
-
-      {{/notEmpty}}
-
-      <!-- INCORRECT ADDRESS -->
-      {{^this}}
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <h4 class="section-title">Sorry, that address does not compute.</h4>
-          </div>
-        </div>
-      {{/this}}
-    </script>
-
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Get updates about this app</h4>
-        </div> <!-- /.modal-header -->
-
-        <div class="modal-body">
-          <div id="email-result"></div>
-          <div id="popup-content">
-            <h3>Worried about street sweeping tickets?</h3>
-            <p>
-              Sign up below and we'll let you know when we add email, SMS, and calendar reminders to Street Sweep Colorado.
-            </p>
-          </div> <!-- /#popup-content -->
-
-          <form id="signup-form" >
-            <div id="subscribe-form">
-
-              <div class="form-group">
-                <label class="sr-only" for="firstname">First name</label>
-                <input type="text" value="" name="FNAME" class="form-control" id="mce-FNAME" placeholder="Molly" >
-              </div>
-
-              <div class="form-group">
-                <label class="sr-only" for="lastname">Last name</label>
-                <input type="text" value="" name="LNAME" class="form-control" id="mce-LNAME" placeholder="Brown">
-              </div>
-
-              <div class="form-group">
-                <label class="sr-only" for="lastname">Email </label>
-                <input type="email" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="example@example.com">
-              </div>
-            </div> <!-- /#subscribe-form -->
-          </form>
-        </div>  <!-- /.modal-body -->
-
-        <div class="modal-footer">
-          <button name="subscribe" id="mc-embedded-subscribe" class="btn blue-btn">Sign me up!</button>
-        </div> <!-- /.modal-footer -->
-      </div> <!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
-  </script>
-  <!-- Add TypeKit Fonts -->
-  <script type="text/javascript" src="//use.typekit.net/sne3psa.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-52641898-1', 'auto');
-    ga('send', 'pageview');
-
-  </script>
+  
   </body>
 </html>
