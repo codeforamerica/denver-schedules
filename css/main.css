@@ -436,14 +436,9 @@ footer a:hover {
 
 
 /* ===== MODAL STYLES ===== */
-/*
-.subscribe-form input {
-	margin-left: 3em;
-	margin-right: 3em;
-}*/
-
 #popup-content {	margin-bottom: 2em; }
 .modal-footer > button 
+.alert-success > h3, .alert-danger > h3 { margin-top: 0; }
 
 /* ===== MEDIA QUERIES ===== */
 
