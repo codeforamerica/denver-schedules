@@ -1,3 +1,5 @@
+
+
 .navbar-brand {
     position: absolute;
     width: 100%;
@@ -11,11 +13,43 @@
   
 }
 
-.example-search {
-  /*padding-top: .5em;*/
-}
+.example-search {  font-style: italic;}
+.example-search  a:hover  {text-decoration: none;}
 
 #ss-warning  {
-  margin-top: 3em;
+  margin-top: 8em;
   padding-bottom:2em;
+}
+
+
+/* ===== BIG SEARCH BAR ===== */
+.sched-descr {
+  margin-top: 5em;
+  margin-bottom: 3em;
+}
+h1 { font-size: 1.2em;
+line-height: 1.5em;}
+
+
+
+.bigSearch-container > .form > .form-group { padding-left: 0;}
+.bigSearch-container { margin-top: 4em; }
+.bigSearch-input {
+  height: 4em;
+  font-size: 1.2em;
+  padding-left: 1.5em;
+  margin-left: 0;
+}
+.bigSearch-submit {
+  font-size: 1em; 
+  height: 4.8em;
+  max-height: 4.8em;
+}
+
+@media (max-width: 767px){
+  .example-search { 
+  padding-top: 1em;
+  text-align: center;
+}
+
 }
