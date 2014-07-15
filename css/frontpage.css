@@ -1,0 +1,21 @@
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navbar{ 
+  height:80px;
+  
+}
+
+.example-search {
+  /*padding-top: .5em;*/
+}
+
+#ss-warning  {
+  margin-top: 3em;
+  padding-bottom:2em;
+}
