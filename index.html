@@ -15,6 +15,7 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/redesign.css">
   </head>
 
   <body>
@@ -95,7 +96,8 @@
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" src="js/streetsweeping.js"></script>
     <script type="text/javascript" src="js/mailchimp.js"></script>
-    <!-- Mustache Templates -->
+    <!-- Handlebars Templates -->
+
     <script id="pick-streets-template" type="text/x-handlebars-template" charset="utf-8">
       <!-- ========= MULTIPLE ADDRESSES ======== -->
       <!-- Add code to pick from multiple streets here -->
@@ -151,23 +153,36 @@
 
 
         <!-- Multiple Street Sweeping -->
-          <div class="col-lg-8 col-lg-offset-2 nextEvent-container">
-            <div class="panel nextEvent-panel">
+          <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-schedule">
+            <h4 class="section-title">Full Schedule</h4>
+            <div class="table-responsive">
+            <table class="table table-curved">
+              <tr>
+                <th>Next</th>
+                <th>Time</th>
+                <th>Street Name</th>
+                <th>Side</th>
+                <th>Day of Month</th>
+              </tr>
+
               {{#this}}
-                <div class="panel-heading">
-                  <div class="nextEvent-date">
-                    {{#hasUpcoming}}
-                      {{firstDate upcoming}}
-                    {{/hasUpcoming}}
-                    {{^hasUpcoming}}
-                      {{error}}
-                    {{/hasUpcoming}}
-                  </div>
-                  <span class="nextEvent-title">{{category}}</span>
-                  <span class='nextEvent-subtitle'>{{description}} of {{name}}</span>
+
+
+                {{#hasUpcoming}}
+                <tr>
+                  <td>{{firstDate upcoming}}</td>
+                  <td>TBD</td>
+                  <td>{{name}}</td>
+                  <td>{{description}}</td>
+                  <td>TBD</td>
+                </tr>
+                {{/hasUpcoming}}
+                {{^hasUpcoming}}
+                  {{error}}
+                {{/hasUpcoming}}
                 </div>
               {{/this}}
-            </div>
+            </table>
           </div>
 
 
