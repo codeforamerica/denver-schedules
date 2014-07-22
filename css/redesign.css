@@ -159,33 +159,7 @@ hr {
 
 
 
-/* ===== BIG SEARCH BAR ===== */
-.sched-descr {
-  margin-top: 5em;
-  margin-bottom: 2.5em;
-}
-.bigSearch-container > .form > .form-group { padding-left: 0;}
-.bigSearch-container { margin-top: 4em; }
-.bigSearch-input {
-  height: 4em;
-  font-size: 1.2em;
-  padding-left: 1.5em;
-  margin-left: 0;
-}
-.bigSearch-submit, .bigSearch-submit:focus {
-  background-color: #0095D9;
-  font-size: 1em; 
-  color:white;
-  border:none;
-  box-shadow: 0 0 1px #666;
-  height: 4.8em;
-  max-height: 4.8em;
-}
-.bigSearch-submit:hover {
-  background-color:#0095D9;
-  color:white;
-  box-shadow: none;
-}
+
 
 
 /* ===== NEXT EVENT CALLOUT ===== */
