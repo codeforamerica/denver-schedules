@@ -44,7 +44,7 @@ function loadData(address){
   var routeTemplate = Handlebars.compile(routes);
   var notesTemplate = Handlebars.compile(notes);
   $.ajax({
-    url: "http://staging-denver-now-api.herokuapp.com/schedules/streetsweeping",
+    url: "http://production-denver-now-api.herokuapp.com/schedules/streetsweeping",
     //url: "http://127.0.0.1:8080/schedules/streetsweeping",
     data: address,
     success: function(schedules){
