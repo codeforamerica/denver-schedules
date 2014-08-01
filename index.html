@@ -161,7 +161,6 @@
         <table class="table table-curved">
           <tr>
             <th>Next</th>
-            <th>Time</th>
             <th>Street Name</th>
             <th>Side</th>
             <th>Day of Month</th>
@@ -171,7 +170,6 @@
             {{#hasUpcoming}}
             <tr>
               <td>{{firstDate upcoming}}</td>
-              <td>TBD</td>
               <td>{{name}}</td>
               <td>{{description}}</td>
               <td>TBD</td>
@@ -206,7 +204,7 @@
       {{^this}}
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            <h4 class="section-title">Sorry, that address does not compute.</h4>
+            <h4 class="section-title">Sorry, we couldn&#146;t find that address. Check your spelling and try again..</h4>
           </div>
         </div>
       {{/this}}

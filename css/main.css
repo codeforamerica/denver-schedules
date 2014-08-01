@@ -6,7 +6,9 @@ html, body {
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
 
-
+#results, #ss-warning {
+  font-size: 16px;
+}
 
 /* ===== FORM GHOST TEXT ===== */
 .form-control::-webkit-input-placeholder { color: #ccc; }
@@ -168,7 +170,7 @@ hr {
 }
 .footnotes {
   margin-top: 3em;
-  font-size: .8em;
+  font-size: 14px;
 }
 
 
