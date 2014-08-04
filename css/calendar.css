@@ -50,6 +50,17 @@ a { text-decoration: none }
     border-radius: 30px;
 }
 
+.cal-title {
+    text-align: center; 
+    padding: 10px 0;
+}
+.cal-legend {
+    text-align: center; 
+    font-size: .8em; 
+    padding-bottom:20px; 
+}
+
+
 .month-title {
     width: 175px;
     height: 25px;
