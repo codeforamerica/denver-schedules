@@ -12,6 +12,12 @@ Handlebars.registerHelper("firstDate", function(array) {
     return '';
 });
 
+function defaultAddress(){
+  $('#address').val('3516 Clayton St, Denver, CO');
+  $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
+  $('#submit').click();
+}
+
 $('#submit').click(function (){
   getGeocode();
 });

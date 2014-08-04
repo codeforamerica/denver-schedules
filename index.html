@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
     <title>Denver Street Sweeping</title>
-    
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -24,12 +24,12 @@
     <nav class="navbar" role="navigation">
       <div class="container">
       <div class="col-lg-8 col-lg-offset-2">
-        
+
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
           <a class="navbar-brand sitename frontpage-navbar" href="#">Denver Street Sweeping</a>
         </div>
-      </div> <!-- /.col-lg-8 .col-lg-offset-2 --> 
+      </div> <!-- /.col-lg-8 .col-lg-offset-2 -->
       </div><!-- /.container -->
     </nav>
 
@@ -42,6 +42,8 @@
         <div class="form  col-lg-8 col-lg-offset-2" role="form">
           <div class="form-group col-xs-10">
             <input id="address" type="search" class="form-control bigSearch-input" placeholder="e.g. 3516 Clayton St, Denver CO 80205">
+            <br />
+            or use an example: <a href="javascript:void(0)" onclick="defaultAddress()">3516 Clayton St, Denver, CO</a>
           </div>
           <button id="submit" type="submit" class="btn blue-btn bigSearch-submit col-xs-2">Find Address</button>
 
@@ -87,7 +89,7 @@
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" src="js/streetsweeping.js"></script>
     <script type="text/javascript" src="js/mailchimp.js"></script>
-    
+
     <!-- Handlebars Templates -->
 
 
@@ -100,7 +102,7 @@
       <!-- NEXT STREET SWEEPING =====================================================================  -->
       <div class="col-lg-8 col-lg-offset-2" id="ss-next">
         <h4 class="section-title">Next Street Sweeping</h4>
-        The next street sweeping near you is <div class="highlight"><strong>Thursday, May 2</strong> on the <strong>West side of S Broadway St</strong>.</div> 
+        The next street sweeping near you is <div class="highlight"><strong>Thursday, May 2</strong> on the <strong>West side of S Broadway St</strong>.</div>
         <hr>
       </div>
 
@@ -120,7 +122,7 @@
             Enter your email address, and we will send alerts directly to your inbox.
           </div>
         </div>
-        
+
         <div class="col-lg-6">
           <div class="form-inline reminderInput" role="form">
               <div class="form-group">
