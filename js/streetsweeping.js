@@ -56,6 +56,11 @@ function loadData(address){
         }
       });
 
+    //sort here
+    schedules.notEmpty = function(){
+      return schedules && schedules.length > 0;
+    };
+
       schedules.notEmpty = function(){
         return schedules && schedules.length > 0;
       };
