@@ -6,6 +6,31 @@ html, body {
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
 
+::-webkit-scrollbar {
+  height:10px;
+  width:10px;
+  background-color: #f8f8f8;
+}
+::-webkit-scrollbar-button {
+  height:0;
+  width:0;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border:5px solid transparent;
+  max-height:10px;
+  max-width:10px;
+  height:5px;
+  width:5px;
+}
+::-webkit-scrollbar:hover,::-webkit-scrollbar:active  {
+  -webkit-box-shadow: inset 6px 6px 4px -5px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    inset 6px 6px 4px -5px rgba(50, 50, 50, 0.3);
+  box-shadow:         inset 6px 6px 4px -5px rgba(50, 50, 50, 0.3);
+}
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background-color:rgba(0,0,0,.4);
+}
 
 
 /* ===== FORM GHOST TEXT ===== */
