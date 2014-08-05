@@ -12,6 +12,12 @@ Handlebars.registerHelper("firstDate", function(array) {
     return '';
 });
 
+function defaultAddress(){
+  $('#address').val('3516 Clayton St, Denver, CO');
+  $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
+  $('#submit').click();
+}
+
 $('#submit').click(function (){
   getGeocode();
 });
@@ -56,9 +62,16 @@ function loadData(address){
         }
       });
 
+
+
       schedules.notEmpty = function(){
         return schedules && schedules.length > 0;
       };
+
+      //sort dates in ascending order based on the first date in the upcoming list
+      schedules.sort(function(x, y){
+        return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
+      })
 
       $('#results').html(routeTemplate(schedules));
       $('#notes').html(notesTemplate(schedules));
