@@ -6,14 +6,14 @@ html, body {
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 
   /* Style Scrollbar in IE */
-  scrollbar-arrow-color: #666;
+/*  scrollbar-arrow-color: #666;
   scrollbar-base-color: #ccc;
   scrollbar-track-color: #f8f8f8;
   scrollbar-face-color: #ccc;
   scrollbar-highlight-color: #ccc;
   scrollbar-3dlight-color: #ccc;
   scrollbar-darkshadow-color: #f8f8f8;
-  scrollbar-shadow-color: #ccc;
+  scrollbar-shadow-color: #ccc;*/
 }
 
 
