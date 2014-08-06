@@ -4,8 +4,20 @@ html, body {
   color:#666666;
   height: 100%;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
+
+  /* Style Scrollbar in IE */
+  scrollbar-arrow-color: #666;
+  scrollbar-base-color: #ccc;
+  scrollbar-track-color: #f8f8f8;
+  scrollbar-face-color: #ccc;
+  scrollbar-highlight-color: #ccc;
+  scrollbar-3dlight-color: #ccc;
+  scrollbar-darkshadow-color: #f8f8f8;
+  scrollbar-shadow-color: #ccc;
 }
 
+
+/*Style Scrollbar in Chrome, Safari, Opera, Android, and iOS*/
 ::-webkit-scrollbar {
   height:10px;
   width:10px;
