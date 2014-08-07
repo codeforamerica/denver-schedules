@@ -6,9 +6,9 @@ html, body {
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
 }
 
-#results, #ss-warning {
-  font-size: 16px;
-}
+#results{ font-size: 16px;}
+
+#ss-warning { font-size: 14px; }
 
 /* ===== FORM GHOST TEXT ===== */
 .form-control::-webkit-input-placeholder { color: #ccc; }
@@ -61,7 +61,45 @@ height:80px;
 }
 
 
+/* ===== FEEDBACK BUTON ===== */
+#feedback { 
+  width: 104px; 
+  position: fixed; 
+  bottom: 0; 
+  right: 5%;
+  z-index: 999;
+}
 
+#feedback:hover {
+  cursor: pointer;
+}
+
+#feedback a { 
+  display: block; 
+  background: #0094dc; 
+  height: 2em; 
+  width: 6em; 
+  padding: 8px 16px;
+  color: #fff; 
+  font-size: 17px; 
+  font-weight: bold; 
+  text-decoration: none; 
+  text-align: center;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, .3) ;
+  -moz-box-shadow:    0px 2px 2px 0px rgba(0, 0, 0, .3) ;
+  box-shadow:         0px 2px 2px 0px rgba(0, 0, 0, .3) ;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  /*border-bottom: solid 1px #333;*/
+  /*border-left: solid 1px #333;*/
+  /*border-right: solid 1px #fff;*/
+}
+
+#feedback a:hover { 
+    background-color: #0077a0;
+  border-color: #0077a0;
+}
 
 /* ===== REMINDERS ===== */
 .reminderSignup {
@@ -147,9 +185,6 @@ input#email, input#phone {
   padding-top:1em;
   padding-bottom:4em;
 }
-#ss-warning  {
-  padding-bottom:6em;
-}
 #ss-next {
  padding-top:3em; 
 }
@@ -205,7 +240,9 @@ hr {
   color:white;
   box-shadow: none;
 }
-
+#search-example {
+  font-size: 16px;
+}
 
 /* ===== NEXT EVENT CALLOUT ===== */
 .highlight {
@@ -217,7 +254,7 @@ hr {
 
 /* ===== BUTTONS ===== */
 .btn {
-  box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 2px 0px;
+  box-shadow: rgba(0, 0, 0, .3) 0px 2px 2px 0px;
 }
 .btn:hover {
   box-shadow:none;
@@ -250,45 +287,21 @@ hr {
 
 
 
-
-
-
 /* ===== FOOTER ===== */
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: -80px; 
-}
-.page-wrap:after {
-  content: "";
-  display: block;
-}
-.site-footer, .page-wrap:after {
-  /* .push must be the same height as footer */
-  height: 40px; 
-}
-.site-footer {
-  /*background: orange;*/
-}
-
 footer {
   color:#666666;
   background-color: #f8f8f8;
   font-size: 1em;
   /*border-top:1px solid #ddd;*/
 }
-
 footer a {color:#f59000;}
 footer a:hover {
   color:#f59000; 
   text-decoration: underline;
 }
-
-
 .footer-content {
   padding-top: 2em;
   padding-bottom: 2em;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
   text-shadow:none;
 }

@@ -19,7 +19,7 @@
   </head>
 
   <body>
-  <div class="page-wrap">
+
     <!-- NAVIGATION -->
     <nav class="navbar" role="navigation">
       <div class="container">
@@ -42,8 +42,10 @@
         <div class="form  col-lg-8 col-lg-offset-2" role="form">
           <div class="form-group col-xs-10">
             <input id="address" type="search" class="form-control bigSearch-input" placeholder="e.g. 3516 Clayton St, Denver CO 80205">
-            <br />
-            or use an example: <a href="javascript:void(0)" onclick="defaultAddress()">3516 Clayton St, Denver, CO</a>
+            <br/>
+            <div id="search-example">
+              or use an example: <a href="javascript:void(0)" onclick="defaultAddress()">3516 Clayton St, Denver, CO</a>
+            </div>
           </div>
           <button id="submit" type="submit" class="btn blue-btn bigSearch-submit col-xs-2">Find Address</button>
 
@@ -66,9 +68,12 @@
       </div>
 
     </div>  <!-- .container -->
-    </div> <!-- .page-wrap -->
 
-    <footer class="site-footer hidden-print">
+    <div onclick="showFeedbackForm()" class="trigger-pop-up" id="feedback">
+      <a >feedback</a>
+    </div>
+
+    <footer class="hidden-print">
       <div class="container">
         <div class="col-lg-8 col-lg-offset-2 footer-content">
 
@@ -215,7 +220,7 @@
       {{^this}}
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            <h4 class="section-title">Sorry, we couldn&#146;t find that address. Check your spelling and try again..</h4>
+            <h4 class="section-title">Sorry, we couldn&#146;t find that address. Check your spelling and try again.</h4>
           </div>
         </div>
       {{/this}}
@@ -263,6 +268,62 @@
         <div class="modal-footer">
           <button name="subscribe" id="mc-embedded-subscribe" class="btn blue-btn">Sign me up!</button>
         </div> <!-- /.modal-footer -->
+      </div> <!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+  <div class="modal fade" id="feedbackModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Submit feedback</h4>
+        </div> <!-- /.modal-header -->
+
+         <form 
+            id="feedback-form" 
+            action="mailto:denver-ss@codeforamerica.org" 
+            method="post" 
+            enctype="text/plain">
+
+          <div class="modal-body">
+            <div id="email-result"></div>
+            <div id="popup-content">
+              <h3>Have some feedback?</h3>
+              <p>
+                Send us a message using the form below.
+              </p>
+            </div> <!-- /#popup-content -->
+
+         
+              
+              <div class="form-group">
+                <label class="sr-only" for="fb-name">Name</label>
+                <input 
+                type="text" 
+                value="" 
+                name="name" 
+                class="form-control" id="fb-name" placeholder="Molly Brown" >
+              </div>
+
+<!--               <div class="form-group">
+                <label class="sr-only" for="fb-email">Email</label>
+                <input type="text" value="" name="email" class="form-control" id="fb-email" placeholder="molly@denver.com">
+              </div> -->
+
+              <div class="form-group">
+                <label class="sr-only" for="fb-comment">Comment</label>
+                <textarea 
+                  placeholder="Add your feedback here" type="text" rows="4" name="comment" class="form-control required email" id="fb-comment"></textarea>
+              </div>
+        </div>  <!-- /.modal-body -->
+
+        <div class="modal-footer">
+          <button type="submit" class="btn blue-btn">Send feedback</button>
+        </div> <!-- /.modal-footer -->
+        </form>
       </div> <!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
