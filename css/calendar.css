@@ -8,28 +8,28 @@ body { font-family: Helvetica, Arial, sans-serif }
 a { text-decoration: none }
 
 .yearCalendar{
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .calendar {
-    padding: 0px 20px 10px 20px;
+    padding: 0px 10px 10px 10px;
     width:176px;
     text-align: center;
     font-size: .8em;
-    display: inline-block
+    display: inline-block;
 
 }
 
 .cal-day, .cal-days-of-week>div {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     display: inline-block;
     float: left;
 }
 
 .cal-days-of-week {
-    width: 175px;
+    width: 140px;
     color: #666;
     font-size: .6em;
     text-transform: capitalize;
@@ -39,10 +39,10 @@ a { text-decoration: none }
 .selected:after { 
     content: '';
     position: absolute;
-    height: 25px;
-    width: 25px;
-    right: -1px;
-    bottom: 5px;
+    height: 20px;
+    width: 20px;
+    right: 0px;
+    bottom: 3px;
     -moz-box-sizing:    border-box;
     -webkit-box-sizing: border-box;
     box-sizing:        border-box;
@@ -50,9 +50,18 @@ a { text-decoration: none }
     border-radius: 30px;
 }
 
+.cal-title {
+    text-align: center; 
+    padding: 10px 0;
+}
+.cal-legend {
+    text-align: center; 
+    font-size: .8em; 
+    padding-bottom:20px; 
+}
 .month-title {
-    width: 175px;
-    height: 25px;
+    width: 140px;
+    height: 20px;
 }
 
 .holiday {
@@ -61,3 +70,4 @@ a { text-decoration: none }
     color:red;
 }
 
+@media print{@page {size: landscape}}
