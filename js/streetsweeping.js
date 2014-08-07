@@ -97,10 +97,6 @@ function loadData(address){
         return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
       })
       //set next sweeping date and pass it to the view
-      name = "S Broadway St.";
-      desc = "West side of ";
-      window.schedules = schedules;
-      window.nextSweeping = schedules[0].upcoming[0];
       schedules.nextSweeping = {
         "date" : schedules[0].upcoming[0],
         "name": schedules[0].name,
