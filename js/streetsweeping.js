@@ -1,16 +1,41 @@
-// TODO: Move into more generic file
+//this function outputs our custom way of abbreviating days
+Date.prototype.getDayAbbrev = function(){
+    var days = new Array("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
+    return days[this.getDay()];
+}
+
+Date.prototype.getDayFull = function(){
+    var days = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    return days[this.getDay()];
+}
+
+Date.prototype.getMonthFull = function(){
+    var days = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    return days[this.getMonth()];
+}
+
+//this function outputs our custom way of abbreviating month names
+Date.prototype.getMonthAbbrev = function(){
+    var months = new Array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
+    return months[this.getMonth()];
+}
+
 Handlebars.registerHelper("firstDate", function(array) {
-  // TODO: Dumb, use date manipulation library
-  var days = new Array("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
-  var months = new Array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
-  if(array && array.length > 0) {
+  if(array && array.length > 0 ) {
     var first = array[0];
     var date = new Date(first);
-    return days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate();
+    return date.getDayAbbrev() + ", " + date.getMonthAbbrev() + " " + (date.getDate() +1 );
   }
-  else
+  else {
     return '';
+  }
 });
+
+Handlebars.registerHelper("formatNextDate", function(date) {
+  date = new Date(date);
+  return date.getDayFull() + ", " + date.getMonthFull() + " " + (date.getDate() +1);
+});
+
 
 function defaultAddress(){
   $('#address').val('3516 Clayton St, Denver, CO');
@@ -51,7 +76,6 @@ function loadData(address){
   var notesTemplate = Handlebars.compile(notes);
   $.ajax({
     url: "http://production-denver-now-api.herokuapp.com/schedules/streetsweeping",
-    //url: "http://127.0.0.1:8080/schedules/streetsweeping",
     data: address,
     success: function(schedules){
       console.log("Success getting data from server: " + JSON.stringify(schedules));
@@ -72,7 +96,12 @@ function loadData(address){
       schedules.sort(function(x, y){
         return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
       })
-
+      //set next sweeping date and pass it to the view
+      schedules.nextSweeping = {
+        "date" : schedules[0].upcoming[0],
+        "name": schedules[0].name,
+        "description": schedules[0].description
+        };
       $('#results').html(routeTemplate(schedules));
       $('#notes').html(notesTemplate(schedules));
     },
