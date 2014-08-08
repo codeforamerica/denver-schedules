@@ -38,7 +38,7 @@ Handlebars.registerHelper("formatNextDate", function(date) {
 
 
 function defaultAddress(){
-  $('#address').val('305 Milwaukee St');
+  $('#address').val('305 Milwaukee St, Denver, CO');
   $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
   $('#submit').click();
 }
