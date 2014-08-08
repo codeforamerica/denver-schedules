@@ -97,11 +97,13 @@ function loadData(address){
         return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
       })
       //set next sweeping date and pass it to the view
-      schedules.nextSweeping = {
-        "date" : schedules[0].upcoming[0],
-        "name": schedules[0].name,
-        "description": schedules[0].description
-        };
+      if (typeof variable !== 'undefined') {
+          schedules.nextSweeping = {
+          "date" : schedules[0].upcoming[0],
+          "name": schedules[0].name,
+          "description": schedules[0].description
+          };
+      }
       $('#results').html(routeTemplate(schedules));
       $('#notes').html(notesTemplate(schedules));
     },
