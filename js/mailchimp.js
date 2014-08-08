@@ -228,15 +228,3 @@ function register($form) {
     });
 }
 
-
-// modal javascript
-
-function doPopUp() {
-        //$('body').css('overflow', 'hidden')
-        $('#myModal').modal('show')
-      }
-
-function showFeedbackForm() {
-        //$('body').css('overflow', 'hidden')
-        $('#feedbackModal').modal('show')
-      }
