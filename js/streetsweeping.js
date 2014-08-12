@@ -1,6 +1,6 @@
 //this function outputs our custom way of abbreviating days
 Date.prototype.getDayAbbrev = function(){
-    var days = new Array("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
+    var days = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     return days[this.getDay()];
 }
 
@@ -16,9 +16,26 @@ Date.prototype.getMonthFull = function(){
 
 //this function outputs our custom way of abbreviating month names
 Date.prototype.getMonthAbbrev = function(){
-    var months = new Array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
+    var months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
     return months[this.getMonth()];
 }
+
+
+/* 
+ *   This function converts a string to "Title Case"
+ *   Adapted from https://gist.github.com/LeoDutra/2764339
+*/
+String.prototype.toTitleCase = function(){
+  var str = this.toString();
+  
+  // \u00C0-\u00ff for a happy Latin-1
+  return str.toLowerCase().replace(/_/g, ' ').replace(/\b([a-z\u00C0-\u00ff])/g, function (_, initial) {
+      return initial.toUpperCase();
+  }).replace(/(\s(?:de|a|o|e|da|do|em|ou|[\u00C0-\u00ff]))\b/ig, function (_, match) {
+      return match.toLowerCase();
+  });
+};
+
 
 Handlebars.registerHelper("firstDate", function(array) {
   if(array && array.length > 0 ) {
@@ -35,6 +52,17 @@ Handlebars.registerHelper("formatNextDate", function(date) {
   date = new Date(date);
   return date.getDayFull() + ", " + date.getMonthFull() + " " + (date.getDate() +1);
 });
+
+Handlebars.registerHelper("toTitleCase", function(array) {
+  if(array && array.length > 0 ) {
+    return array.toTitleCase();
+  }
+  else {
+    return '';
+  }
+});
+
+
 
 
 function defaultAddress(){
@@ -97,7 +125,7 @@ function loadData(address){
         return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
       })
       //set next sweeping date and pass it to the view
-      if (typeof variable !== 'undefined') {
+      if (typeof schedules !== 'undefined') {
           schedules.nextSweeping = {
           "date" : schedules[0].upcoming[0],
           "name": schedules[0].name,
