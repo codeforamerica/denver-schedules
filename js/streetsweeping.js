@@ -125,7 +125,7 @@ function loadData(address){
         return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
       })
       //set next sweeping date and pass it to the view
-      if (typeof variable !== 'undefined') {
+      if (typeof schedules !== 'undefined') {
           schedules.nextSweeping = {
           "date" : schedules[0].upcoming[0],
           "name": schedules[0].name,
