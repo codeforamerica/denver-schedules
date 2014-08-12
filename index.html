@@ -97,7 +97,7 @@
     </script>
 
     <script id="route-template" type="text/x-handlebars-template" charset="utf-8">
-      {{#notEmpty}}
+      {{#validAddress}}
 
       <!-- NEXT STREET SWEEPING =====================================================================  -->
       <div class="col-lg-8 col-lg-offset-2" id="ss-next">
@@ -213,13 +213,18 @@
 
 
 
-      {{/notEmpty}}
+      {{/validAddress}}
 
       <!-- INCORRECT ADDRESS -->
       {{^this}}
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            <h4 class="section-title">Sorry, we couldn&#146;t find that address. Check your spelling and try again..</h4>
+            <h4 class="section-title">Sorry, we couldn&#146;t find that address. This could mean one of a few things:</h4>
+            <ul class="section-title">
+              <li>Your address could be spelled wrong</li>
+              <li>We may not have data on that address yet</li>
+              <li>There may not be street sweeping in your neighborhood</li>
+            </ul>
           </div>
         </div>
       {{/this}}

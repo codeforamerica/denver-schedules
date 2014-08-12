@@ -21,13 +21,13 @@ Date.prototype.getMonthAbbrev = function(){
 }
 
 
-/* 
+/*
  *   This function converts a string to "Title Case"
  *   Adapted from https://gist.github.com/LeoDutra/2764339
 */
 String.prototype.toTitleCase = function(){
   var str = this.toString();
-  
+
   // \u00C0-\u00ff for a happy Latin-1
   return str.toLowerCase().replace(/_/g, ' ').replace(/\b([a-z\u00C0-\u00ff])/g, function (_, initial) {
       return initial.toUpperCase();
@@ -61,9 +61,6 @@ Handlebars.registerHelper("toTitleCase", function(array) {
     return '';
   }
 });
-
-
-
 
 function defaultAddress(){
   $('#address').val('305 Milwaukee St, Denver, CO');
@@ -114,18 +111,20 @@ function loadData(address){
         }
       });
 
-
-
-      schedules.notEmpty = function(){
-        return schedules && schedules.length > 0;
-      };
+      //this checks if an address has street sweeping data
+      if (schedules && schedules.length > 0 && typeof schedules !== 'undefined') {
+        schedules.validAddress = true;
+      } else {
+        schedules.validAddress = false;
+      }
 
       //sort dates in ascending order based on the first date in the upcoming list
       schedules.sort(function(x, y){
         return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
       })
+
       //set next sweeping date and pass it to the view
-      if (typeof schedules !== 'undefined') {
+      if (schedules.validAddress) {
           schedules.nextSweeping = {
           "date" : schedules[0].upcoming[0],
           "name": schedules[0].name,
