@@ -217,7 +217,6 @@ var geocoders = {
 
   $(document).ready( function () {
   //This code is for pressing enter on the big search box
-
     $( "#address" ).keypress(function( event ) {
      //if user presses enter, click on the submit button:
      if (event.charCode == 13) {
@@ -233,4 +232,8 @@ var geocoders = {
          $('#mc-embedded-subscribe').click();
        }
     });
+
+    $('#welcomeModal').modal('show');
+
+
   });

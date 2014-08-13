@@ -351,6 +351,19 @@ footer a:hover {
   font-weight: 700;
 }
 
+.modal-half {
+  width: 55%;
+  float: left;
+  padding-right: 2em;
+}
+.modal-map {
+  float: right;
+  margin-top: 1em;
+  height: 290px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 /* ===== MEDIA QUERIES ===== */
 
 @media (min-width: 1201px){}
