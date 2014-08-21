@@ -155,6 +155,10 @@ var geocoders = {
 
 
 
+
+
+
+
 //This is to trigger the popup when someone clicks on something with the class 'trigger-pop-up'
 
   $(document).ready( function () {
@@ -175,4 +179,5 @@ var geocoders = {
          $('#mc-embedded-subscribe').click();
        }
     });
+
   });
