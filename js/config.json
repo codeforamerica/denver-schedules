@@ -1,0 +1,6 @@
+{
+    "errors": {
+        "no-data-on-address": "We don't have data for that address.",
+        "invalid-address": "That isn't a valid address. Try typing it again."
+    }
+}
