@@ -54,9 +54,6 @@
       <!-- ========= NEXT STREET SWEEPING ======== -->
       <div id="results" class="row hidden-print"></div>
 
-      <!-- ========= NOTES ======= -->
-      <div id="notes" class="row notations hidden-print"></div>
-
       <!-- WARNING  ============================================================================  -->
       <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-warning">
         <br>
@@ -91,10 +88,6 @@
     <script type="text/javascript" src="js/mailchimp.js"></script>
 
     <!-- Handlebars Templates -->
-
-
-    <script id="notes-template" type="text/x-handlebars-template" charset="utf-8">
-    </script>
 
     <script id="route-template" type="text/x-handlebars-template" charset="utf-8">
       {{#validAddress}}
@@ -193,7 +186,6 @@
       </div>
 
 
-
    <!--    <div id="save-calendar">
         <div class="col-lg-6">
           Download or subscribe to this areas street sweeping calendar in iCal, Google Calendar or Outlook.<br>
@@ -216,18 +208,13 @@
       {{/validAddress}}
 
       <!-- INCORRECT ADDRESS -->
-      {{^this}}
+      {{^validAddress}}
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            <h4 class="section-title">Sorry, we couldn&#146;t find that address. This could mean one of a few things:</h4>
-            <ul class="section-title">
-              <li>Your address could be spelled wrong</li>
-              <li>We may not have data on that address yet</li>
-              <li>There may not be street sweeping in your neighborhood</li>
-            </ul>
+            <h4 class="section-title">Sorry! {{error}}</h4>
           </div>
         </div>
-      {{/this}}
+      {{/validAddress}}
     </script>
 
   <div class="modal fade" id="myModal">

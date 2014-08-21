@@ -1,3 +1,8 @@
+//read in config vars from a json and put them in a global window variable
+$.getJSON( "./js/config.json", function(config){
+  window.config = config;
+});
+
 //this function outputs our custom way of abbreviating days
 Date.prototype.getDayAbbrev = function(){
     var days = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
@@ -68,6 +73,10 @@ function defaultAddress(){
   $('#submit').click();
 }
 
+function validGeo(address) {
+  return (address && address.longitude && address.latitude);
+}
+
 $('#submit').click(function (){
   getGeocode();
 });
@@ -81,7 +90,8 @@ function getGeocode(){
     url: url,
     success: function(data){
       // Only get street sweeping data if we have a street address
-      if( data[0].address.house_number) {
+
+      if( data.length > 0 && data[0].address.house_number) {
         loadData(geocoder.parse(data));
       }
       else {
@@ -96,48 +106,62 @@ function getGeocode(){
 
 function loadData(address){
   var routes   = $("#route-template").html();
-  var notes = $("#notes-template").html();
   var routeTemplate = Handlebars.compile(routes);
-  var notesTemplate = Handlebars.compile(notes);
-  $.ajax({
-    url: "http://production-denver-now-api.herokuapp.com/schedules/streetsweeping",
-    data: address,
-    success: function(schedules){
-      console.log("Success getting data from server: " + JSON.stringify(schedules));
-      // Add a method used as a conditional in mustache
-      $.each(schedules, function(index, schedule){
-        schedule.hasUpcoming = function(){
-          return schedule.upcoming.length > 0;
+
+  // check if we have a valid lat/long combo before hitting our endpoint
+  if (validGeo(address)) {
+      $.ajax({
+        url: "http://production-denver-now-api.herokuapp.com/schedules/streetsweeping",
+        data: address,
+        success: function(schedules){
+          console.log("Success getting data from server: " + JSON.stringify(schedules));
+          // Add a method used as a conditional in mustache
+          $.each(schedules, function(index, schedule){
+            schedule.hasUpcoming = function(){
+              return schedule.upcoming.length > 0;
+            }
+          });
+
+          //this checks if an address has street sweeping data
+          if (schedules && schedules.length > 0 && typeof schedules !== 'undefined') {
+            schedules.validAddress = true;
+          } else {
+            schedules.validAddress = false;
+            schedules.error = config.errors['no-data-on-address'];
+          }
+
+          //sort dates in ascending order based on the first date in the upcoming list
+          schedules.sort(function(x, y){
+            return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
+          })
+
+          //set next sweeping date and pass it to the view
+          if (schedules.validAddress) {
+              schedules.nextSweeping = {
+              "date" : schedules[0].upcoming[0],
+              "name": schedules[0].name,
+              "description": schedules[0].description
+              };
+          }
+          $('#results').html(routeTemplate(schedules));
+          // $('#notes').html(notesTemplate(schedules));
+        },
+        error: function(schedules){
+          console.log('WARNING Error: ' + JSON.stringify(schedules));
+          schedules.validAddress = false;
+          schedules.error = config.errors['invalid-address']
+          $('#results').html(routeTemplate(schedules));
+          // $('#notes').html(notesTemplate(schedules));
         }
+
       });
+  } else {
 
-      //this checks if an address has street sweeping data
-      if (schedules && schedules.length > 0 && typeof schedules !== 'undefined') {
-        schedules.validAddress = true;
-      } else {
-        schedules.validAddress = false;
-      }
+    var schedules = {};
+    schedules.error = config.errors['invalid-address'];
+    $('#results').html(routeTemplate(schedules));
+  }
 
-      //sort dates in ascending order based on the first date in the upcoming list
-      schedules.sort(function(x, y){
-        return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
-      })
-
-      //set next sweeping date and pass it to the view
-      if (schedules.validAddress) {
-          schedules.nextSweeping = {
-          "date" : schedules[0].upcoming[0],
-          "name": schedules[0].name,
-          "description": schedules[0].description
-          };
-      }
-      $('#results').html(routeTemplate(schedules));
-      $('#notes').html(notesTemplate(schedules));
-    },
-    error: function(data){
-      console.log('Error: ' + JSON.stringify(data));
-    }
-  });
 }
 
 // Modified from https://raw.githubusercontent.com/mapbox/geo-googledocs/master/MapBox.js
