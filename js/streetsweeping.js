@@ -249,9 +249,10 @@ var geocoders = {
 };
 
 function createReminders(reminderType) {
+  $('#reminder-error').html('');
   var url = config.baseUrl + "/reminders/" + reminderType;
   var data = JSON.parse($('#results').attr('data-model'));
-  var contact = $('#' + reminderType).val();
+  var contact = $.trim($('#' + reminderType).val());
   var valid = false;
   var message = '';
 
@@ -264,17 +265,24 @@ function createReminders(reminderType) {
     message = "Invalid phone number.";
   }
 
-  if(!valid) { $('#reminder-error').html(message); }
+  if(!valid)
+  {
+    $('#reminder-error').html(message);
+  } else {
+    // TODO: Write an action that takes a collection of reminders
+    $.each(data, function(index, street){
+      var upcoming = street.upcoming;
+      var message = config.reminders[reminderType] + street.name;
 
-  $.each(data, function(index, street){
-    var upcoming = street.upcoming;
-    var message = config.reminders[reminderType] + street.name;
-
-    $.each(upcoming, function(index, d){
-      message += ", " + d;
-      createReminder(contact, message, d, url);
+      $.each(upcoming, function(index, d){
+        message += ", " + d;
+        createReminder(contact, message, d, url);
+      });
     });
-  });
+
+    alert("Reminders created for " + contact + ".");
+    $('#' + reminderType).val('');
+  }
 }
 
 function createReminder(contact, message, date, url) {
