@@ -77,6 +77,18 @@ function validGeo(address) {
   return (address && address.longitude && address.latitude);
 }
 
+function validEmail(email) { 
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+} 
+
+// TODO: use google's library: 
+// https://code.google.com/p/libphonenumber/source/browse/#svn%2Ftrunk%2Fjavascript
+function validPhone(phone) {
+  var justNumbers = phone.replace(/[^0-9]/g, '');
+  return justNumbers.length == 10;
+}
+
 $('#submit').click(function (){
   getGeocode();
 });
@@ -240,6 +252,19 @@ function createReminders(reminderType) {
   var url = config.baseUrl + "/reminders/" + reminderType;
   var data = JSON.parse($('#results').attr('data-model'));
   var contact = $('#' + reminderType).val();
+  var valid = false;
+  var message = '';
+
+  if(reminderType == 'email') {
+    valid = validEmail(contact);
+    message = "Invalid email.";
+  }
+  else {
+    valid = validPhone(contact);
+    message = "Invalid phone number.";
+  }
+
+  if(!valid) { $('#reminder-error').html(message); }
 
   $.each(data, function(index, street){
     var upcoming = street.upcoming;
@@ -270,10 +295,11 @@ function createReminder(contact, message, date, url) {
 }
 
 function reminderAdded(response) {
-  console.log("Added reminder " + JSON.stringify(reminder));
+  console.log("Added reminder " + JSON.stringify(response));
 }
 
 function reminderNotAdded(reminder){
+  // TODO: How does this app log errors?
   console.log("WARNING: Didn't add reminder " + JSON.stringify(reminder));
 }
 
