@@ -111,7 +111,7 @@ function loadData(address){
   // check if we have a valid lat/long combo before hitting our endpoint
   if (validGeo(address)) {
       $.ajax({
-        url: "http://localhost:8080/schedules/streetsweeping",
+        url: config.baseUrl + "/schedules/streetsweeping",
         data: address,
         success: function(schedules){
           console.log("Success getting data from server: " + JSON.stringify(schedules));
@@ -237,7 +237,7 @@ var geocoders = {
 };
 
 function createReminders(reminderType) {
-  var url = "http://localhost:8080/reminders/" + reminderType;
+  var url = config.baseUrl + "/reminders/" + reminderType;
   var data = JSON.parse($('#results').attr('data-model'));
   var contact = $('#' + reminderType).val();
 
