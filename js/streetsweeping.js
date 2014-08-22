@@ -111,7 +111,7 @@ function loadData(address){
   // check if we have a valid lat/long combo before hitting our endpoint
   if (validGeo(address)) {
       $.ajax({
-        url: "http://production-denver-now-api.herokuapp.com/schedules/streetsweeping",
+        url: "http://localhost:8080/schedules/streetsweeping",
         data: address,
         success: function(schedules){
           console.log("Success getting data from server: " + JSON.stringify(schedules));
@@ -144,6 +144,7 @@ function loadData(address){
               };
           }
           $('#results').html(routeTemplate(schedules));
+          $('#results').attr('data-model', JSON.stringify(schedules));
           // $('#notes').html(notesTemplate(schedules));
         },
         error: function(schedules){
@@ -235,6 +236,46 @@ var geocoders = {
   }
 };
 
+function createReminders(reminderType) {
+  var url = "http://localhost:8080/reminders/" + reminderType;
+  var data = JSON.parse($('#results').attr('data-model'));
+  var contact = $('#' + reminderType).val();
+
+  $.each(data, function(index, street){
+    var upcoming = street.upcoming;
+    var message = config.reminders[reminderType] + street.name;
+
+    $.each(upcoming, function(index, d){
+      message += ", " + d;
+      createReminder(contact, message, d, url);
+    });
+  });
+}
+
+function createReminder(contact, message, date, url) {
+  var reminder = {
+    "contact" : contact,
+    "message" : message,
+    "remindOn" : date,
+    "address" : $('#address').val()
+  };
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: reminder,
+    success: function(response){ reminderAdded(response) },
+    error: function(reminder){ reminderNotAdded(response) }
+  });
+}
+
+function reminderAdded(response) {
+  console.log("Added reminder " + JSON.stringify(reminder));
+}
+
+function reminderNotAdded(reminder){
+  console.log("WARNING: Didn't add reminder " + JSON.stringify(reminder));
+}
 
 //This is to trigger the popup when someone clicks on something with the class 'trigger-pop-up'
 

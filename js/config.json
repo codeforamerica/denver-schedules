@@ -1,6 +1,10 @@
 {
-    "errors": {
-        "no-data-on-address": "We don't have data for that address.",
-        "invalid-address": "That isn't a valid address. Try typing it again."
-    }
+  "errors": {
+    "no-data-on-address": "We don't have data for that address.",
+    "invalid-address": "That isn't a valid address. Try typing it again."
+  },
+  "reminders": {
+    "email": "This is your reminder that street sweeping is happening tomorrow. Details: ",
+    "sms": "Street sweeping tomorrow: "
+  }
 }

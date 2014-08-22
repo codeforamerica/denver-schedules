@@ -122,7 +122,7 @@
                 <label class="sr-only" for="emailReminder">Enter an email address</label>
                 <input type="email" class="form-control" id="email" placeholder="e.g. you@example.com">
               </div>
-              <button type="submit" onclick="doPopUp()" class="btn blue-btn reminderButton trigger-pop-up">Subscribe</button>
+              <button type="submit" onclick="createReminders('email')" class="btn blue-btn reminderButton">Subscribe</button>
           </div>
         </div>
       </div>
@@ -136,9 +136,9 @@
           <div class="form-inline reminderInput" role="form">
             <div class="form-group">
               <label class="sr-only" for="phoneReminder">Enter a phone number</label>
-              <input type="tel" class="form-control" id="phone" placeholder="e.g. 720-555-5555">
+              <input type="tel" class="form-control" id="sms" placeholder="e.g. 720-555-5555">
             </div>
-            <button type="submit" onclick="doPopUp()" class="btn blue-btn reminderButton trigger-pop-up">Subscribe</button>
+            <button type="submit" onclick="createReminders('sms')" class="btn blue-btn reminderButton">Subscribe</button>
           </div>
         </div>
       </div>
