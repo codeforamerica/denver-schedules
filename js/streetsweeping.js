@@ -139,7 +139,7 @@ function loadData(address){
             schedules.validAddress = true;
           } else {
             schedules.validAddress = false;
-            schedules.error = config.errors['no-data-on-address'];
+            schedules.error = config.errors.address['no-data-on-address'];
           }
 
           //sort dates in ascending order based on the first date in the upcoming list
@@ -162,7 +162,7 @@ function loadData(address){
         error: function(schedules){
           console.log('WARNING Error: ' + JSON.stringify(schedules));
           schedules.validAddress = false;
-          schedules.error = config.errors['invalid-address']
+          schedules.error = config.errors.address['invalid-address']
           $('#results').html(routeTemplate(schedules));
           // $('#notes').html(notesTemplate(schedules));
         }
@@ -171,7 +171,7 @@ function loadData(address){
   } else {
 
     var schedules = {};
-    schedules.error = config.errors['invalid-address'];
+    schedules.error = config.errors.address['invalid-address'];
     $('#results').html(routeTemplate(schedules));
   }
 
@@ -253,21 +253,11 @@ function createReminders(reminderType) {
   var url = config.baseUrl + "/reminders/" + reminderType;
   var data = JSON.parse($('#results').attr('data-model'));
   var contact = $.trim($('#' + reminderType).val());
-  var valid = false;
-  var message = '';
-
-  if(reminderType == 'email') {
-    valid = validEmail(contact);
-    message = "Invalid email.";
-  }
-  else {
-    valid = validPhone(contact);
-    message = "Invalid phone number.";
-  }
+  var valid = reminderType == 'email'? validEmail(contact) : validPhone(contact)
 
   if(!valid)
   {
-    $('#reminder-error').html(message);
+    $('#reminder-error').html(config.errors.reminder['invalid-' + reminderType]);
   } else {
     // TODO: Write an action that takes a collection of reminders
     $.each(data, function(index, street){

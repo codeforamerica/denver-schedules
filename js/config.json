@@ -1,8 +1,14 @@
 {
   "baseUrl": "http://production-denver-now-api.herokuapp.com",
   "errors": {
-    "no-data-on-address": "We don't have data for that address.",
-    "invalid-address": "That isn't a valid address. Try typing it again."
+    "address": {
+      "no-data-on-address": "We don't have data for that address.",
+      "invalid-address": "That isn't a valid address. Try typing it again."
+    },
+    "reminder": {
+      "invalid-email": "Invalid email.",
+      "invalid-sms": "Invalid phone number"
+    }
   },
   "reminders": {
     "email": "This is your reminder that street sweeping is happening tomorrow. Details: ",
