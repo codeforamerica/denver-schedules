@@ -1,14 +1,8 @@
 {
-  "baseUrl": "http://localhost:8080",
+  "baseUrl": "http://production-denver-now-api.herokuapp.com",
   "errors": {
-    "address": {
-      "no-data-on-address": "We don't have data for that address.",
-      "invalid-address": "That isn't a valid address. Try typing it again."
-    },
-    "reminders": {
-      "invalid-email": "Invalid email.",
-      "invalid-sms": "Invalid phone number."
-    }
+    "no-data-on-address": "We don't have data for that address.",
+    "invalid-address": "That isn't a valid address. Try typing it again."
   },
   "reminders": {
     "email": "This is your reminder that street sweeping is happening tomorrow. Details: ",
