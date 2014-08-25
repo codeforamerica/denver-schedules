@@ -257,10 +257,20 @@ function createReminders(reminderType) {
 
   if(!valid)
   {
-    $('#reminder-error-alert').removeClass('hidden');
-    $('#reminder-error').html(config.errors.reminder['invalid-' + reminderType]);
+    //add an alert to the view  the address is not valid
+    $('#reminder-alerts').removeClass()
+                              .addClass('alert alert-danger')
+                              .fadeIn(300)
+                              .html('<h4>' + config.errors.reminder['invalid-' + reminderType] + '</h4>')
+                              .fadeOut(5000);
   } else {
-    $('#reminder-error-alert').hide();
+    //add an alert to the view  the address is not valid
+    $('#reminder-alerts').removeClass()
+                              .addClass('alert alert-success')
+                              .fadeIn(300)
+                              .html('<h4>' + config.errors.reminder['valid-' + reminderType] + '</h4>')
+                              .fadeOut(5000);
+
     // TODO: Write an action that takes a collection of reminders
     $.each(data, function(index, street){
       var upcoming = street.upcoming;
@@ -272,7 +282,9 @@ function createReminders(reminderType) {
       });
     });
 
-    alert("Reminders created for " + contact + ".");
+    $('#reminder-error-alert').removeClass('hidden');
+    $('#reminder-error').html("Reminders created for " + contact + ".");
+
     $('#' + reminderType).val('');
   }
 }

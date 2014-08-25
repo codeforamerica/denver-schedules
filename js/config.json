@@ -7,7 +7,10 @@
     },
     "reminder": {
       "invalid-email": "Invalid email address. Please try again.",
-      "invalid-sms": "Invalid phone number. Please try again."
+      "invalid-sms": "Invalid phone number. Please try again.",
+      "valid-email": "You successfully signed up for email alerts!",
+      "valid-sms": "You successfully signed up for text alerts!"
+
     }
   },
   "reminders": {
