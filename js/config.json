@@ -1,13 +1,13 @@
 {
-  "baseUrl": "http://production-denver-now-api.herokuapp.com",
+  "baseUrl": "http://staging-denver-now-api.herokuapp.com",
   "errors": {
     "address": {
       "no-data-on-address": "We don't have data for that address.",
       "invalid-address": "That isn't a valid address. Try typing it again."
     },
     "reminder": {
-      "invalid-email": "Invalid email.",
-      "invalid-sms": "Invalid phone number"
+      "invalid-email": "Invalid email address. Please try again.",
+      "invalid-sms": "Invalid phone number. Please try again."
     }
   },
   "reminders": {

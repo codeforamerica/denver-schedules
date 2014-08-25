@@ -77,12 +77,12 @@ function validGeo(address) {
   return (address && address.longitude && address.latitude);
 }
 
-function validEmail(email) { 
+function validEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-} 
+}
 
-// TODO: use google's library: 
+// TODO: use google's library:
 // https://code.google.com/p/libphonenumber/source/browse/#svn%2Ftrunk%2Fjavascript
 function validPhone(phone) {
   var justNumbers = phone.replace(/[^0-9]/g, '');
@@ -257,8 +257,10 @@ function createReminders(reminderType) {
 
   if(!valid)
   {
+    $('#reminder-error-alert').removeClass('hidden');
     $('#reminder-error').html(config.errors.reminder['invalid-' + reminderType]);
   } else {
+    $('#reminder-error-alert').hide();
     // TODO: Write an action that takes a collection of reminders
     $.each(data, function(index, street){
       var upcoming = street.upcoming;
