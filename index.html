@@ -55,9 +55,6 @@
       <!-- ========= NEXT STREET SWEEPING ======== -->
       <div id="results" class="row hidden-print"></div>
 
-      <!-- ========= NOTES ======= -->
-      <div id="notes" class="row notations hidden-print"></div>
-
       <!-- WARNING  ============================================================================  -->
       <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-warning">
         <br>
@@ -93,12 +90,8 @@
 
     <!-- Handlebars Templates -->
 
-
-    <script id="notes-template" type="text/x-handlebars-template" charset="utf-8">
-    </script>
-
     <script id="route-template" type="text/x-handlebars-template" charset="utf-8">
-      {{#notEmpty}}
+      {{#validAddress}}
 
       <!-- NEXT STREET SWEEPING =====================================================================  -->
       <div class="col-lg-8 col-lg-offset-2" id="ss-next">
@@ -196,7 +189,6 @@
       </div>
 
 
-
    <!--    <div id="save-calendar">
         <div class="col-lg-6">
           Download or subscribe to this areas street sweeping calendar in iCal, Google Calendar or Outlook.<br>
@@ -216,16 +208,16 @@
 
 
 
-      {{/notEmpty}}
+      {{/validAddress}}
 
       <!-- INCORRECT ADDRESS -->
-      {{^this}}
+      {{^validAddress}}
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
-            <h4 class="section-title">Sorry, we couldn&#146;t find that address. Check your spelling and try again..</h4>
+            <h4 class="section-title">Sorry! {{error}}</h4>
           </div>
         </div>
-      {{/this}}
+      {{/validAddress}}
     </script>
 
   <div class="modal fade" id="myModal">
