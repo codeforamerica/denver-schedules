@@ -115,7 +115,7 @@ height:80px;
   margin-right: 2em;
   float:left;
 }
-input#email, input#phone { 
+input#email, input#sms { 
   width: 16em;
 }
 .notations {
@@ -355,7 +355,7 @@ footer a:hover {
 
 @media (min-width: 1201px){}
 @media (max-width: 1200px) and (min-width:992px){
-    input#email, input#phone {
+    input#email, input#sms {
       margin-top: 1em;
    }
    .reminderInput button {
@@ -370,7 +370,7 @@ footer a:hover {
     font-size: 1em;
     height: 6em;
   }
-      input#email, input#phone {
+      input#email, input#sms {
       margin-top: 1em;
    }
    .reminderInput button {
@@ -393,7 +393,7 @@ footer a:hover {
     max-width: 100%;
     padding-right: 0;
   }
-  input#email, input#phone {
+  input#email, input#sms {
     margin-top: 1em;
     margin-left: 4.3em;
     width: 75%;

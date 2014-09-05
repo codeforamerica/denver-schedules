@@ -77,6 +77,18 @@ function validGeo(address) {
   return (address && address.longitude && address.latitude);
 }
 
+function validEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+// TODO: use google's library:
+// https://code.google.com/p/libphonenumber/source/browse/#svn%2Ftrunk%2Fjavascript
+function validPhone(phone) {
+  var justNumbers = phone.replace(/[^0-9]/g, '');
+  return justNumbers.length == 10;
+}
+
 $('#submit').click(function (){
   getGeocode();
 });
@@ -111,7 +123,7 @@ function loadData(address){
   // check if we have a valid lat/long combo before hitting our endpoint
   if (validGeo(address)) {
       $.ajax({
-        url: "http://production-denver-now-api.herokuapp.com/schedules/streetsweeping",
+        url: config.baseUrl + "/schedules/streetsweeping",
         data: address,
         success: function(schedules){
           console.log("Success getting data from server: " + JSON.stringify(schedules));
@@ -127,7 +139,7 @@ function loadData(address){
             schedules.validAddress = true;
           } else {
             schedules.validAddress = false;
-            schedules.error = config.errors['no-data-on-address'];
+            schedules.error = config.errors.address['no-data-on-address'];
           }
 
           //sort dates in ascending order based on the first date in the upcoming list
@@ -144,12 +156,13 @@ function loadData(address){
               };
           }
           $('#results').html(routeTemplate(schedules));
+          $('#results').attr('data-model', JSON.stringify(schedules));
           // $('#notes').html(notesTemplate(schedules));
         },
         error: function(schedules){
           console.log('WARNING Error: ' + JSON.stringify(schedules));
           schedules.validAddress = false;
-          schedules.error = config.errors['invalid-address']
+          schedules.error = config.errors.address['invalid-address']
           $('#results').html(routeTemplate(schedules));
           // $('#notes').html(notesTemplate(schedules));
         }
@@ -158,7 +171,7 @@ function loadData(address){
   } else {
 
     var schedules = {};
-    schedules.error = config.errors['invalid-address'];
+    schedules.error = config.errors.address['invalid-address'];
     $('#results').html(routeTemplate(schedules));
   }
 
@@ -235,6 +248,72 @@ var geocoders = {
   }
 };
 
+function createReminders(reminderType) {
+  $('#reminder-error').html('');
+  var url = config.baseUrl + "/reminders/" + reminderType;
+  var data = JSON.parse($('#results').attr('data-model'));
+  var contact = $.trim($('#' + reminderType).val());
+  var valid = reminderType == 'email'? validEmail(contact) : validPhone(contact)
+
+  if(!valid)
+  {
+    //add an alert to the view  the address is not valid
+    $('#reminder-alerts').removeClass()
+                              .addClass('alert alert-danger')
+                              .fadeIn(300)
+                              .html('<h4>' + config.errors.reminder['invalid-' + reminderType] + '</h4>')
+                              .fadeOut(5000);
+  } else {
+    //add an alert to the view  the address is not valid
+    $('#reminder-alerts').removeClass()
+                              .addClass('alert alert-success')
+                              .fadeIn(300)
+                              .html('<h4>' + config.errors.reminder['valid-' + reminderType] + '</h4>')
+                              .fadeOut(5000);
+
+    // TODO: Write an action that takes a collection of reminders
+    $.each(data, function(index, street){
+      var upcoming = street.upcoming;
+      var message = config.reminders[reminderType] + street.name;
+
+      $.each(upcoming, function(index, d){
+        message += ", " + d;
+        createReminder(contact, message, d, url);
+      });
+    });
+
+    $('#reminder-error-alert').removeClass('hidden');
+    $('#reminder-error').html("Reminders created for " + contact + ".");
+
+    $('#' + reminderType).val('');
+  }
+}
+
+function createReminder(contact, message, date, url) {
+  var reminder = {
+    "contact" : contact,
+    "message" : message,
+    "remindOn" : date,
+    "address" : $('#address').val()
+  };
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: reminder,
+    success: function(response){ reminderAdded(response) },
+    error: function(reminder){ reminderNotAdded(response) }
+  });
+}
+
+function reminderAdded(response) {
+  console.log("Added reminder " + JSON.stringify(response));
+}
+
+function reminderNotAdded(reminder){
+  // TODO: How does this app log errors?
+  console.log("WARNING: Didn't add reminder " + JSON.stringify(reminder));
+}
 
 //This is to trigger the popup when someone clicks on something with the class 'trigger-pop-up'
 
