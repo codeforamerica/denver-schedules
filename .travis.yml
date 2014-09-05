@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '0.11'
+script: echo 'No tests to run'
+deploy:
+  provider: heroku
+  api_key:
+    secure: PH4YASQYtLmJu4KAk5/lXjuUOZZOSpT5Ej8eyk3ovFBEN4BGf04qxLyGGwvCsfnSheR1YNpTIA/yYWGVr0z7yU0u231q2poJxkuNff4OtZ1lMo8wiGen++1nGm4pbgbV2d1DSSmnb3jeT214WezBwEMvc6F7dlXRORwbWvZHYIw=
+  app: staging-denver-schedules
+  on:
+    repo: codeforamerica/denver-schedules
