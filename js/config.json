@@ -1,6 +1,20 @@
 {
-    "errors": {
-        "no-data-on-address": "We don't have data for that address.",
-        "invalid-address": "That isn't a valid address. Try typing it again."
+  "baseUrl": "http://staging-denver-now-api.herokuapp.com",
+  "errors": {
+    "address": {
+      "no-data-on-address": "We don't have data for that address.",
+      "invalid-address": "That isn't a valid address. Try typing it again."
+    },
+    "reminder": {
+      "invalid-email": "Invalid email address. Please try again.",
+      "invalid-sms": "Invalid phone number. Please try again.",
+      "valid-email": "You successfully signed up for email alerts!",
+      "valid-sms": "You successfully signed up for text alerts!"
+
     }
+  },
+  "reminders": {
+    "email": "This is your reminder that street sweeping is happening tomorrow. Details: ",
+    "sms": "Street sweeping tomorrow: "
+  }
 }
