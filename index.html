@@ -191,7 +191,13 @@
             </tr>
             {{/hasUpcoming}}
             {{^hasUpcoming}}
-              {{error}}
+              <tr>
+              <td>Tonight</td>
+              <td>8am - 5pm</td>
+              <td>{{toTitleCase name}}</td>
+              <td>{{description}}</td>
+              <td>TBD</td>
+            </tr>
             {{/hasUpcoming}}
           {{/this}}
         </table>
