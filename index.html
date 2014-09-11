@@ -69,8 +69,8 @@
 
     </div>  <!-- .container -->
 
-    <div onclick="showFeedbackForm()" class="trigger-pop-up" id="feedback">
-      <a >feedback</a>
+    <div id="feedback">
+      <a href="https://docs.google.com/a/codeforamerica.org/forms/d/1p9vvy-PQIbi8wF99WhU6hnmHu71QW3qLXLKKWY1e0Xo/viewform">feedback</a>
     </div>
 
 
@@ -275,60 +275,6 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-
-  <div class="modal fade" id="feedbackModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Submit feedback</h4>
-        </div> <!-- /.modal-header -->
-
-         <form 
-            id="feedback-form" 
-            action="javascript: postContactToGoogle()" 
-            method="post" 
-            enctype="text/plain">
-
-          <div class="modal-body">
-            <div id="email-result"></div>
-            <div id="popup-content">
-              <h3>Have some feedback?</h3>
-              <p>
-                Send us a message using the form below.
-              </p>
-            </div> <!-- /#popup-content -->
-
-              
-              <div class="form-group">
-                <label for="fb-name">Your name:</label>
-                <input 
-                type="text" 
-                value="" 
-                name="name" 
-                class="form-control" id="fb-name" placeholder="Molly Brown" >
-              </div>
-
-              <div class="form-group">
-                <label  for="fb-email">Your email address: </label>
-                <input type="text" value="" name="email" class="form-control" id="fb-email" placeholder="molly@denver.com">
-              </div>
-
-              <div class="form-group">
-                <label for="fb-comment">Your feedback:</label>
-                <textarea 
-                  placeholder="Add your feedback here" type="text" rows="4" name="comment" class="form-control required email" id="fb-comment"></textarea>
-              </div>
-        </div>  <!-- /.modal-body -->
-
-        <div class="modal-footer">
-          <button type="submit" class="btn blue-btn">Send feedback</button>
-        </div> <!-- /.modal-footer -->
-        </form>
-      </div> <!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
 
   </script>
   <!-- Add TypeKit Fonts -->
