@@ -4,6 +4,8 @@ node_js:
 script: echo 'No tests to run'
 deploy:
   provider: heroku
+  buildpack: https://github.com/pearkes/heroku-buildpack-static
+  strategy: git
   api_key:
     secure: PH4YASQYtLmJu4KAk5/lXjuUOZZOSpT5Ej8eyk3ovFBEN4BGf04qxLyGGwvCsfnSheR1YNpTIA/yYWGVr0z7yU0u231q2poJxkuNff4OtZ1lMo8wiGen++1nGm4pbgbV2d1DSSmnb3jeT214WezBwEMvc6F7dlXRORwbWvZHYIw=
   app: staging-denver-schedules

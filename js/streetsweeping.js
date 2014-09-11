@@ -319,6 +319,11 @@ function reminderNotAdded(reminder){
   console.log("WARNING: Didn't add reminder " + JSON.stringify(reminder));
 }
 
+
+
+
+
+
 //This is to trigger the popup when someone clicks on something with the class 'trigger-pop-up'
 
   $(document).ready( function () {
@@ -339,7 +344,7 @@ function reminderNotAdded(reminder){
        }
     });
 
-    $('#welcomeModal').modal('show');
 
+    $('#welcomeModal').modal('show');
 
   });

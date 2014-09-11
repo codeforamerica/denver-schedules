@@ -19,7 +19,7 @@
   </head>
 
   <body>
-  <div class="page-wrap">
+
     <!-- NAVIGATION -->
     <nav class="navbar" role="navigation">
       <div class="container">
@@ -42,9 +42,11 @@
       <div class="row bigSearch-container hidden-print">
         <div class="form  col-lg-8 col-lg-offset-2" role="form">
           <div class="form-group col-xs-10">
+
             <input id="address" type="search" class="form-control bigSearch-input" placeholder="e.g. 305 Milwaukee St, Denver, CO">
             <br />
             or use an example: <a href="javascript:void(0)" onclick="defaultAddress()">305 Milwaukee St, Denver, CO</a>
+
           </div>
           <button id="submit" type="submit" class="btn blue-btn bigSearch-submit col-xs-2">Find Address</button>
 
@@ -64,9 +66,14 @@
       </div>
 
     </div>  <!-- .container -->
-    </div> <!-- .page-wrap -->
 
-    <footer class="site-footer hidden-print">
+    <div id="feedback">
+      <a href="https://docs.google.com/a/codeforamerica.org/forms/d/1p9vvy-PQIbi8wF99WhU6hnmHu71QW3qLXLKKWY1e0Xo/viewform">feedback</a>
+    </div>
+
+
+
+    <footer class="hidden-print">
       <div class="container">
         <div class="col-lg-8 col-lg-offset-2 footer-content">
 
@@ -87,6 +94,7 @@
     <script type="text/javascript" src="js/showhide.js"></script>
     <script type="text/javascript" src="js/streetsweeping.js"></script>
     <script type="text/javascript" src="js/mailchimp.js"></script>
+    <script type="text/javascript" src="js/modals.js"></script>
 
     <!-- Handlebars Templates -->
 
