@@ -1,14 +1,15 @@
 denver-schedules
 ================
+[![Build Status][build_png]][travis]
 
-A project for Denver schedules
-
-This is a frontend application that consumes json data from a API for the city of Denver's various calendars
+This is a client application for [Denver's street sweeping api][api].
 
 ## Run the code 
-Download this code
-Navigate to your project directory and run the following code: 
+Use python's simple server:
 
 ``` bash
 python -m SimpleHTTPServer 8000
 ```
+[build_png]: https://travis-ci.org/codeforamerica/denver-schedules.png?branch=master
+[travis]: https://travis-ci.org/codeforamerica/denver-schedules
+[api]: https://github.com/codeforamerica/denver-schedules-api

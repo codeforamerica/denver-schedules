@@ -4,11 +4,51 @@ html, body {
   color:#666666;
   height: 100%;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
+
+  /* Style Scrollbar in IE */
+/*  scrollbar-arrow-color: #666;
+  scrollbar-base-color: #ccc;
+  scrollbar-track-color: #f8f8f8;
+  scrollbar-face-color: #ccc;
+  scrollbar-highlight-color: #ccc;
+  scrollbar-3dlight-color: #ccc;
+  scrollbar-darkshadow-color: #f8f8f8;
+  scrollbar-shadow-color: #ccc;*/
+}
+
+
+
+/*Style Scrollbar in Chrome, Safari, Opera, Android, and iOS*/
+::-webkit-scrollbar {
+  height:10px;
+  width:10px;
+  background-color: #f8f8f8;
+}
+::-webkit-scrollbar-button {
+  height:0;
+  width:0;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border:5px solid transparent;
+  max-height:10px;
+  max-width:10px;
+  height:5px;
+  width:5px;
+}
+::-webkit-scrollbar:hover,::-webkit-scrollbar:active  {
+  -webkit-box-shadow: inset 6px 6px 4px -5px rgba(50, 50, 50, 0.3);
+  -moz-box-shadow:    inset 6px 6px 4px -5px rgba(50, 50, 50, 0.3);
+  box-shadow:         inset 6px 6px 4px -5px rgba(50, 50, 50, 0.3);
+}
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background-color:rgba(0,0,0,.4);
 }
 
 #results{ font-size: 16px;}
 
 #ss-warning { font-size: 14px; }
+
 
 /* ===== FORM GHOST TEXT ===== */
 .form-control::-webkit-input-placeholder { color: #ccc; }
@@ -113,7 +153,7 @@ height:80px;
   margin-right: 2em;
   float:left;
 }
-input#email, input#phone { 
+input#email, input#sms { 
   width: 16em;
 }
 .notations {
@@ -324,11 +364,24 @@ footer a:hover {
   font-weight: 700;
 }
 
+.modal-half {
+  width: 55%;
+  float: left;
+  padding-right: 2em;
+}
+.modal-map {
+  float: right;
+  margin-top: 1em;
+  height: 290px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
 /* ===== MEDIA QUERIES ===== */
 
 @media (min-width: 1201px){}
 @media (max-width: 1200px) and (min-width:992px){
-    input#email, input#phone {
+    input#email, input#sms {
       margin-top: 1em;
    }
    .reminderInput button {
@@ -343,7 +396,7 @@ footer a:hover {
     font-size: 1em;
     height: 6em;
   }
-      input#email, input#phone {
+      input#email, input#sms {
       margin-top: 1em;
    }
    .reminderInput button {
@@ -366,7 +419,7 @@ footer a:hover {
     max-width: 100%;
     padding-right: 0;
   }
-  input#email, input#phone {
+  input#email, input#sms {
     margin-top: 1em;
     margin-left: 4.3em;
     width: 75%;

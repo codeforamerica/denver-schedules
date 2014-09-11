@@ -1,21 +1,96 @@
-// TODO: Move into more generic file
+//read in config vars from a json and put them in a global window variable
+$.getJSON( "./js/config.json", function(config){
+  window.config = config;
+});
+
+//this function outputs our custom way of abbreviating days
+Date.prototype.getDayAbbrev = function(){
+    var days = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+    return days[this.getDay()];
+}
+
+Date.prototype.getDayFull = function(){
+    var days = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+    return days[this.getDay()];
+}
+
+Date.prototype.getMonthFull = function(){
+    var days = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+    return days[this.getMonth()];
+}
+
+//this function outputs our custom way of abbreviating month names
+Date.prototype.getMonthAbbrev = function(){
+    var months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+    return months[this.getMonth()];
+}
+
+
+/*
+ *   This function converts a string to "Title Case"
+ *   Adapted from https://gist.github.com/LeoDutra/2764339
+*/
+String.prototype.toTitleCase = function(){
+  var str = this.toString();
+
+  // \u00C0-\u00ff for a happy Latin-1
+  return str.toLowerCase().replace(/_/g, ' ').replace(/\b([a-z\u00C0-\u00ff])/g, function (_, initial) {
+      return initial.toUpperCase();
+  }).replace(/(\s(?:de|a|o|e|da|do|em|ou|[\u00C0-\u00ff]))\b/ig, function (_, match) {
+      return match.toLowerCase();
+  });
+};
+
+
 Handlebars.registerHelper("firstDate", function(array) {
-  // TODO: Dumb, use date manipulation library
-  var days = new Array("SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT");
-  var months = new Array("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC");
-  if(array && array.length > 0) {
+  if(array && array.length > 0 ) {
     var first = array[0];
     var date = new Date(first);
-    return days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate();
+    return date.getDayAbbrev() + ", " + date.getMonthAbbrev() + " " + (date.getDate() +1 );
+  }
+  else {
+    return '';
+  }
+});
+
+Handlebars.registerHelper("formatNextDate", function(date) {
+  if(date) {
+    date = new Date(date);
+    return date.getDayFull() + ", " + date.getMonthFull() + " " + (date.getDate() +1);
   }
   else
+    return "tonight";
+});
+
+Handlebars.registerHelper("toTitleCase", function(array) {
+  if(array && array.length > 0 ) {
+    return array.toTitleCase();
+  }
+  else {
     return '';
+  }
 });
 
 function defaultAddress(){
-  $('#address').val('3516 Clayton St, Denver, CO');
+  $('#address').val('305 Milwaukee St, Denver, CO');
   $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
   $('#submit').click();
+}
+
+function validGeo(address) {
+  return (address && address.longitude && address.latitude);
+}
+
+function validEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+// TODO: use google's library:
+// https://code.google.com/p/libphonenumber/source/browse/#svn%2Ftrunk%2Fjavascript
+function validPhone(phone) {
+  var justNumbers = phone.replace(/[^0-9]/g, '');
+  return justNumbers.length == 10;
 }
 
 $('#submit').click(function (){
@@ -31,7 +106,8 @@ function getGeocode(){
     url: url,
     success: function(data){
       // Only get street sweeping data if we have a street address
-      if( data[0].address.house_number) {
+
+      if( data.length > 0 && data[0].address.house_number) {
         loadData(geocoder.parse(data));
       }
       else {
@@ -46,40 +122,63 @@ function getGeocode(){
 
 function loadData(address){
   var routes   = $("#route-template").html();
-  var notes = $("#notes-template").html();
   var routeTemplate = Handlebars.compile(routes);
-  var notesTemplate = Handlebars.compile(notes);
-  $.ajax({
-    url: "http://production-denver-now-api.herokuapp.com/schedules/streetsweeping",
-    //url: "http://127.0.0.1:8080/schedules/streetsweeping",
-    data: address,
-    success: function(schedules){
-      console.log("Success getting data from server: " + JSON.stringify(schedules));
-      // Add a method used as a conditional in mustache
-      $.each(schedules, function(index, schedule){
-        schedule.hasUpcoming = function(){
-          return schedule.upcoming.length > 0;
+
+  // check if we have a valid lat/long combo before hitting our endpoint
+  if (validGeo(address)) {
+      $.ajax({
+        url: config.baseUrl + "/schedules/streetsweeping",
+        data: address,
+        success: function(schedules){
+          console.log("Success getting data from server: " + JSON.stringify(schedules));
+          // Add a method used as a conditional in mustache
+          $.each(schedules, function(index, schedule){
+            schedule.hasUpcoming = function(){
+              return schedule.upcoming.length > 0;
+            }
+          });
+
+          //this checks if an address has street sweeping data
+          if (schedules && schedules.length > 0 && typeof schedules !== 'undefined') {
+            schedules.validAddress = true;
+          } else {
+            schedules.validAddress = false;
+            schedules.error = config.errors.address['no-data-on-address'];
+          }
+
+          //sort dates in ascending order based on the first date in the upcoming list
+          schedules.sort(function(x, y){
+            return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
+          })
+
+          //set next sweeping date and pass it to the view
+          if (schedules.validAddress) {
+              schedules.nextSweeping = {
+              "date" : schedules[0].upcoming[0],
+              "name": schedules[0].name,
+              "description": schedules[0].description
+              };
+          }
+          $('#results').html(routeTemplate(schedules));
+          $('#results').attr('data-model', JSON.stringify(schedules));
+          // $('#notes').html(notesTemplate(schedules));
+        },
+        error: function(schedules){
+          console.log('WARNING Error: ' + JSON.stringify(schedules));
+          schedules.validAddress = false;
+          schedules.error = config.errors.address['invalid-address']
+          $('#results').html(routeTemplate(schedules));
+          // $('#notes').html(notesTemplate(schedules));
         }
+
       });
+  } else {
 
+    var schedules = {};
+    schedules.error = config.errors.address['invalid-address'];
+    $('#results').html(routeTemplate(schedules));
+  }
 
-
-      schedules.notEmpty = function(){
-        return schedules && schedules.length > 0;
-      };
-
-      //sort dates in ascending order based on the first date in the upcoming list
-      schedules.sort(function(x, y){
-        return new Date(x.upcoming[0]) - new Date(y.upcoming[0]);
-      })
-
-      $('#results').html(routeTemplate(schedules));
-      $('#notes').html(notesTemplate(schedules));
-    },
-    error: function(data){
-      console.log('Error: ' + JSON.stringify(data));
-    }
-  });
 }
 
 // Modified from https://raw.githubusercontent.com/mapbox/geo-googledocs/master/MapBox.js
@@ -153,6 +252,72 @@ var geocoders = {
   }
 };
 
+function createReminders(reminderType) {
+  $('#reminder-error').html('');
+  var url = config.baseUrl + "/reminders/" + reminderType;
+  var data = JSON.parse($('#results').attr('data-model'));
+  var contact = $.trim($('#' + reminderType).val());
+  var valid = reminderType == 'email'? validEmail(contact) : validPhone(contact)
+
+  if(!valid)
+  {
+    //add an alert to the view  the address is not valid
+    $('#reminder-alerts').removeClass()
+                              .addClass('alert alert-danger')
+                              .fadeIn(300)
+                              .html('<h4>' + config.errors.reminder['invalid-' + reminderType] + '</h4>')
+                              .fadeOut(5000);
+  } else {
+    //add an alert to the view  the address is not valid
+    $('#reminder-alerts').removeClass()
+                              .addClass('alert alert-success')
+                              .fadeIn(300)
+                              .html('<h4>' + config.errors.reminder['valid-' + reminderType] + '</h4>')
+                              .fadeOut(5000);
+
+    // TODO: Write an action that takes a collection of reminders
+    $.each(data, function(index, street){
+      var upcoming = street.upcoming;
+      var message = config.reminders[reminderType] + street.name;
+
+      $.each(upcoming, function(index, d){
+        message += ", " + d;
+        createReminder(contact, message, d, url);
+      });
+    });
+
+    $('#reminder-error-alert').removeClass('hidden');
+    $('#reminder-error').html("Reminders created for " + contact + ".");
+
+    $('#' + reminderType).val('');
+  }
+}
+
+function createReminder(contact, message, date, url) {
+  var reminder = {
+    "contact" : contact,
+    "message" : message,
+    "remindOn" : date,
+    "address" : $('#address').val()
+  };
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: reminder,
+    success: function(response){ reminderAdded(response) },
+    error: function(reminder){ reminderNotAdded(response) }
+  });
+}
+
+function reminderAdded(response) {
+  console.log("Added reminder " + JSON.stringify(response));
+}
+
+function reminderNotAdded(reminder){
+  // TODO: How does this app log errors?
+  console.log("WARNING: Didn't add reminder " + JSON.stringify(reminder));
+}
 
 
 
@@ -163,7 +328,6 @@ var geocoders = {
 
   $(document).ready( function () {
   //This code is for pressing enter on the big search box
-
     $( "#address" ).keypress(function( event ) {
      //if user presses enter, click on the submit button:
      if (event.charCode == 13) {
@@ -179,5 +343,8 @@ var geocoders = {
          $('#mc-embedded-subscribe').click();
        }
     });
+
+
+    $('#welcomeModal').modal('show');
 
   });
