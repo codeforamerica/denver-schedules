@@ -54,8 +54,12 @@ Handlebars.registerHelper("firstDate", function(array) {
 });
 
 Handlebars.registerHelper("formatNextDate", function(date) {
-  date = new Date(date);
-  return date.getDayFull() + ", " + date.getMonthFull() + " " + (date.getDate() +1);
+  if(date) {
+    date = new Date(date);
+    return date.getDayFull() + ", " + date.getMonthFull() + " " + (date.getDate() +1);
+  }
+  else
+    return "tonight";
 });
 
 Handlebars.registerHelper("toTitleCase", function(array) {
@@ -315,6 +319,11 @@ function reminderNotAdded(reminder){
   console.log("WARNING: Didn't add reminder " + JSON.stringify(reminder));
 }
 
+
+
+
+
+
 //This is to trigger the popup when someone clicks on something with the class 'trigger-pop-up'
 
   $(document).ready( function () {
@@ -335,7 +344,7 @@ function reminderNotAdded(reminder){
        }
     });
 
-    $('#welcomeModal').modal('show');
 
+    $('#welcomeModal').modal('show');
 
   });
