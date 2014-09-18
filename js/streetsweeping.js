@@ -59,6 +59,7 @@ Handlebars.registerHelper("formatNextDate", function(date) {
     return date.getDayFull() + ", " + date.getMonthFull() + " " + (date.getDate() +1);
   }
   else
+    window.nightly = true;
     return "nightly";
 });
 
@@ -106,11 +107,13 @@ function getGeocode(){
     url: url,
     success: function(data){
       // Only get street sweeping data if we have a street address
-
+      console.log('geocode: ' + JSON.stringify(data));
       if( data.length > 0 && data[0].address.house_number) {
+        //address is valid
         loadData(geocoder.parse(data));
       }
       else {
+        //address is not valid
         loadData([]);
       }
     },
@@ -139,8 +142,11 @@ function loadData(address){
           });
 
           //this checks if an address has street sweeping data
+
           if (schedules && schedules.length > 0 && typeof schedules !== 'undefined') {
+            console.log('this is the case');
             schedules.validAddress = true;
+            schedules.error = 'wuddup';
           } else {
             schedules.validAddress = false;
             schedules.error = config.errors.address['no-data-on-address'];
@@ -153,11 +159,19 @@ function loadData(address){
 
           //set next sweeping date and pass it to the view
           if (schedules.validAddress) {
+              console.log('HEY HEY, schedules[0].error = ' + schedules[0].error)
+              if (schedules[0].error == 'Nightly') {
+                schedules.nightly = true;
+              } else {
+                schedules.nightly = false;
+              }
+
               schedules.nextSweeping = {
               "date" : schedules[0].upcoming[0],
               "name": schedules[0].name,
               "description": schedules[0].description
               };
+
           }
           $('#results').html(routeTemplate(schedules));
           $('#results').attr('data-model', JSON.stringify(schedules));
@@ -175,6 +189,7 @@ function loadData(address){
   } else {
 
     var schedules = {};
+    //schedules.error = 'yo';
     schedules.error = config.errors.address['invalid-address'];
     $('#results').html(routeTemplate(schedules));
   }
