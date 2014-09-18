@@ -212,9 +212,9 @@ input#email, input#sms {
 .table-curved tr:last-child td:last-child {
     border-radius: 0 0 3px 0;
 }
-.table-curved tr td:last-child {
+/*.table-curved tr td:last-child {
   color: #b3b3b3;
-}
+}*/
 .table-responsive {
   border:none;
 }
