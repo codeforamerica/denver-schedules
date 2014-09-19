@@ -157,12 +157,7 @@ function loadData(address){
 
           //set next sweeping date and pass it to the view
           if (schedules.validAddress) {
-              console.log('HEY HEY, schedules[0].error = ' + schedules[0].error)
-              if (schedules[0].error == 'Nightly') {
-                schedules.nightly = true;
-              } else {
-                schedules.nightly = false;
-              }
+              schedules.nightly = schedules[0].error == 'Nightly';
 
               schedules.nextSweeping = {
               "date" : schedules[0].upcoming[0],
