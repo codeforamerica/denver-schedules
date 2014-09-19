@@ -285,10 +285,12 @@ function createReminders(reminderType) {
     // TODO: Write an action that takes a collection of reminders
     $.each(data, function(index, street){
       var upcoming = street.upcoming;
-      var message = config.reminders[reminderType] + street.name;
+      var firstDate = new Date(street.upcoming[0]);
+      
+      var readableDate = firstDate.getDayAbbrev() + ", " + firstDate.getMonthAbbrev() + " " + (firstDate.getDate() +1 );
+      var message = config.reminders[reminderType+"1"] + readableDate + config.reminders[reminderType+"2"] + street.description + config.reminders[reminderType+"3"] + street.name + config.reminders[reminderType+"4"];
 
       $.each(upcoming, function(index, d){
-        message += ", " + d;
         createReminder(contact, message, d, url);
       });
     });

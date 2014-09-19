@@ -14,7 +14,13 @@
     }
   },
   "reminders": {
-    "email": "This is your reminder that street sweeping is happening tomorrow. Details: ",
-    "sms": "Street sweeping tomorrow: "
+    "sms1": "Reminder: Street sweeping is tomorrow (", 
+    "sms2": ") on the ",
+    "sms3": " side of ",
+    "sms4": " from 8am-5pm.",
+    "email1": "Reminder: Street sweeping is tomorrow (", 
+    "email2": ") on the ",
+    "email3": " side of ",
+    "email4": " from 8am-5pm."
   }
 }
