@@ -144,9 +144,7 @@ function loadData(address){
           //this checks if an address has street sweeping data
 
           if (schedules && schedules.length > 0 && typeof schedules !== 'undefined') {
-            console.log('this is the case');
             schedules.validAddress = true;
-            schedules.error = 'wuddup';
           } else {
             schedules.validAddress = false;
             schedules.error = config.errors.address['no-data-on-address'];
@@ -189,7 +187,6 @@ function loadData(address){
   } else {
 
     var schedules = {};
-    //schedules.error = 'yo';
     schedules.error = config.errors.address['invalid-address'];
     $('#results').html(routeTemplate(schedules));
   }
