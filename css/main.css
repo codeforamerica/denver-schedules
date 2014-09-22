@@ -18,7 +18,6 @@ html, body {
   scrollbar-shadow-color: #ccc;*/
 }
 
-p { margin-top: .5em; }
 
 
 
@@ -222,6 +221,7 @@ input#email, input#sms {
 }*/
 .table-responsive {
   border:none;
+  background-color: #fff;
 }
 
 
@@ -443,6 +443,22 @@ footer a:hover {
   }
   .navbar-form {
     margin-top:0;
+  }
+  .table{
+    border: none;
+  }
+  .table-curved > tbody:first-child > tr > th {
+    border-top: none;
+    border-left: none;
+  }
+  .table-curved td:first-child, .table-curved th:first-child {
+    border-left:none;
+  }
+
+  .table-responsive  {
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    /*border-bottom: 1px solid #ddd;*/
   }
 }
 
