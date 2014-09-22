@@ -301,7 +301,7 @@ hr {
 .btn {
   box-shadow: rgba(0, 0, 0, .3) 0px 2px 2px 0px;
 }
-.btn:hover {
+.btn:hover, .btn:active {
   box-shadow:none;
   background-color: #e8e8e8;
   border: 1px solid #999;
@@ -439,6 +439,13 @@ footer a:hover {
     max-width:100%;
     height: 48px;
   }
+  .blue-btn:hover, .blue-btn:active  {
+    background-color: #0095D9;
+    color: white;
+  }
+  .btn:hover, .btn:active {
+    box-shadow: rgba(0, 0, 0, .3) 0px 2px 2px 0px;
+  }
   .sitename {
     font-size: 1.5em;
   }
@@ -455,7 +462,6 @@ footer a:hover {
   .table-curved td:first-child, .table-curved th:first-child {
     border-left:none;
   }
-
   .table-responsive  {
     border-radius: 3px;
     border: 1px solid #ddd;
