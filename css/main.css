@@ -4,6 +4,8 @@ html, body {
   color:#666666;
   height: 100%;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  line-height: 180%;
+
 
   /* Style Scrollbar in IE */
 /*  scrollbar-arrow-color: #666;
@@ -15,6 +17,8 @@ html, body {
   scrollbar-darkshadow-color: #f8f8f8;
   scrollbar-shadow-color: #ccc;*/
 }
+
+p { margin-top: .5em; }
 
 
 
@@ -397,7 +401,7 @@ footer a:hover {
     font-size: 1em;
     height: 6em;
   }
-      input#email, input#sms {
+  input#email, input#sms {
       margin-top: 1em;
    }
    .reminderInput button {
@@ -422,10 +426,11 @@ footer a:hover {
   }
   input#email, input#sms {
     margin-top: 1em;
-    margin-left: 4.3em;
-    width: 75%;
+    /*margin-left: 4.3em;*/
+    width: 100%;
   }
-  button.reminderButton { margin-left: 4.3em;}
+  .reminderIcon {display: none;}
+  /*button.reminderButton { margin-left: 4.3em;}*/
   .mobile-btn {
     width:100%;
     margin-top: 1em;
@@ -439,6 +444,8 @@ footer a:hover {
   .navbar-form {
     margin-top:0;
   }
+}
+
 }
 
  @media screen and (-webkit-min-device-pixel-ratio:0) { 
