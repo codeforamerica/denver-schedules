@@ -321,7 +321,7 @@ hr {
   background-color: #0095D9;
   color: white;
 }
-.blue-btn:hover {
+.blue-btn:hover, .blue-btn:active {
   color:white;
   background-color: #0077a0;
   border-color: #0077a0;
@@ -420,18 +420,18 @@ footer a:hover {
   }
   .bigSearch-submit {
     font-size: 1em;
-    width: 100%;}
+    width: 100%;
+  }
   .bigSearch-container > .form > .form-group {
     max-width: 100%;
     padding-right: 0;
   }
   input#email, input#sms {
     margin-top: 1em;
-    /*margin-left: 4.3em;*/
     width: 100%;
   }
   .reminderIcon {display: none;}
-  /*button.reminderButton { margin-left: 4.3em;}*/
+  .reminderText {max-width: 100%;}
   .mobile-btn {
     width:100%;
     margin-top: 1em;
