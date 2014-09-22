@@ -59,7 +59,8 @@ Handlebars.registerHelper("formatNextDate", function(date) {
     return date.getDayFull() + ", " + date.getMonthFull() + " " + (date.getDate() +1);
   }
   else
-    return "tonight";
+    window.nightly = true;
+    return "nightly";
 });
 
 Handlebars.registerHelper("toTitleCase", function(array) {
@@ -106,11 +107,13 @@ function getGeocode(){
     url: url,
     success: function(data){
       // Only get street sweeping data if we have a street address
-
+      console.log('geocode: ' + JSON.stringify(data));
       if( data.length > 0 && data[0].address.house_number) {
+        //address is valid
         loadData(geocoder.parse(data));
       }
       else {
+        //address is not valid
         loadData([]);
       }
     },
@@ -139,6 +142,7 @@ function loadData(address){
           });
 
           //this checks if an address has street sweeping data
+
           if (schedules && schedules.length > 0 && typeof schedules !== 'undefined') {
             schedules.validAddress = true;
           } else {
@@ -153,11 +157,14 @@ function loadData(address){
 
           //set next sweeping date and pass it to the view
           if (schedules.validAddress) {
+              schedules.nightly = schedules[0].error == 'Nightly';
+
               schedules.nextSweeping = {
               "date" : schedules[0].upcoming[0],
               "name": schedules[0].name,
               "description": schedules[0].description
               };
+
           }
           $('#results').html(routeTemplate(schedules));
           $('#results').attr('data-model', JSON.stringify(schedules));
