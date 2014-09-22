@@ -4,6 +4,8 @@ html, body {
   color:#666666;
   height: 100%;
   font-family: "museo-sans", Helvetica, Arial, sans-serif;
+  line-height: 180%;
+
 
   /* Style Scrollbar in IE */
 /*  scrollbar-arrow-color: #666;
@@ -15,6 +17,8 @@ html, body {
   scrollbar-darkshadow-color: #f8f8f8;
   scrollbar-shadow-color: #ccc;*/
 }
+
+
 
 
 
@@ -221,6 +225,7 @@ input#email, input#sms {
 }*/
 .table-responsive {
   border:none;
+  background-color: #fff;
 }
 
 
@@ -305,7 +310,7 @@ hr {
 .btn {
   box-shadow: rgba(0, 0, 0, .3) 0px 2px 2px 0px;
 }
-.btn:hover {
+.btn:hover, .btn:active {
   box-shadow:none;
   background-color: #e8e8e8;
   border: 1px solid #999;
@@ -325,7 +330,7 @@ hr {
   background-color: #0095D9;
   color: white;
 }
-.blue-btn:hover {
+.blue-btn:hover, .blue-btn:active {
   color:white;
   background-color: #0077a0;
   border-color: #0077a0;
@@ -360,6 +365,7 @@ footer a:hover {
 /* ===== MODAL STYLES ===== */
 .modal-content {
   background-color: #f8f8f8;
+  border:none;
 }
 #popup-content {  margin-bottom: 2em; }
 .modal-footer > button 
@@ -405,7 +411,7 @@ footer a:hover {
     font-size: 1em;
     height: 6em;
   }
-      input#email, input#sms {
+  input#email, input#sms {
       margin-top: 1em;
    }
    .reminderInput button {
@@ -423,17 +429,18 @@ footer a:hover {
   }
   .bigSearch-submit {
     font-size: 1em;
-    width: 100%;}
+    width: 100%;
+  }
   .bigSearch-container > .form > .form-group {
     max-width: 100%;
     padding-right: 0;
   }
   input#email, input#sms {
     margin-top: 1em;
-    margin-left: 4.3em;
-    width: 75%;
+    width: 100%;
   }
-  button.reminderButton { margin-left: 4.3em;}
+  .reminderIcon {display: none;}
+  .reminderText {max-width: 100%;}
   .mobile-btn {
     width:100%;
     margin-top: 1em;
@@ -441,10 +448,43 @@ footer a:hover {
     max-width:100%;
     height: 48px;
   }
+  .blue-btn:hover, .blue-btn:active  {
+    background-color: #0095D9;
+    color: white;
+  }
+  .btn:hover, .btn:active {
+    box-shadow: rgba(0, 0, 0, .3) 0px 2px 2px 0px;
+  }
   .sitename {
     font-size: 1.5em;
   }
   .navbar-form {
     margin-top:0;
   }
+  .table{
+    border: none;
+  }
+  .table-curved > tbody:first-child > tr > th {
+    border-top: none;
+    border-left: none;
+  }
+  .table-curved td:first-child, .table-curved th:first-child {
+    border-left:none;
+  }
+  .table-responsive  {
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    /*border-bottom: 1px solid #ddd;*/
+  }
 }
+
+}
+
+ @media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select:focus, textarea:focus, input:focus {
+    font-size: 16px;
+    background:#eee;
+  }
+ }
+
+

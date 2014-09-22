@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
@@ -77,7 +77,7 @@
         <div class="col-lg-8 col-lg-offset-2 footer-content">
 
           Presented by <a href="http://codeforamerica.org/">Code for America</a> and <a href="http://www.denvergov.org/">Denver</a>.
-          Read more about this project <a href="http://govtech.com/data/Behind-the-Scenes-Code-For-America-Does-Denver.html">here</a>.
+          Read more about this project <a href="http://www.codeforamerica.org/governments/denver/">here</a>.
 
         </div>
       </div> <!-- container -->
@@ -103,7 +103,7 @@
       <!-- NEXT STREET SWEEPING =====================================================================  -->
       <div class="col-lg-8 col-lg-offset-2" id="ss-next">
         <h4 class="section-title">Next Street Sweeping</h4>
-        The next street sweeping near you is <div class="highlight"><strong>{{formatNextDate nextSweeping.date}}</strong> on the <strong>{{nextSweeping.description}} of {{toTitleCase  nextSweeping.name}}</strong>.</div>
+        The next street sweeping near you is <div class="highlight"><strong>{{formatNextDate nextSweeping.date}}</strong></div> on the <div class="highlight"><strong>{{nextSweeping.description}} side of {{toTitleCase  nextSweeping.name}}</strong></div>.
         <hr>
       </div>
 
@@ -114,7 +114,7 @@
       <div class="col-lg-8 col-lg-offset-2 hidden-print" id="ss-reminders">
         <h4 class="section-title">Street Sweeping Reminders</h4>
         <div>
-          Get notified when of street sweeping in this area.<sup>1</sup> Sign up for emails and text message reminders.<sup>2</sup>
+          Get notified<sup> 1</sup> when of street sweeping in this area.<sup>2</sup> Sign up for emails and text message reminders.<sup>3</sup>
         </div>
       </div>
 
@@ -163,9 +163,9 @@
       </div>
 
       <div class="col-lg-8 col-lg-offset-2 footnotes">
-          1. Reminders are sent for each side of the streets surrounding your address (roughly six reminders a month).<br>
-          2. Email and text message alerts will be sent one day prior to the beginning of street sweeping in this area.<br>
-          3. You will not receive reminders for streets that are swept nightly.
+          <p>1. You will not receive reminders for streets that are swept nightly.</p>
+          <p>2. Reminders are sent for each side of the streets surrounding your address (roughly six reminders a month).</p>
+          <p>3. Email and text message alerts will be sent one day prior to the beginning of street sweeping in this area.</p>
       </div>
       <div class="hidden col-lg-8 col-lg-offset-2"><hr></div>
       {{/nightly}}
