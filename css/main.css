@@ -18,6 +18,7 @@ html, body {
 
 
 
+
 /*Style Scrollbar in Chrome, Safari, Opera, Android, and iOS*/
 ::-webkit-scrollbar {
   height:10px;
@@ -439,3 +440,12 @@ footer a:hover {
     margin-top:0;
   }
 }
+
+ @media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select:focus, textarea:focus, input:focus {
+    font-size: 16px;
+    background:#eee;
+  }
+ }
+
+
