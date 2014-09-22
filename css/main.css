@@ -48,7 +48,11 @@ html, body {
 #results{ font-size: 16px;}
 
 #ss-warning { font-size: 14px; }
-
+#ss-warning > .alert-warning {
+  background-color: #eee;
+  color: #666;
+  border-color: #ccc;
+}
 
 /* ===== FORM GHOST TEXT ===== */
 .form-control::-webkit-input-placeholder { color: #ccc; }
@@ -255,9 +259,14 @@ hr {
 
 /* ===== BIG SEARCH BAR ===== */
 .sched-descr {
-  margin-top: 5em;
+  margin-top: 4em;
   margin-bottom: 2.5em;
+  font-size: 16px;
 }
+.sched-descr > h4 {
+  line-height: 160%; 
+}
+
 .bigSearch-container > .form > .form-group { padding-left: 0;}
 .bigSearch-container { margin-top: 4em; }
 .bigSearch-input {

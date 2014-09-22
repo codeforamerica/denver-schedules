@@ -73,7 +73,7 @@ Handlebars.registerHelper("toTitleCase", function(array) {
 });
 
 function defaultAddress(){
-  $('#address').val('305 Milwaukee St, Denver, CO');
+  $('#address').val('942 S Pearl St, Denver, CO');
   $('#results').html('<div class="text-center"><img src="img/loading.gif" /></div>');
   $('#submit').click();
 }
