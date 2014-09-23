@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://staging-denver-now-api.herokuapp.com",
+  "baseUrl": "http://production-denver-now-api.herokuapp.com",
   "errors": {
     "address": {
       "no-data-on-address": "We don't have data for that address.",
