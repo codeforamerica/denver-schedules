@@ -12,7 +12,7 @@ Denver Street Sweeping API
 * [Technical details and developer documentation](#technical-details)
 * [License](#license)
 
-This is the repo for Denver Street Sweeping's client code. If you're looking for the backend API code, [visit this url][api].
+This is the repo for Denver Street Sweeping's client code. If you're looking for the backend API code, [visit this repo][api].
 
 [ss]: http://streetsweep.co
 [api]: https://github.com/codeforamerica/denver-schedules-api
@@ -26,7 +26,7 @@ Denver Street Sweeping is a web application developed by the 2014 Code for Ameri
 
 ##Technical Details
 
-The Denver Street Sweeping Client reads and parses data from the API and presents it on screen.
+The Denver Street Sweeping client reads and parses data from the API and presents it on screen.
 
 **Languages**: Javascript, HTML, CSS
 
@@ -47,8 +47,6 @@ The Denver Street Sweeping Client reads and parses data from the API and present
 ### Code
 
 Denver Street Sweeping is composed of an [API backend][api] and a [client front end][client]. The API reads the data. The front end takes data from the API, formats it, and serves up the website. 
-
-[This is the client repo][client]. 
 
 * [Continuous Integration][travis] (Travis)
 * [Staging][staging] 
@@ -83,7 +81,7 @@ We use the GitHub issue tracker to track bugs and features. Before submitting a 
 ##License
 See the [LICENSE][] for details.
 
-[license]: https://github.com/codeforamerica/denver-schedules-api/blob/master/LICENSE
+[license]: https://github.com/codeforamerica/denver-schedules/blob/master/LICENSE
 
 
 
