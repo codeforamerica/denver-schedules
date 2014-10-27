@@ -1,4 +1,4 @@
-Denver Street Sweeping API
+Denver Street Sweeping Client
 =====================
 
 [![Build Status][build_png]][travis]
