@@ -46,7 +46,7 @@ The Denver Street Sweeping client reads and parses data from the API and present
 
 ### Code
 
-Denver Street Sweeping is composed of an [API backend][api] and a [client front end][client]. The API reads the data. The front end takes data from the API, formats it, and serves up the website. 
+Denver Street Sweeping is composed of an [API backend][api] and a [client front end][client]. The API reads the data. The front end takes data from the API, formats it, and serves up the website. A commit to master triggers a build, tests, and deployment to the staging server. Production is hosted on github pages and can be manually deployed with a push to gh-pages branch.
 
 * [Continuous Integration][travis] (Travis)
 * [Staging][staging] 
