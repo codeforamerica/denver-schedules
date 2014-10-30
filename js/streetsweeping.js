@@ -108,7 +108,7 @@ function getGeocode(){
     success: function(data){
       // Only get street sweeping data if we have a street address
       console.log('geocode: ' + JSON.stringify(data));
-      if( data.length > 0 && data[0].address.house_number) {
+      if( data.length > 0 && data[0].address.road) {
         //address is valid
         loadData(geocoder.parse(data));
       }
