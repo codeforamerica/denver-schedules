@@ -367,9 +367,9 @@ footer a:hover {
   background-color: #f8f8f8;
   border:none;
 }
-#popup-content {  margin-bottom: 2em; }
+.popup-content {  margin-bottom: 2em; }
 .modal-footer > button 
-#popup-content > h3 {
+.popup-content > h3 {
   margin-top: .5em;
 }
 .modal-title {
